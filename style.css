@@ -1,4 +1,6 @@
 * {
+  margin: 0;
+  padding: 0;
 }
 html,
 body {
@@ -13,6 +15,7 @@ ul,
 li {
   list-style: none;
   display: flex;
+  padding-top: 0.6em;
   float: right;
   margin-inline: 2em;
   font-weight: 900;
@@ -72,10 +75,12 @@ img {
 
 /*about me page*/
 
-#about {
+.about {
   padding: 100px;
   padding-top: 200px;
 
   font-size: larger;
   line-height: 1.5em;
 }
+
+
