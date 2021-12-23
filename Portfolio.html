@@ -19,7 +19,137 @@
       href="https://fonts.google.com/specimen/Poppins?query=popp"
     />
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Righteous" />
-    <link rel="stylesheet" href="css/s.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      #head {
+        color: white;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+
+        font-family: 'oxygen';
+        padding-top: 50px;
+        background-image: url('images/port.png');
+
+        background-repeat: no-repeat;
+      }
+      nav a:visited,
+      nav a:link {
+        color: white;
+        text-decoration: none;
+        font-size: 25px;
+        padding-top: 150px;
+        opacity: 1;
+      }
+
+      nav a:hover {
+        color: #d3af37;
+        text-decoration: none;
+        font-size: 25px;
+        padding-top: 155px;
+        opacity: 1;
+      }
+      ul > li {
+        display: flex;
+        padding-top: 0.5em;
+        float: right;
+        margin-inline: 1em;
+        font-weight: 900;
+        font-family: Rubik;
+        font-size: 30px;
+      }
+
+      #foot {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        background-color: #27241f;
+        opacity: 0.9;
+        padding-bottom: 90px;
+        margin-top: 355px;
+      }
+      #body {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-right: 30px;
+        font-size: 20px;
+      }
+      #logo {
+        height: 50px;
+
+        padding: 100px;
+      }
+      #bod {
+        display: grid;
+        grid-template-rows: 33% 15% 52%;
+      }
+      #bo {
+        display: grid;
+        grid-template-rows: 22% 33% 45%;
+      }
+      .ima {
+        margin-left: 300px;
+        margin-top: 35px;
+      }
+      .h2 {
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 250px;
+      }
+
+      h2 {
+        line-height: 3em;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: 20% 50% 30%;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(9, 9, 121, 1) 35%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      }
+      .nav {
+        display: grid;
+        grid-template-rows: 50% 1fr;
+      }
+      #port {
+        margin-top: 70px;
+        line-height: 4em;
+        text-align: center;
+      }
+      button {
+        margin-top: 100px;
+        margin-left: 100px;
+        width: 100px;
+        height: 40px;
+        border-radius: 5%;
+        border: solid;
+        border-color: #d3af37;
+        border-width: thin;
+        background: transparent;
+        font-size: 14px;
+      }
+      input {
+        margin-top: 160px;
+        margin-left: 40px;
+        width: 200px;
+        height: 26px;
+        background-color: transparent;
+        border: solid;
+        border-width: thin;
+        border-radius: 5%;
+        border-color: white;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <div id="head" style="background-image: url('images/port.png')">
@@ -36,15 +166,15 @@
           <nav>
             <ul>
               <li>
-                <a href="#"><u>Login</u></a>
+                <a href="Login.html">Login</a>
               </li>
-              <li><a href="About me.html">About</a></li>
+              <li><a href="blog.html">Contact</a></li>
+              <li><a href="contact.html">Blog</a></li>
               <li><a href="Skills.html">Skills</a></li>
               <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="Contact.html">Contact</a></li>
-              <li><a href="Subscribe.html">Subscribe</a></li>
+              <li><a href="about me.html">About</a></li>
               <li>
-                <a href="Login.html"><u>Home</u></a>
+                <a href="Home.html">Home</a>
               </li>
             </ul>
           </nav>
@@ -54,9 +184,6 @@
           <h1 style="color: #d3af37"><strong>PORTFOLIO</strong></h1>
           <h2 style="font-family: righteous">Projects I have worked on</h2>
         </div>
-      </div>
-      <div>
-        <input type="text" placeholder="Search" />
       </div>
     </div>
 
@@ -110,20 +237,15 @@
         <di style="padding-top: 5em">
           <h3>Let's connect</h3>
           <div style="line-height: 10em">
-            <a href=""
+            <a href="https://twitter.com/qg_landry"
               ><img src="images/tw.png" alt="" style="border-radius: 50%"
             /></a>
-            <a href=""
+            <a href="https://www.instagram.com/ooglandry/"
               ><img src="images/ig.png" alt="" style="border-radius: 50%"
             /></a>
-            <a href=""
-              ><img src="images/f.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
+
+            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
               ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
-              ><img src="images/g.png" alt="" style="border-radius: 50%"
             /></a>
           </div>
         </di>

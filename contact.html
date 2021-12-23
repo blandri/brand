@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+      }
+      #head {
+        color: black;
+        display: grid;
+        grid-template-columns: 25% 50% 25%;
+
+        background-color: rgba(192, 172, 172, 0.959);
+      }
+      nav a:visited,
+      nav a:link {
+        color: black;
+        text-decoration: none;
+        font-size: 25px;
+        padding-top: 30px;
+        opacity: 1;
+      }
+
+      nav a:hover {
+        color: #d3af37;
+        text-decoration: none;
+        font-size: 25px;
+        padding-top: 40px;
+      }
+      ul > li {
+        display: flex;
+        padding-top: 0.5em;
+        float: right;
+        margin-inline: 1em;
+        font-weight: 900;
+        font-family: Rubik;
+        font-size: large;
+      }
+      ul > li {
+        text-decoration: underline;
+      }
+      #foot {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        background-color: #27241f;
+        opacity: 0.9;
+        padding-bottom: 100px;
+        margin-top: 500px;
+      }
+      #logo {
+        height: 50px;
+        border-radius: 20%;
+        margin-left: 200px;
+        margin-top: 2px;
+      }
+      main {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 3em;
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+      #nav {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        justify-self: center;
+        grid-gap: 5em;
+        padding-top: 270px;
+      }
+      body {
+        display: grid;
+        grid-template-rows: 30% 40% 30%;
+        grid-gap: 150px;
+      }
+      #ad {
+        display: flex;
+      }
+      .ima {
+        width: 592px;
+        border-radius: 2%;
+        height: ;
+      }
+      #article {
+        display: grid;
+        grid-template-rows: 70% 5% 5% 20%;
+
+        background-color: lavender;
+        border-radius: 12px;
+        justify-items: center;
+        grid-gap: 1em;
+        font-size: 25px;
+      }
+
+      .box {
+        background-color: rgb(204, 240, 168);
+        border-radius: 10%;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        padding: 5px;
+        font-size: 30px;
+      }
+
+      #port {
+        margin-top: 260px;
+        line-height: 4em;
+        text-align: center;
+      }
+      input {
+        margin-top: 30px;
+        margin-left: 40px;
+        width: 200px;
+        height: 26px;
+        background-color: transparent;
+        border: solid;
+        border-width: thin;
+        border-radius: 5%;
+        border-color: black;
+        color: white;
+      }
+      .news {
+        margin-bottom: 6em;
+        margin-left: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="head">
+      <div>
+        <img
+          src="images/logo.png"
+          alt="my logo"
+          id="logo"
+          style="padding: 150px"
+        />
+      </div>
+      <div class="nav">
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <a href="Login.html">Login</a>
+              </li>
+              <li><a href="Contact.html">Contact</a></li>
+              <li><a href="blogs.html">Blog</a></li>
+              <li><a href="Skills.html">Skills</a></li>
+              <li><a href="Portfolio.html">Portfolio</a></li>
+              <li><a href="about me.html">About</a></li>
+              <li>
+                <a href="Home.html">Home</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div id="port">
+          <h1 style="color: black"><strong>Blog page</strong></h1>
+        </div>
+      </div>
+      <div>
+        <input type="text" placeholder="Search" />
+      </div>
+    </div>
+    <main>
+      <div id="article">
+        <div>
+          <a href="articles/article 1.html"
+            ><img src="images/r.jpg" alt="" class="ima"
+          /></a>
+        </div>
+        <div id="ad">
+          <p>Admin</p>
+          <p>22/12/2020</p>
+          <p>3comments</p>
+        </div>
+        <div>
+          <a href="articles/article 1.html">
+            Google inks pact for new 35-storey office</a
+          >
+        </div>
+        <div class="news">
+          That dominion stars lights dominion divide years for fourth have don't
+          stars is that he earth it first without heaven in place seed it second
+          morning saying.
+        </div>
+      </div>
+      <div id="article">
+        <div class="ima">
+          <a href="articles/article 2.html"
+            ><img src="iamges/rn.jpg" alt="" class="ima"
+          /></a>
+        </div>
+        <div id="ad">
+          <p>Admin</p>
+          <p>22/12/2020</p>
+          <p>3comments</p>
+        </div>
+        <div>
+          <a href="articles/article 2.html"
+            >Google inks pact for new 35-storey office</a
+          >
+        </div>
+        <div class="news">
+          That dominion stars lights dominion divide years for fourth have don't
+          stars is that he earth it first without heaven in place seed it second
+          morning saying.
+        </div>
+      </div>
+      <div id="article">
+        <div class="ima">
+          <a href="articles/article 3.html"
+            ><img src="images/hg.jpg" alt="" class="ima"
+          /></a>
+        </div>
+        <div id="ad">
+          <p>Admin</p>
+          <p>10/06/2000</p>
+          <p>3comments</p>
+        </div>
+        <div>
+          <a href="articles/article 3.html"
+            >Google inks pact for new 35-storey office</a
+          >
+        </div>
+        <div class="news">
+          That dominion stars lights dominion divide years for fourth have don't
+          stars is that he earth it first without heaven in place seed it second
+          morning saying.
+        </div>
+      </div>
+    </main>
+    <div id="nav">
+      <div class="box"><</div>
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">></div>
+      <div class="box" style="width: 80px">
+        <p style="font-size: 25px">
+          <a href="articles/all articles.html">read all</a>
+        </p>
+      </div>
+    </div>
+    <footer>
+      <div id="foot" style="color: white">
+        <div style="padding-top: 5em">
+          <img src="images/logo.png" alt="my logo" id="logo" />
+        </div>
+        <di style="padding-top: 5em">
+          <h3>Let's connect</h3>
+          <div style="line-height: 10em">
+            <a href=""
+              ><img src="images/tw.png" alt="" style="border-radius: 50%"
+            /></a>
+            <a href=""
+              ><img src="images/ig.png" alt="" style="border-radius: 50%"
+            /></a>
+            <a href=""
+              ><img src="images/f.png" alt="" style="border-radius: 50%"
+            /></a>
+            <a href=""
+              ><img src="images/in.png" alt="" style="border-radius: 50%"
+            /></a>
+            <a href=""
+              ><img src="images/g.png" alt="" style="border-radius: 50%"
+            /></a>
+          </div>
+        </di>
+        <di style="padding-top: 5em"
+          ><h3>Address</h3>
+          <p style="line-height: 3em">+250 780026530</p>
+          <p>Kigali, Street KG 42</p>
+        </di>
+        <di style="padding-top: 5em">
+          <h3>Services</h3>
+          <ol style="line-height: 3em">
+            <li>Web development</li>
+            <li>Software development</li>
+            <li>Networking</li>
+            <li>Software engineering</li>
+          </ol>
+        </di>
+      </div>
+    </footer>
+  </body>
+</html>
