@@ -6,146 +6,291 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: border-box;
-}
-#head {
-  color: white;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  padding-top: 50px;
-  position: fixed;
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      header {
+        background: linear-gradient(
+          90deg,
+          rgba(9, 9, 121, 1) 10%,
+          rgba(2, 0, 36, 1) 75%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        color: white;
+        display: grid;
+        grid-template-columns: 50% 50%;
         width: 100%;
-  background-color: rgb(55, 55, 104);
-  opacity: 0.6;
-}
-nav a:visited,
-nav a:link {
-  color: white;
-  text-decoration: none;
-  font-size: 25px;
-}
-nav a:hover {
-  color: #d3af37;
-  text-decoration: none;
+        transition: 0.6s;
+        font-size: 25px;
+        position: fixed;
+      }
+      header > #ul {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 400px;
+      }
+      header > #ul > #li {
+        position: relative;
+        list-style: none;
+      }
+      header > #ul > #li > a {
+        position: relative;
+        margin: 0 15px;
+        text-decoration: none;
+        color: white;
+        letter-spacing: 2px;
+        font-weight: 500px;
+        transition: 0.6s;
+      }
+      header > #ul > #li > a:hover,
+      header.sticky #ul #li a:hover {
+        color: #d3af37;
+      }
+      #foot {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        background-color: rgb(55, 55, 104);
+        opacity: 0.9;
+        padding-bottom: 80px;
+        margin-top: 600px;
+      }
+      #logo {
+        height: 50px;
+        margin-left: 200px;
+        margin-top: 5px;
+      }
+      body {
+        display: grid;
+        grid-template-rows: 20% 10% 50% 20%;
+        grid-gap: 300px;
+        height: 100vh;
+      }
+      main {
+        background-color: white;
 
-  opacity: 1;
-}
-ul > li {
-  display: flex;
-  padding-top: 0.5em;
-  float: right;
-  margin-inline: 1em;
-  font-weight: 900;
-  font-family: Rubik;
-  font-size: large;
-}
-#foot {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: rgb(55, 55, 104);
-  opacity: 0.9;
-  padding-bottom: 80px;
-  margin-top: 150px;
-}
-#logo {
-  height: 50px;
-  margin-left: 200px;
-}
-body{
-    display: grid;
-    grid-template-rows: 26% 96% 1fr;
-}
-main{
-    background-color: lemonchiffon;
-    margin-top: 70px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-self: center;
-    grid-gap: 80px;
-}
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        grid-gap: 80px;
+        height: 600px;
+        margin-left: 70px;
+        margin-right: 70px;
+      }
+
+      #java {
+        background-color: #f7df1e;
+      }
+      #net {
+        background-color: #eeeaea;
+        border: solid;
+        border-width: thin;
+      }
+      #ht {
+        background-color: #1d2125;
+        color: white;
+      }
+      p {
+        font-size: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      @media (max-width: 1000px) {
+        main {
+          background-color: white;
+          margin-top: 400px;
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-template-columns: 1fr;
+          grid-gap: 30px;
+          height: 500px;
+          margin-left: 30px;
+          margin-right: 30px;
+        }
+        #logo {
+          height: 70px;
+          margin-left: 5px;
+          float: left;
+        }
+        header #dash {
+          margin-left: 270px;
+          margin-top: 20px;
+          display: block;
+        }
+        header {
+          background: linear-gradient(
+            90deg,
+            rgba(9, 9, 121, 1) 10%,
+            rgba(2, 0, 36, 1) 75%,
+            rgba(0, 212, 255, 1) 100%
+          );
+          color: white;
+          display: grid;
+          grid-template-rows: 40% 50%;
+          grid-template-columns: 1fr;
+          width: 100%;
+          transition: 0.6s;
+        }
+        header > #ul {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 80px;
+          display: none;
+        }
+        .ima {
+          height: 300px;
+          width: 10px;
+        }
+        #foot {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          background-color: rgb(55, 55, 104);
+          opacity: 0.9;
+          padding-bottom: 80px;
+          margin-top: 1800px;
+        }
+        #title {
+          color: #d3af37;
+          margin-top: 90px;
+        }
+      }
+      @media (min-width: 1000px) {
+        header {
+          color: white;
+          display: grid;
+          grid-template-columns: 40% 60%;
+        }
+        #nav {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          font-size: 30px;
+        }
+      }
+      #title {
+        padding-top: 300px;
+        margin-left: 70px;
+        font-size: 50px;
+        text-decoration: underline;
+        color: #d3af37;
+      }
+      span {
+        background-color: white;
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #dash {
+        margin-left: 270px;
+        margin-top: 20px;
+        display: none;
+      }
     </style>
   </head>
   <body>
     <header>
-        <div id="head">
-          <div>
-            <img
-              src="images/logo.png"
-              alt="my logo"
-              id="logo"
-              style="margin-bottom: 2em"
-            />
-          </div>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <a href="Login.html">Login</a>
-                </li>
-                <li><a href="blog.html">Contact</a></li>
-              <li><a href="contact.html">Blog</a></li>
-                <li><a href="Skills.html">Skills</a></li>
-                <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="about me.html">About</a></li>
-                <li>
-                  <a href="Home.html">Home</a>
-                </li>
-            </nav>
-          </div>
-          
+      <div>
+        <img
+          src="images/logo.png"
+          alt="my logo"
+          id="logo"
+          style="margin-bottom: 2em"
+        />
+        <div id="dash">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </header>
-      <main>
-          <div>
-              <img src="images/html.jpg" alt="">
-          </div>
-          <div>
-              <img src="images/net.png" alt="">
-          </div>
-          <div>
-              <img src="images/java.png" alt="">
-          </div>
-      </main>
-      <footer>
-        <div id="foot" style="color: white">
-          <div style="padding-top: 5em">
-            <img src="images/logo.png" alt="my logo" id="logo" />
-          </div>
-          <di style="padding-top: 5em">
-            <h3>Let's connect</h3>
-            <div style="line-height: 10em">
-              <a href="https://twitter.com/qg_landry"
-                ><img src="images/tw.png" alt="" style="border-radius: 50%"
-              /></a>
-              <a href="https://www.instagram.com/ooglandry/"
-                ><img src="images/ig.png" alt="" style="border-radius: 50%"
-              /></a>
-              
-              <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-                ><img src="images/in.png" alt="" style="border-radius: 50%"
-              /></a>
-              
-            </div>
-          </di>
-          <di style="padding-top: 5em"
-            ><h3>Address</h3>
-            <p style="line-height: 3em">+250 780026530</p>
-            <p>Kigali, Street KG 42</p>
-          </di>
-          <di style="padding-top: 5em">
-            <h3>Services</h3>
-            <ol style="line-height: 3em">
-              <li>Web development</li>
-              <li>Software development</li>
-              <li>Networking</li>
-              <li>Software engineering</li>
-            </ol>
-          </di>
+      </div>
+      <div id="ul">
+        <div id="li"><a href="Home.html">Home</a></div>
+        <div id="li"><a href="about me.html">About</a></div>
+        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
+        <div id="li"><a href="Skills.html">Skills</a></div>
+        <div id="li"><a href="blog.html">Contact</a></div>
+        <div id="li"><a href="contact.html">Blog</a></div>
+        <div id="li"><a href="Login.html">Login</a></div>
+      </div>
+    </header>
+    <div id="title">Skills & Services</div>
+    <main>
+      <div id="ht">
+        <img src="images/html.png" alt="" style="width: 100%" class="ima" />
+        <h1 style="margin-top: 100px">HTML&CSS: front end development</h1>
+      </div>
+      <div id="net">
+        <img src="images/net.png" alt="" style="width: 100%" class="ima" />
+        <h1 style="margin-top: 130px">
+          Networking: setting up different kinds of networks
+        </h1>
+      </div>
+      <div id="java">
+        <img src="images/java.png" alt="" style="width: 50%" class="ima" />
+        <h1 style="margin-top: 130px">Javascript: back end development</h1>
+      </div>
+    </main>
+    <footer>
+      <div id="foot" style="color: white">
+        <div style="padding-top: 5em">
+          <img src="images/logo.png" alt="my logo" id="logo" />
         </div>
-      </footer>
+        <di style="padding-top: 5em">
+          <h3>Let's connect</h3>
+          <div style="line-height: 10em">
+            <a href="https://twitter.com/qg_landry"
+              ><img src="images/tw.png" alt="" style="border-radius: 50%"
+            /></a>
+            <a href="https://www.instagram.com/ooglandry/"
+              ><img src="images/ig.png" alt="" style="border-radius: 50%"
+            /></a>
+
+            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
+              ><img src="images/in.png" alt="" style="border-radius: 50%"
+            /></a>
+          </div>
+        </di>
+        <di style="padding-top: 5em"
+          ><h3>Address</h3>
+          <p style="line-height: 3em">+250 780026530</p>
+          <p>Kigali, Street KG 42</p>
+        </di>
+        <di style="padding-top: 5em">
+          <h3>Services</h3>
+          <ol style="line-height: 3em">
+            <li>Web development</li>
+            <li>Software development</li>
+            <li>Networking</li>
+            <li>Software engineering</li>
+          </ol>
+        </di>
+      </div>
+    </footer>
   </body>
+  <script>
+    let dash = document.querySelector('#dash');
+    let ul = document.querySelector('#ul');
+
+    if (screen >= '1000px') {
+      ul.style.display = 'flex';
+    }
+    dash.addEventListener('click', function () {
+      if (ul.style.display === 'none') {
+        ul.style.display = 'block';
+      } else {
+        ul.style.display = 'none';
+      }
+    });
+  </script>
 </html>

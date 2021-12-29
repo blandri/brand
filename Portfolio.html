@@ -25,78 +25,53 @@
         padding: 0;
         list-style: none;
       }
-      #head {
-        color: white;
-        display: grid;
-        grid-template-columns: 25% 50% 25%;
-
-        font-family: 'oxygen';
-        padding-top: 50px;
-        background-image: url('images/port.png');
-
-        background-repeat: no-repeat;
-      }
-      nav a:visited,
-      nav a:link {
-        color: white;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 150px;
-        opacity: 1;
-      }
-
-      nav a:hover {
-        color: #d3af37;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 155px;
-        opacity: 1;
-      }
-      ul > li {
-        display: flex;
-        padding-top: 0.5em;
-        float: right;
-        margin-inline: 1em;
-        font-weight: 900;
-        font-family: Rubik;
-        font-size: 30px;
-      }
 
       #foot {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         background-color: #27241f;
         opacity: 0.9;
-        padding-bottom: 90px;
-        margin-top: 355px;
+        padding-bottom: 80px;
+        margin-top: 1200px;
+        font-size: 20px;
       }
       #body {
+        position: relative;
         display: grid;
         grid-template-columns: 50% 50%;
-        margin-top: 40px;
+        margin-top: 400px;
         margin-left: 40px;
         margin-right: 30px;
         font-size: 20px;
+        letter-spacing: 2px;
+        font-size: 25px;
       }
       #logo {
         height: 50px;
-
-        padding: 100px;
+        position: relative;
+        margin-left: 200px;
+        transition: 0.6s;
       }
       #bod {
         display: grid;
-        grid-template-rows: 33% 15% 52%;
+        grid-template-rows: 50% 50%;
       }
       #bo {
         display: grid;
-        grid-template-rows: 22% 33% 45%;
+        grid-template-rows: 50% 50%;
+        color: white;
       }
-      .ima {
-        margin-left: 300px;
+      .ima,
+      .imag {
+        margin-left: 400px;
         margin-top: 35px;
       }
+      .ima,
+      .im {
+        height: 400px;
+      }
       .h2 {
-        margin-top: 40px;
+        margin-top: 90px;
         margin-left: 10px;
         margin-right: 250px;
       }
@@ -115,6 +90,7 @@
           rgba(9, 9, 121, 1) 35%,
           rgba(0, 212, 255, 1) 100%
         );
+        height: 200vh;
       }
       .nav {
         display: grid;
@@ -137,61 +113,192 @@
         background: transparent;
         font-size: 14px;
       }
-      input {
-        margin-top: 160px;
-        margin-left: 40px;
-        width: 200px;
-        height: 26px;
-        background-color: transparent;
-        border: solid;
-        border-width: thin;
-        border-radius: 5%;
-        border-color: white;
+
+      header {
+        background-image: url('images/port.png');
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 5px;
+        transition: 0.1s;
+        z-index: 100000;
+        font-size: 30px;
+        height: 500px;
+      }
+      header > #ul {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 400px;
+      }
+      header > #ul > #li {
+        position: relative;
+        list-style: none;
+      }
+      header > #ul > #li > a {
+        position: relative;
+        margin: 0 15px;
+        text-decoration: none;
         color: white;
+        letter-spacing: 2px;
+        font-weight: 500px;
+        transition: 0.6s;
+      }
+      header > #ul > #li > a:hover,
+      header.sticky #ul #li a:hover {
+        color: #d3af37;
+      }
+      header.sticky {
+        position: fixed;
+        height: 80px;
+
+        background: #fff;
+      }
+      header.sticky #ul #li a {
+        color: black;
+      }
+      @media (max-width: 1000px) {
+        header #dash {
+          margin-left: 190px;
+          margin-top: 0px;
+          display: block;
+          position: fixed;
+        }
+        .h2 {
+          margin-top: 100px;
+          margin-left: 5px;
+        }
+        #logo {
+          height: 50px;
+          position: relative;
+          margin-left: 200px;
+          transition: 0.6s;
+        }
+        #bod {
+          display: grid;
+          grid-template-rows: 50% 50%;
+          font-size: 15px;
+          margin-left: 5px;
+        }
+        #bo {
+          display: grid;
+          grid-template-rows: 90% 10%;
+          font-size: 15px;
+          margin-left: 5px;
+          margin-top: 200px;
+        }
+        #bod,
+        #bo {
+          width: 40vh;
+        }
+        header.sticky {
+          position: relative;
+          height: 80px;
+
+          background: #fff;
+        }
+        .ima,
+        .imag {
+          margin-left: 5px;
+        }
+        .ima,
+        .im {
+          height: 150px;
+          width: 250px;
+        }
+        .im {
+          margin-top: 60px;
+        }
+        #body {
+          position: relative;
+          display: grid;
+          grid-template-rows: 30% 70%;
+          grid-template-columns: 1fr;
+          margin-top: 100px;
+          margin-left: 5px;
+
+          letter-spacing: 2px;
+        }
+        header #logo {
+          height: 50px;
+
+          margin-right: 480px;
+          transition: 0.6s;
+        }
+        header {
+          background-image: url('images/port.png');
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          padding: 5px 5px;
+          transition: 0.1s;
+
+          font-size: 20px;
+          height: 250px;
+          width: 46vh;
+        }
+        header > #ul {
+          position: relative;
+          display: none;
+          flex-direction: column;
+          margin-left: 350px;
+        }
+        footer #logo {
+          margin-left: 0px;
+        }
+        #foot {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          background-color: #27241f;
+          opacity: 0.9;
+          padding-bottom: 80px;
+          margin-top: 260px;
+          font-size: 15px;
+        }
+      }
+      span {
+        background-color: white;
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #dash {
+        margin-left: 270px;
+        margin-top: 20px;
+        display: none;
       }
     </style>
   </head>
   <body>
-    <div id="head" style="background-image: url('images/port.png')">
-      <div>
-        <img
-          src="images/logo.png"
-          alt="my logo"
-          id="logo"
-          style="padding: 150px"
-        />
+    <header>
+      <a href="Home.html"
+        ><img src="images/logo.png" alt="my logo" id="logo"
+      /></a>
+      <div id="dash">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div class="nav">
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <a href="Login.html">Login</a>
-              </li>
-              <li><a href="blog.html">Contact</a></li>
-              <li><a href="contact.html">Blog</a></li>
-              <li><a href="Skills.html">Skills</a></li>
-              <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="about me.html">About</a></li>
-              <li>
-                <a href="Home.html">Home</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <div id="port">
-          <h1 style="color: #d3af37"><strong>PORTFOLIO</strong></h1>
-          <h2 style="font-family: righteous">Projects I have worked on</h2>
-        </div>
+      <div id="ul">
+        <div id="li"><a href="Home.html">Home</a></div>
+        <div id="li"><a href="about me.html">About</a></div>
+        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
+        <div id="li"><a href="Skills.html">Skills</a></div>
+        <div id="li"><a href="contact.html">Blog</a></div>
+        <div id="li"><a href="blog.html">Contact</a></div>
+        <div id="li"><a href="Login.html">Login</a></div>
       </div>
-    </div>
+    </header>
 
     <div id="body">
       <div id="bod">
-        <di class="ima"
-          ><img src="images/n.jpg" alt="" style="height: 400px"
-        /></di>
+        <di><img src="images/n.jpg" alt="" class="ima" /></di>
 
         <di class="h2">
           <h2 style="color: #d3af37">Web development Project</h2>
@@ -201,9 +308,6 @@
             website.
           </p>
         </di>
-        <div class="ima">
-          <img src="images/art.jpg" alt="" style="height: 600px" />
-        </div>
       </div>
       <div id="bo">
         <di style="margin-left: 150px">
@@ -214,25 +318,20 @@
             setting up servers and clients both on linux and windows OS.
           </p>
         </di>
-        <di class="im" style="margin-top: 50px"
-          ><img src="images/w.jpg" alt="" style="height: 400px"
+        <di style="margin-top: 50px"
+          ><img src="images/w.jpg" alt="" class="im"
         /></di>
-        <div style="margin-left: 180px" class="h2">
-          <h2 style="color: #d3af37">Digital Art works</h2>
-          <p>
-            I have more than 50 art works including digital ones, paintings and
-            some are pencil works. I have worked with some well known artists a
-            tone of marvelous works.
-          </p>
-
-          <button><p style="color: #d3af37">View more -></p></button>
-        </div>
       </div>
     </div>
     <footer>
       <div id="foot" style="color: white">
         <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
+          <img
+            src="images/logo.png"
+            alt="my logo"
+            id="logo"
+            style="padding: 10px"
+          />
         </div>
         <di style="padding-top: 5em">
           <h3>Let's connect</h3>
@@ -266,4 +365,24 @@
       </div>
     </footer>
   </body>
+  <script>
+    window.addEventListener('scroll', function () {
+      let header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 200);
+    });
+
+    let dash = document.querySelector('#dash');
+    let ul = document.querySelector('#ul');
+
+    if (screen >= '1000px') {
+      ul.style.display = 'flex';
+    }
+    dash.addEventListener('click', function () {
+      if (ul.style.display === 'none') {
+        ul.style.display = 'block';
+      } else {
+        ul.style.display = 'none';
+      }
+    });
+  </script>
 </html>

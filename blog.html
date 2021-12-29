@@ -53,7 +53,7 @@
       }
       #map {
         width: 100%;
-        margin-top: 0;
+        margin-top: 30px;
       }
       #for {
         position: inherit;
@@ -67,56 +67,67 @@
         width: 200px;
         background-color: #d3af37;
         border: hidden;
+        cursor: pointer;
       }
-      img {
+      .column img {
         border: solid;
         border-width: thin;
         margin-top: 1em;
       }
-      .det {
-        margin-top: 0.5em;
-        margin-inline: 2em;
+      .det > p {
+        margin-top: 26px;
       }
-      #head {
-        color: white;
-        display: grid;
-        grid-template-columns: 25% 50% 25%;
-        position: fixed;
-        width: 100%;
+      header {
         background: linear-gradient(
           90deg,
           rgba(9, 9, 121, 1) 10%,
           rgba(2, 0, 36, 1) 75%,
           rgba(0, 212, 255, 1) 100%
         );
-      }
-      nav a:visited,
-      nav a:link {
         color: white;
-        text-decoration: none;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 100%;
+        transition: 0.6s;
         font-size: 25px;
-        padding-top: 20px;
-        opacity: 1;
+        position: fixed;
       }
+      header > #ul {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 400px;
+      }
+      header > #ul > #li {
+        position: relative;
+        list-style: none;
+      }
+      header > #ul > #li > a {
+        position: relative;
+        margin: 0 15px;
+        text-decoration: none;
+        color: white;
+        letter-spacing: 2px;
+        font-weight: 500px;
+        transition: 0.6s;
+      }
+      header > #ul > #li > a:hover,
+      header.sticky #ul #li a:hover {
+        color: #d3af37;
+      }
+      header.sticky {
+        position: fixed;
+
+        background: #fff;
+      }
+      header.sticky #ul #li a {
+        color: black;
+      }
+
       a {
         text-decoration: none;
         color: inherit;
-      }
-      nav a:hover {
-        color: #d3af37;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 25px;
-        opacity: 1;
-      }
-      ul > li {
-        display: flex;
-        padding-top: 0.5em;
-        float: right;
-        margin-inline: 1em;
-        font-weight: 900;
-        font-family: Rubik;
-        font-size: large;
       }
 
       #foot {
@@ -125,7 +136,7 @@
         background-color: #27241f;
         opacity: 0.9;
         padding-bottom: 90px;
-        margin-top: 450px;
+        margin-top: 475px;
       }
       aside {
         margin-top: 50px;
@@ -137,44 +148,162 @@
       }
       #hd {
         height: 90px;
-        font-size: 30px;
+        font-size: 50px;
         padding-left: 90px;
         padding-bottom: 0px;
         padding-top: 130px;
+        text-decoration: underline;
+        color: #d3af37;
+      }
+      @media (max-width: 1220px) {
+        header #dash {
+          margin-left: 270px;
+          margin-top: 20px;
+          display: block;
+        }
+        header {
+          background: linear-gradient(
+            90deg,
+            rgba(9, 9, 121, 1) 10%,
+            rgba(2, 0, 36, 1) 75%,
+            rgba(0, 212, 255, 1) 100%
+          );
+          color: white;
+          display: grid;
+          grid-template-rows: 25% 70%;
+          grid-template-columns: 1fr;
+          width: 100%;
+          transition: 0.6s;
+          position: relative;
+        }
+        header > #ul {
+          position: relative;
+          display: none;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          margin-left: 80px;
+        }
+        #bod {
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+        }
+        .det {
+          width: 35vh;
+          margin-left: 5px;
+        }
+        #map {
+          width: 80%;
+          margin-top: 400px;
+          margin-left: 10px;
+        }
+        .column {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+        #logo {
+          height: 70px;
+          float: left;
+          margin-left: 5px;
+        }
+
+        input {
+          width: 250px;
+
+          height: 25px;
+
+          border-radius: 0;
+          border-width: thin;
+          border-color: #d3af37;
+        }
+        button {
+          height: 50px;
+          width: 100px;
+          background-color: #d3af37;
+          border: hidden;
+          cursor: pointer;
+        }
+        #foot {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          background-color: #27241f;
+          opacity: 0.9;
+          padding-bottom: 30px;
+          margin-top: 1811px;
+        }
+        section {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 40% 1fr;
+          font-size: 20px;
+
+          margin-left: 2px;
+          margin-top: 80px;
+        }
+        #cont {
+          line-height: 1em;
+          margin-top: 130px;
+
+          width: 50vh;
+        }
+        .p {
+          margin-right: 30px;
+        }
+      }
+      @media (min-width: 1220px) {
+        header {
+          color: white;
+          display: grid;
+          grid-template-columns: 40% 60%;
+        }
+        #nav {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          font-size: 30px;
+        }
+      }
+      span {
+        background-color: white;
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #dash {
+        margin-left: 270px;
+        margin-top: 20px;
+        display: none;
       }
     </style>
   </head>
   <body>
     <header>
-      <div id="head">
-        <div>
-          <img
-            src="images/logo.png"
-            alt="my logo"
-            id="logo"
-            style="margin-bottom: 2em"
-          />
-        </div>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <a href="Login.html">Login</a>
-              </li>
-              <li><a href="Contact.html">Contact</a></li>
-              <li><a href="blogs.html">Blog</a></li>
-              <li><a href="Skills.html">Skills</a></li>
-              <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="about me.html">About</a></li>
-              <li>
-                <a href="Home.html">Home</a>
-              </li>
-            </ul>
-          </nav>
+      <div>
+        <img
+          src="images/logo.png"
+          alt="my logo"
+          id="logo"
+          style="margin-bottom: 2em"
+        />
+        <div id="dash">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
+      <div id="ul">
+        <div id="li"><a href="Home.html">Home</a></div>
+        <div id="li"><a href="about me.html">About</a></div>
+        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
+        <div id="li"><a href="Skills.html">Skills</a></div>
+        <div id="li"><a href="blog.html">Contact</a></div>
+        <div id="li"><a href="contact.html">Blog</a></div>
+        <div id="li"><a href="Login.html">Login</a></div>
+      </div>
     </header>
-    <div id="hd">Home>Contact</div>
+
     <div id="bod">
       <aside>
         <p>
@@ -190,11 +319,11 @@
         </p>
       </aside>
       <section>
-        <div>
+        <div class="p">
           <h1 style="color: #d3af37">
             <strong>Get in touch</strong>
           </h1>
-          <p style="margin-left: 5px">
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
@@ -206,21 +335,19 @@
             </div>
 
             <div class="det">
-              <p style="margin-top: 0.6em">
+              <p>
                 <strong style="color: #d3af37">addres</strong>
               </p>
-              <p style="margin-top: 0.3em">
-                Kigali, Rwanda, Kimironko St 42 KG
-              </p>
+              <p>Kigali, Rwanda, Kimironko St 42 KG</p>
 
-              <p style="margin-top: 2.2em">
+              <p>
                 <strong style="color: #d3af37">phone</strong>
               </p>
-              <p style="margin-top: 0.3em">+250 780026530 | +250 723733966</p>
-              <p style="margin-top: 2.2em">
+              <p>+250 780026530 | +250 723733966</p>
+              <p>
                 <strong style="color: #d3af37">email</strong>
               </p>
-              <p style="margin-top: 0.3em">
+              <p>
                 <a href="">landrybrok3@gmail.com</a>
               </p>
             </div>
@@ -256,20 +383,15 @@
         <di style="padding-top: 5em">
           <h3>Let's connect</h3>
           <div style="line-height: 10em">
-            <a href=""
+            <a href="https://twitter.com/qg_landry"
               ><img src="images/tw.png" alt="" style="border-radius: 50%"
             /></a>
-            <a href=""
+            <a href="https://www.instagram.com/ooglandry/"
               ><img src="images/ig.png" alt="" style="border-radius: 50%"
             /></a>
-            <a href=""
-              ><img src="images/f.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
+
+            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
               ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
-              ><img src="images/g.png" alt="" style="border-radius: 50%"
             /></a>
           </div>
         </di>
@@ -290,4 +412,19 @@
       </div>
     </footer>
   </body>
+  <script>
+    let dash = document.querySelector('#dash');
+    let ul = document.querySelector('#ul');
+
+    if (screen >= '1000px') {
+      ul.style.display = 'flex';
+    }
+    dash.addEventListener('click', function () {
+      if (ul.style.display === 'none') {
+        ul.style.display = 'block';
+      } else {
+        ul.style.display = 'none';
+      }
+    });
+  </script>
 </html>

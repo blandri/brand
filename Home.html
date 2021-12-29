@@ -8,170 +8,258 @@
     <link rel="stylesheet" href="https://fonts.google.com/specimen/Righteous" />
     <style>
       * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: border-box;
-}
-body {
-  background-image: url('images/te.png');
-  display: grid;
-}
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      body {
+        background-image: url('images/te.png');
 
-#logo {
-  height: 50px;
-  margin-left: 200px;
-}
+        display: grid;
+      }
 
-#head {
-  color: white;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  padding-top: 50px;
-  position: fixed;
+      #logo {
+        height: 50px;
+        margin-left: 200px;
+      }
+      header {
+        color: white;
+        display: grid;
+        grid-template-columns: 50% 50%;
         width: 100%;
-  background-color: rgb(55, 55, 104);
-  opacity: 1;
-}
+        transition: 0.6s;
+        padding-top: 30px;
+      }
+      header > #ul {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 400px;
+      }
+      header > #ul > #li {
+        position: relative;
+        list-style: none;
+      }
+      header > #ul > #li > a {
+        position: relative;
+        margin: 0 15px;
+        text-decoration: none;
+        color: white;
+        letter-spacing: 2px;
+        font-weight: 500px;
+        transition: 0.6s;
+      }
+      header > #ul > #li > a:hover,
+      header.sticky #ul #li a:hover {
+        color: #d3af37;
+      }
+      header.sticky {
+        position: fixed;
+        height: 80px;
 
-nav a:visited,
-nav a:link {
-  color: white;
-  text-decoration: none;
-  font-size: 25px;
-}
-nav a:hover {
-  color: #d3af37;
-  text-decoration: none;
+        background: #fff;
+      }
+      header.sticky #ul #li a {
+        color: black;
+      }
+      #foot {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        background-color: rgb(55, 55, 104);
+        opacity: 0.9;
+        padding-bottom: 80px;
+        margin-top: 150px;
+      }
+      #main {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        color: white;
+        align-items: center;
+        margin-top: 70px;
+      }
+      #image {
+        height: 500px;
+        margin-top: 150px;
 
-  opacity: 1;
-}
-ul > li {
-  display: flex;
-  padding-top: 0.5em;
-  float: right;
-  margin-inline: 1em;
-  font-weight: 900;
-  font-family: Rubik;
-  font-size: large;
-}
-#foot {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: rgb(55, 55, 104);
-  opacity: 0.9;
-  padding-bottom: 80px;
-  margin-top: 150px;
-}
-#main {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  color: white;
-  align-items: center;
-  padding-top: 200px;
-}
-#image {
-  height: 550px;
-  padding-top: 30px;
-  float: right;
-  margin-right: 100px;
-  opacity: 1;
-}
-#image:hover {
-  padding-top: 30px;
+        margin-left: 200px;
+        opacity: 1;
+      }
 
-  opacity: 1;
-  transition: 1s;
-}
-#button {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-  padding-top: 70px;
-  width: 300px;
-  height: 120px;
-}
-section {
-  font-size: 35px;
-  margin-left: 50px;
-  padding-top: 70px;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-.green {
-  border: transparent;
-  border-radius: 5%;
-  background-color: #d3af37;
-  color: white;
-}
-.gre {
-  border-radius: 5%;
-  border: solid;
-  border-color: #d3af37;
-  border-width: thin;
-  background: transparent;
-  color: white;
-}
-.gre:hover {
-  border-radius: 5%;
-  border: solid;
-  border-color: #d3af37;
-  border-width: thin;
-  background-color: #d3af37;
-  transition: 2s;
-}
-strong {
-  font-family: 'righteous';
-}
-input {
-  margin-top: 6px;
-  margin-left: 40px;
-  width: 200px;
-  height: 26px;
-  background-color: transparent;
-  border: solid;
-  border-width: thin;
-  border-radius: 5%;
-  border-color: white;
-  color: white;
-}
+      #button {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        padding-top: 70px;
+        width: 300px;
+        height: 120px;
+      }
+      section {
+        font-size: 35px;
+        margin-left: 50px;
+        padding-top: 70px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .green {
+        border: transparent;
+        border-radius: 5%;
+        background-color: #d3af37;
+        color: white;
+      }
+      .gre {
+        border-radius: 5%;
+        border: solid;
+        border-color: #d3af37;
+        border-width: thin;
+        background: transparent;
+        color: white;
+      }
+      .gre:hover {
+        border-radius: 5%;
+        border: solid;
+        border-color: #d3af37;
+        border-width: thin;
+        background-color: #d3af37;
+        transition: 2s;
+      }
+      strong {
+        font-family: 'righteous';
+      }
 
+      @media (max-width: 1000px) {
+        header #dash {
+          margin-left: 270px;
+          margin-top: 20px;
+          display: block;
+          position: fixed;
+        }
+        .h2 {
+          font-size: 28px;
+        }
+        section {
+          font-size: 25px;
+          margin-left: 15px;
+        }
+        header.sticky {
+          display: none;
+          height: 0px;
+
+          background: #fff;
+        }
+        header > #ul {
+          display: block;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          margin-right: 0px;
+          margin-top: 30px;
+        }
+        header {
+          color: white;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 25% 25%;
+        }
+        #main {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          grid-gap: 2em;
+          color: white;
+          align-items: center;
+          padding-top: 5px;
+        }
+        #image {
+          height: 400px;
+          padding-top: 50px;
+
+          margin-left: 60px;
+          opacity: 1;
+        }
+
+        #logo {
+          height: 70px;
+          margin-left: 10px;
+          padding: 0;
+        }
+
+        #foot {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          background-color: rgb(55, 55, 104);
+          opacity: 0.9;
+          padding-bottom: 10px;
+          margin-top: 150px;
+        }
+        #button {
+          display: grid;
+          grid-template-columns: 30% 1fr;
+
+          padding-top: 70px;
+        }
+        button {
+          height: 40px;
+          width: 100px;
+        }
+      }
+      @media (min-width: 1220px) {
+        header {
+          color: white;
+          display: grid;
+          grid-template-columns: 40% 60%;
+        }
+        header > #ul {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+          font-size: 30px;
+        }
+      }
+      span {
+        background-color: white;
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #dash {
+        margin-left: 270px;
+        margin-top: 20px;
+        display: none;
+      }
     </style>
   </head>
-  <body style="background-image: url(images/te.png)">
+  <body style="background-image: url(images/tes.jpg)">
     <header>
-      <div id="head">
-        <div>
-          <img
-            src="images/logo.png"
-            alt="my logo"
-            id="logo"
-            style="margin-bottom: 2em"
-          />
+      <div>
+        <div id="dash">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <a href="Login.html">Login</a>
-              </li>
-              <li><a href="blog.html">Contact</a></li>
-              <li><a href="contact.html">Blog</a></li>
-              <li><a href="Skills.html">Skills</a></li>
-              <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="about me.html">About</a></li>
-              <li>
-                <a href="Home.html">Home</a>
-              </li>
-          </nav>
-        </div>
-        
+        <img src="images/logo.png" alt="my logo" id="logo" />
+      </div>
+      <div id="ul">
+        <div id="li"><a href="Home.html">Home</a></div>
+        <div id="li"><a href="about me.html">About</a></div>
+        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
+        <div id="li"><a href="Skills.html">Skills</a></div>
+        <div id="li"><a href="blog.html">Contact</a></div>
+        <div id="li"><a href="contact.html">Blog</a></div>
+        <div id="li"><a href="Login.html">Login</a></div>
       </div>
     </header>
     <main>
       <div id="main">
+        <aside>
+          <div>
+            <img src="images/i.png" alt="profile picture" id="image" />
+          </div>
+        </aside>
         <section>
           <div>
             <h2 class="h2">Get every single solution</h2>
@@ -191,20 +279,15 @@ input {
 
           <div id="button">
             <button class="green">
-              <p style="font-size: 20px"><a href="about me.html">learn more</a> </p>
+              <p style="font-size: 20px">
+                <a href="about me.html">learn more</a>
+              </p>
             </button>
-            <button class="gre"><p style="font-size: 20px"><a href="Conatct.html">Hire me</a> </p></button>
+            <button class="gre">
+              <p style="font-size: 20px"><a href="blog.html">Hire me</a></p>
+            </button>
           </div>
         </section>
-        <aside>
-          <div id="image">
-            <img
-              src="images/i.png"
-              alt="profile picture"
-              style="height: 550px"
-            />
-          </div>
-        </aside>
       </div>
     </main>
     <footer>
@@ -221,11 +304,10 @@ input {
             <a href="https://www.instagram.com/ooglandry/"
               ><img src="images/ig.png" alt="" style="border-radius: 50%"
             /></a>
-            
+
             <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
               ><img src="images/in.png" alt="" style="border-radius: 50%"
             /></a>
-            
           </div>
         </di>
         <di style="padding-top: 5em"
@@ -246,10 +328,23 @@ input {
     </footer>
   </body>
   <script>
-    let head=document.getElementById("head");
-    
-    head.addEventListener("scroll",function(){
-      head.style="opacity:1";
-    })
+    window.addEventListener('scroll', function () {
+      let header = document.querySelector('header');
+      header.classList.toggle('sticky', window.scrollY > 2);
+    });
+
+    let dash = document.querySelector('#dash');
+    let ul = document.querySelector('#ul');
+
+    if (screen >= '1000px') {
+      ul.style.display = 'flex';
+    }
+    dash.addEventListener('click', function () {
+      if (ul.style.display === 'none') {
+        ul.style.display = 'block';
+      } else {
+        ul.style.display = 'none';
+      }
+    });
   </script>
 </html>

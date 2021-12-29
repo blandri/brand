@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+        nav a:visited,
+nav a:link {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+}
+nav a:hover {
+  color: #d3af37;
+  text-decoration: none;
+
+  opacity: 1;
+}
+ul > li {
+  display: flex;
+  padding-top: 0.5em;
+  float: right;
+  margin-inline: 1em;
+  font-weight: 900;
+  font-family: Rubik;
+  font-size: large;
+}
+#foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: rgb(55, 55, 104);
+  opacity: 0.9;
+  padding-bottom: 120px;
+  margin-top: 50px;
+}
+#logo {
+  height: 50px;
+  margin-left: 200px;
+}
+#head {
+  color: white;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  padding-top: 50px;
+  position: fixed;
+        width: 100%;
+  background-color: rgb(55, 55, 104);
+  opacity: 1;
+}
+main{
+    display: grid;
+    grid-template-rows: 1fr 60% 1fr;
+    background-color: rgb(230, 219, 219);
+    margin-left: 100px;
+    margin-right:100px;
+    border-radius: 1%;
+    font-size: 25px;
+}
+body{
+    display: grid;
+    grid-template-rows: 1fr 50% 1fr;
+    
+}
+input{
+    width: 500px;
+    height: 90px;
+    margin-left: 10px;
+    margin-top: 3em;
+}
+button{
+    width: 200px;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 2em;
+    cursor: pointer;
+}
+.n{
+    margin-left: 10px;
+}
+.butt{
+    background-color: white;
+}
+.ima{
+  width: 100%;
+  height: 500px;
+  
+}
+@media (max-width:1000px){
+  
+  #foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: 1fr 1fr;
+  background-color: rgb(55, 55, 104);
+  opacity: 0.9;
+  padding-bottom: 90px;
+  margin-top: 50px;
+}
+#logo {
+  height: 50px;
+  margin-left: 10px;
+}
+#head {
+  color: white;
+  display: grid;
+  grid-template-rows: 25% 50% 25%;
+  grid-template-columns: 1fr;
+  padding-top: 50px;
+  position: fixed;
+        width: 100%;
+  background-color: rgb(55, 55, 104);
+  opacity: 1;
+}
+}
+    </style>
+  </head>
+  <body>
+    <header>
+        <div id="head">
+          <div>
+            <img
+              src="images/logo.png"
+              alt="my logo"
+              id="logo"
+              style="margin-bottom: 2em"
+            />
+          </div>
+          <div>
+            <nav>
+              <ul>
+                <li>
+                  <a href="Login.html">Login</a>
+                </li>
+                <li><a href="blog.html">Contact</a></li>
+                <li><a href="contact.html">Blog</a></li>
+                <li><a href="Skills.html">Skills</a></li>
+                <li><a href="Portfolio.html">Portfolio</a></li>
+                <li><a href="about me.html">About</a></li>
+                <li>
+                  <a href="Home.html">Home</a>
+                </li>
+            </nav>
+          </div>
+          
+        </div>
+      </header>
+    <main>
+      <div style="margin-left: 10px;">
+        <p>Author : Admin</p>
+        <p>Date of publication : 20/12/2020</p>
+      </div>
+      <div style="margin-left: 10px;">
+        <img src="images/neww.jpg" alt="" class="ima" />
+      </div>
+      <div class="n">
+        Ubuyobozi bw’isoko rya Kimironko buremeza ko Nyakwigendera MUKANSANGA
+        Angelique wari ufite indangamuntu no 1196870004258038 yakoreye mu isoko
+        rya Kimironko mu myaka ya 2012 na 2013 akora ubucuruzi bw’imboga.NCBA
+        BANK RWANDA (Procuring Entity) in their expansion strategy wishes to
+        construct a branch in NYABUGOGO in order to serve their existing and
+        potential customers in NYABUGOGO and its environs. The tender is
+        selective. The procuring entity now wishes to draw bidder’s’ attention
+        to the following instructions 1. SCOPE OF WORKS The Scope of Works under
+        the Current Tender comprise: a. Fit Out Works b. Electrical Works, I.C.T
+        and Audio Visual ins
+      </div>
+      <div class="butt">
+          <div><input type="text" placeholder="Leave comment" /></div>
+          <div><button>Send</button></div>
+      </div>
+      
+    </main>
+    <footer>
+        <div id="foot" style="color: white">
+          <div style="padding-top: 5em">
+            <img src="images/logo.png" alt="my logo" id="logo" />
+          </div>
+          <di style="padding-top: 5em">
+            <h3>Let's connect</h3>
+            <div style="line-height: 10em">
+              <a href="https://twitter.com/qg_landry"
+                ><img src="images/tw.png" alt="" style="border-radius: 50%"
+              /></a>
+              <a href="https://www.instagram.com/ooglandry/"
+                ><img src="images/ig.png" alt="" style="border-radius: 50%"
+              /></a>
+              
+              <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
+                ><img src="images/in.png" alt="" style="border-radius: 50%"
+              /></a>
+              
+            </div>
+          </di>
+          <di style="padding-top: 5em"
+            ><h3>Address</h3>
+            <p style="line-height: 3em">+250 780026530</p>
+            <p>Kigali, Street KG 42</p>
+          </di>
+          <di style="padding-top: 5em">
+            <h3>Services</h3>
+            <ol style="line-height: 3em">
+              <li>Web development</li>
+              <li>Software development</li>
+              <li>Networking</li>
+              <li>Software engineering</li>
+            </ol>
+          </di>
+        </div>
+      </footer>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 2px;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+      }
+      a {
+        color: inherit;
+      }
+      body {
+        background-color: rgb(250, 242, 242);
+        display: grid;
+        grid-gap: 5px;
+        height: 100%;
+        grid-template-columns: 20% 80%;
+        height: 100vh;
+      }
+      #column1 {
+        color: white;
+
+        font-size: 30px;
+
+        background: linear-gradient(
+          90deg,
+          rgba(9, 9, 121, 1) 0%,
+          rgba(159, 5, 96, 1) 100%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        display: grid;
+        grid-gap: 20px;
+        border-radius: 1%;
+        grid-template-rows: 5% 5% 5% 5% 5%;
+      }
+
+      #row1 {
+        display: grid;
+        background: white;
+
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+
+      .card {
+        font-size: 30px;
+
+        background-color: rgb(234, 237, 241);
+        border-bottom-right-radius: 5%;
+        border-bottom-left-radius: 5%;
+        display: grid;
+        grid-template-rows: 10% 40% 20%;
+      }
+
+      img {
+        height: 90%;
+        width: 95%;
+      }
+
+      button {
+        background-color: #d3af37;
+        border-radius: 3%;
+        border: hidden;
+        cursor: pointer;
+        height: 40px;
+        width: 80px;
+        font-size: 20px;
+      }
+      .nbr {
+        padding: 10px;
+        margin-left: 60px;
+        color: #d3af37;
+        font-size: 50px;
+      }
+      @media (max-width: 1000px) {
+        button {
+          background-color: #d3af37;
+          border-radius: 3%;
+          border: hidden;
+          cursor: pointer;
+          height: 30px;
+          width: 70px;
+          font-size: 15px;
+        }
+        .nbr {
+          margin-left: 40px;
+          margin-top: 20px;
+          color: #d3af37;
+          font-size: 25px;
+        }
+        body {
+          background-color: rgb(250, 242, 242);
+          display: grid;
+          grid-gap: 3px;
+          height: 100%;
+          grid-template-columns: 40% 60%;
+          height: 100vh;
+          width: 33.5vh;
+        }
+        #column1 {
+          color: white;
+
+          font-size: 20px;
+
+          background: linear-gradient(
+            90deg,
+            rgba(9, 9, 121, 1) 0%,
+            rgba(159, 5, 96, 1) 100%,
+            rgba(0, 212, 255, 1) 100%
+          );
+          display: grid;
+          grid-gap: 5px;
+          border-radius: 1%;
+          grid-template-rows: 5% 5% 5% 5% 5%;
+        }
+        .card {
+          font-size: 20px;
+
+          background-color: rgb(234, 237, 241);
+          border-bottom-right-radius: 5%;
+          border-bottom-left-radius: 5%;
+          display: grid;
+          grid-template-rows: 10% 40% 20%;
+        }
+        #row1 {
+          width: 30vh;
+          display: grid;
+          background: white;
+          grid-template-columns: 1fr;
+          grid-template-rows: 15% 1fr 1fr 1fr;
+        }
+        img {
+          height: 100%;
+          width: 130px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="column1">
+      <div><u>Admin's pannel</u></div>
+      <div style="margin-top: 15px"><a href="#">Portfolio</a></div>
+      <div><a href="all articles.html">Articles</a></div>
+      <div><a href="Queries.html">Queries</a></div>
+
+      <div class="row2">
+        <button id="log"><a href="Login.html">Logout</a></button>
+      </div>
+    </div>
+    <div id="column2">
+      <div id="row1">
+        <h1>Portfolios statistics</h1>
+        <div class="card">
+          <div><p style="color: #d3af37">Visits</p></div>
+          <div><img src="images/vist.png" alt="" /></div>
+          <div class="nbr"><p>1000</p></div>
+        </div>
+        <div class="card">
+          <div style="color: #d3af37">Members</div>
+          <div><img src="images/member.png" alt="" /></div>
+          <div class="nbr"><p>10</p></div>
+        </div>
+        <div class="card">
+          <div style="color: #d3af37">Likes</div>
+          <div><img src="images/likes.jpg" alt="" /></div>
+          <div class="nbr">500</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
