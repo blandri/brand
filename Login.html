@@ -314,13 +314,13 @@
       </div>
       <div class="bt"><button>Log in</button></div>
     </header>
-    <form action="post">
+    <form >
       <div id="icon"><i class="fas fa-user-tie fa-5x"></i> 
       <div class="form">
-        <input type="text" name="name" placeholder="First name" required />
-        <input type="text" name="name" placeholder="Last name" required />
-        <input type="text" name="password" placeholder="Password" required />
-        <button type="submit">Login</button>
+        <input type="text" id="name" placeholder="First name"  />
+        <input type="text" id="name" placeholder="Last name" />
+        <input type="text" id="password" placeholder="Password" />
+        <a href="Admin's panel.html"><button>Login</button></a>
       </div>
       
       
@@ -337,5 +337,15 @@
         li.style.display = 'none';
       }
     });
+
+    let name=document.querySelector('#name');
+    let password=document.querySelector('#password');
+    let but=document.querySelector('.bt')
+
+    const nam=name.value;
+    const pass=password.value;
+
+    
+    
   </script>
 </html>
