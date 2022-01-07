@@ -5,365 +5,515 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        box-sizing: border-box;
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    html {
+      width: 100%;
+    }
+    body {
+      width: 100%;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    #title {
+      padding-top: 400px;
+      background-color: #e3e4e8;
+      height: 150px;
+      padding-left: 20px;
+    }
+    #title h1 {
+      position: absolute;
+      top: 200px;
+      font-size: 55px;
+      color: #000a2d;
+    }
+    #title p {
+      position: absolute;
+      top: 280px;
+      font-size: 20px;
+      color: #ec5b53;
+    }
+    form {
+      display: block;
+      text-align: center;
+    }
+    input {
+      width: 310px;
+      height: 40px;
+      margin-top: 20px;
+
+      border: solid 1px #e3e4e8;
+    }
+    textarea {
+      width: 310px;
+      height: 150px;
+      margin-top: 30px;
+
+      border: solid 1px #e3e4e8;
+    }
+    form button {
+      margin-top: 30px;
+      height: 50px;
+      width: 130px;
+      float: left;
+      margin-left: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: none;
+      color: #ec5b53;
+      border: solid 1px #ec5b53;
+    }
+    #ico {
+      margin-top: 120px;
+      margin-left: 100px;
+      font-size: 20px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+    }
+    #ico .fas {
+      margin-top: 20px;
+    }
+    .i {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 10px;
+    }
+    .i .fas {
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    form h2 {
+      float: left;
+      margin-left: 30px;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #080627;
+      color: white;
+      padding: 20px;
+      padding-top: 70px;
+      margin-top: 100px;
+      height: 60vh;
+    }
+    footer .logo {
+      width: 60px;
+      margin-left: 60px;
+      margin-top: 20px;
+    }
+    footer h1 {
+      font-size: 40px;
+      margin-left: 120px;
+    }
+    footer .logo,
+    footer h2 {
+      display: inline;
+      margin-left: 140px;
+    }
+    footer p {
+      text-align: center;
+      margin-left: 15px;
+      margin-top: 20px;
+      font-size: 21px;
+      width: 40vh;
+    }
+    iframe {
+      width: 280px;
+      margin-left: 20px;
+      margin-top: 80px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    .ic {
+      margin-top: 30px;
+      margin-left: 115px;
+    }
+    .fab {
+      margin-left: 10px;
+    }
+    @media (min-width: 900px) {
+      .fab {
+        margin-left: 10px;
       }
-      body{
-        display: grid;
-        grid-template-rows: 5% 1fr 1fr 10%%;
+      .ic {
+        margin-left: 50px;
       }
-      #logo {
+      header li button {
+        display: none;
+      }
+      form button {
+        margin-top: 80px;
         height: 50px;
-        margin-left: 200px;
-        margin-top: 10px;
+        width: 130px;
+        float: left;
+        margin-left: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: none;
+        color: #ec5b53;
+        border: solid 1px #ec5b53;
       }
-      
-      header {
-        background: linear-gradient(
-          90deg,
-          rgba(9, 9, 121, 1) 10%,
-          rgba(2, 0, 36, 1) 75%,
-          rgba(0, 212, 255, 1) 100%
-        );
-        color: white;
-        display: grid;
-        grid-template-columns: 50% 50%;
-        width: 100%;
-        transition: 0.6s;
-        padding-top: 5px;
+      #title {
+        font-size: 40px;
+        padding-top: 220px;
+        background-color: #e3e4e8;
+        height: 500px;
+        padding-left: 280px;
+      }
+      #title p {
+        padding: 10px;
+        color: #ec5b53;
         font-size: 25px;
-        position: sticky;
       }
-      header > #ul {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-right: 400px;
-      }
-      header > #ul > #li {
-        position: relative;
-        list-style: none;
-      }
-      header > #ul > #li > a {
-        position: relative;
-        margin: 0 15px;
-        text-decoration: none;
-        color: white;
-        letter-spacing: 2px;
-        font-weight: 500px;
-        transition: 0.6s;
-      }
-      header > #ul > #li > a:hover,
-      header.sticky #ul #li a:hover {
-        color: #d3af37;
+
+      header {
+        background: white;
+        display: grid;
+        align-items: start;
+        grid-template-columns: 20% 60% 20%;
+        width: 100%;
+        transition: 1s;
       }
       header.sticky {
         position: fixed;
-        
-
-        background: #fff;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
       }
-      header.sticky #ul #li a {
+      header #ul {
+        display: flex;
+
+        float: right;
+        background: none;
         color: black;
+        margin-right: 100px;
+        margin-top: -10px;
       }
-      a:hover {
-        color: #d3af37;
-
-        text-decoration: underline;
-
-        opacity: 1;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      #foot {
+      header #ul .li {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        background-color: rgb(55, 55, 104);
-        opacity: 0.9;
-        padding-bottom: 80px;
-        margin-top: 250px;
-      }
-      .ima {
-        width: 100%;
-        height: 400px;
-      }
-      #article1,
-      #article2 {
-        background: rgb(255, 244, 244);
-        border-radius: 3%;
-        margin-left: 300px;
-        margin-right: 300px;
-        margin-top: 250px;
-        display: grid;
-        grid-template-rows: 50% 20% 20% 10%;
-        font-size: 30px;
-      }
-      #article2 {
-        margin-top: 250px;
-      }
-      .name {
-        margin-top: 30px;
-      }
-      .butt {
-        display: inline;
-        font-size: 250px;
-      }
-      button {
-        width: 100px;
-        height: 50px;
-        background-color: #d3af37;
-        margin-top: 20px;
-        cursor: pointer;
-        
-      }
-      input {
-        width: 400px;
-        height: 150px;
-        margin-top: 110px;
-      }
-      @media (max-width: 1000px) {
-        header #dash {
-          margin-left: 290px;
-          margin-top: 5px;
-          display: block;
-          
-        }
-        header.sticky {
-        position: relative;
-        
-
-        background: #fff;
-      }
-        #logo {
-        height: 50px;
-        margin-left: 5px;
-        margin-top: 10px;
-      }
-        #foot {
-        display: grid;
-        grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 1fr 1fr;
-        background-color: rgb(55, 55, 104);
-        opacity: 0.9;
-        padding-bottom: 80px;
-        margin-top: 250px;
-      }
-        header > #ul {
-          display: none;
-          flex-direction: column;
-          justify-content: space-between;
-          font-size: 15px;
-          margin-left: 30px;
-          
-        }
-        header {
-          color: white;
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 40% 1fr;
-          
-          
-        }
-        .butt {
-        display: grid;
-        
-        font-size: 250px;
-      }
-        input {
-        width: 200px;
-        height: 120px;
-        margin-top: 250px;
-      }
-        button {
-        width: 70px;
-        height: 30px;
-        background-color: #d3af37;
-        margin-top: 5px;
-        cursor: pointer;
-        
-      }
-        .ima {
-        width: 100%;
-        height: 200px;
-      }
-      #article1,
-      #article2 {
-        background: rgb(255, 244, 244);
-        border-radius: 3%;
-        margin-left: 10px;
-        
-        margin-top: 100px;
-        display: grid;
-        grid-template-rows: 20% 10% 30% 20%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        line-height: 1em;
         font-size: 20px;
-        width: 34vh;
+        margin-right: 3px;
+        cursor: pointer;
       }
-      }
-      
-      
-
-      .name,
-      h2,
-      p {
-        margin-left: 10px;
-      }
-      #title {
-        margin-left: 500px;
-        font-size: 40px;
-        color: #d3af37;
-        text-decoration: underline;
+      header #ul .li li:hover {
+        color: #ec5b53;
+        transition: 0.5s;
       }
       span {
         background-color: white;
-        display: block;
+        display: none;
         width: 30px;
         height: 5px;
         margin: 3px;
       }
-      #dash {
-        margin-left: 270px;
-        margin-top: 20px;
+      #da {
         display: none;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
       }
-    </style>
-  </head>
+      .bt {
+        display: block;
+        margin-right: 100px;
+      }
+      .logo {
+        width: 50px;
+        margin-left: 200px;
+        margin-top: 20px;
+      }
+
+      footer {
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 60%;
+        text-align: center;
+      }
+      footer .logo {
+        width: 60px;
+        margin-left: 60px;
+        margin-top: 20px;
+      }
+      footer h2 {
+        font-size: 40px;
+      }
+      footer .logo,
+      footer h2 {
+        display: inline;
+      }
+      footer p {
+        text-align: center;
+        margin-left: 650px;
+        margin-top: 100px;
+        font-size: 21px;
+        width: 40vh;
+      }
+      button {
+        margin-top: 30px;
+        width: 170px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      iframe {
+        margin-left: 210px;
+        width: 70%;
+        height: 500px;
+      }
+      form {
+        display: grid;
+        grid-template-rows: auto 5%;
+        grid-gap: 30px;
+      }
+      form {
+        margin-left: 200px;
+        margin-top: 60px;
+      }
+      .fas {
+        color: rgb(212, 205, 205);
+      }
+      form h2 {
+        font-size: 40px;
+        position: absolute;
+        top: 1090px;
+        left: 180px;
+      }
+      #ico {
+        position: absolute;
+        right: 90px;
+
+        top: 1050px;
+      }
+      .ic {
+        display: flex;
+        justify-content: space-between;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 470px;
+        margin-top: -25px;
+      }
+      input {
+        width: 320px;
+        height: 60px;
+        margin-top: 30px;
+        margin-left: 10px;
+
+        border: solid 1px #e3e4e8;
+      }
+      textarea {
+        width: 650px;
+        height: 210px;
+        margin-top: 30px;
+        margin-left: 10px;
+        border: solid 1px #e3e4e8;
+      }
+      .sm {
+        width: 650px;
+      }
+      .lin {
+        position: absolute;
+        top: 1371px;
+      }
+      .i {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 25px;
+        font-size: 20px;
+      }
+    }
+  </style>
   <body>
     <header>
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
       <div>
-        <div id="dash">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <img
-          src="images/logo.png"
-          alt="my logo"
-          id="logo"
-          style="margin-bottom: 2em"
-        />
-        
-      </div>
-      <div id="ul">
-        <div id="li"><a href="Home.html">Home</a></div>
-        <div id="li"><a href="about me.html">About</a></div>
-        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
-        <div id="li"><a href="Skills.html">Skills</a></div>
-        <div id="li"><a href="blog.html">Contact</a></div>
-        <div id="li"><a href="contact.html">Blog</a></div>
-        <div id="li"><a href="Login.html">Login</a></div>
-      </div>
-      
-    </header>
-
-    <div id="article1">
-      <div><a href="article 1.html"> <img src="images/test.png" alt="" class="ima" /></div></a>
-         
-      <div class="name">
-        <p>Admin</p>
-        <p>12/12/2020</p>
-      </div>
-      <div>
-        <h2><a href="article 1.html"> MAKE OTHER PEOPLE COME TO YOU—-USE BAIT IF NECESSARY</a>
-           </h2>
-        <p style="margin-top: 20px">
-          When you forte the other person to act, you are the one in control. It
-          is always better to make your opponent come to you, abandoning his own
-          plans in theprocess. Lure him withfabulous gains-then attack. You hold
-          the cards.
-        </p>
-      </div>
-      <div class="butt">
-        <input type="text" placeholder="Leave a comment" />
-        <button>Send</button>
-        <button>Like</button>
-      </div>
-    </div>
-
-    <div id="article2">
-      <div><a href="article 1.html"><img src="images/test.png" alt="" class="ima" /></a>
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-      <div class="name">
-        <p>Admin</p>
-        <p>12/12/2020</p>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
       </div>
-      <div>
-        <h2><a href="article 1.html">MAKE OTHER PEOPLE COME TO YOU—-USE BAIT IF NECESSARY</a>
-            </h2>
-        <p style="margin-top: 20px">
-          When you forte the other person to act, you are the one in control. It
-          is always better to make your opponent come to you, abandoning his own
-          plans in theprocess. Lure him withfabulous gains-then attack. You hold
-          the cards.
-        </p>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
       </div>
-      <div class="butt">
-        <input type="text" placeholder="Leave a comment" />
+    </header>
+    <div id="title">
+      <h1>Contact us</h1>
+      <p>Home / Contact us</p>
+    </div>
+    <div>
+      <p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5098726476945!2d30.130840047434308!3d-1.9491354999999717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca70fc697c1a9%3A0x109e9bd1f6dfe1c6!2sKimironko%20Market%2C%20Kigali!5e0!3m2!1sen!2srw!4v1640248991765!5m2!1sen!2srw"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          id="map"
+        ></iframe>
+      </p>
+    </div>
+    <div>
+      <form action="post">
+        <h2>Get in touch</h2>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="message"
+        ></textarea>
+        <div class="lin">
+          <input type="text" placeholder="Enter your name" />
+          <input type="text" placeholder="Email" />
+        </div>
+
+        <input type="text" placeholder="Subject" class="sm" />
         <button>Send</button>
-        <button>Like</button>
+      </form>
+    </div>
+    <div id="ico">
+      <div class="ic">
+        <i class="fas fa-home fa-2x"></i>
+        <i class="fas fa-mobile-alt fa-3x"></i>
+        <i class="fas fa-envelope-open-text fa-2x"></i>
+      </div>
+
+      <div class="i">
+        <p>Kigali, Rwanda. Kimironko st 42 kg</p>
+        <p>+250 780026530 Monday to Friday 9am-6pm</p>
+        <p>Landrybrok3@gmail.com Send us your queries anytime</p>
       </div>
     </div>
     <footer>
-      <div id="foot" style="color: white">
-        <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
+      <img src="images/logo.png" alt="" class="logo" />
+      <h1>Landry</h1>
+      <p>Landrybrok3@gmail.com</p>
+      <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      <div>
+        <p>stay connected</p>
+        <div class="ic">
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
+            ><i class="fab fa-linkedin fa-2x"></i
+          ></a>
+          <a href="https://twitter.com/qg_landry"
+            ><i class="fab fa-twitter fa-2x"></i
+          ></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"
+            ><i class="fab fa-instagram fa-2x"></i
+          ></a>
         </div>
-        <di style="padding-top: 5em">
-          <h3>Let's connect</h3>
-          <div style="line-height: 10em">
-            <a href="https://twitter.com/qg_landry"
-              ><img src="images/tw.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href="https://www.instagram.com/ooglandry/"
-              ><img src="images/ig.png" alt="" style="border-radius: 50%"
-            /></a>
-
-            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-              ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-          </div>
-        </di>
-        <di style="padding-top: 5em"
-          ><h3>Address</h3>
-          <p style="line-height: 3em">+250 780026530</p>
-          <p>Kigali, Street KG 42</p>
-        </di>
-        <di style="padding-top: 5em">
-          <h3>Services</h3>
-          <ol style="line-height: 3em">
-            <li>Web development</li>
-            <li>Software development</li>
-            <li>Networking</li>
-            <li>Software engineering</li>
-          </ol>
-        </di>
       </div>
     </footer>
   </body>
   <script>
-window.addEventListener('scroll', function () {
-      let header = document.querySelector('header');
-      header.classList.toggle('sticky', window.scrollY > 2);
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
+
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
     });
 
-    let dash = document.querySelector('#dash');
-    let ul = document.querySelector('#ul');
-
-    if (screen >= '1000px') {
-      ul.style.display = 'flex';
-    }
-    dash.addEventListener('click', function () {
-      if (ul.style.display === 'none') {
-        ul.style.display = 'block';
-      } else {
-        ul.style.display = 'none';
-      }
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
     });
   </script>
 </html>

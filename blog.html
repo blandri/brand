@@ -5,426 +5,485 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      #bod {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        height: 100vh;
-      }
-      section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        font-size: 20px;
-        justify-items: center;
-        margin-left: 80px;
-        margin-top: 80px;
-      }
-      .column {
-        display: grid;
-        grid-template-columns: 15% 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        margin-top: 2em;
-      }
-      #cont {
-        line-height: 1em;
-      }
-      input {
-        width: 700px;
-        height: auto;
-        height: 55px;
-
-        border-radius: 0;
-        border-width: thin;
-        border-color: #d3af37;
-      }
-      form {
-        margin: 0 auto 1.25rem auto;
-        padding: 20px;
-        font-size: 30px;
-      }
-      p {
-        font-size: 25px;
-      }
-      #map {
-        width: 100%;
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    .fa-thumbs-up,
+    .fa-comment-alt {
+      color: #e96760;
+      margin-top: 40px;
+      margin-left: 20px;
+    }
+    #article {
+      margin-top: 30px;
+      width: 43vh;
+      margin-left: 15px;
+      box-shadow: 2px 2px 4px lightgray, -2px -2px 4px lightgray;
+    }
+    .image {
+      width: 349px;
+    }
+    .det {
+      margin-top: 20px;
+      padding: 10px;
+      line-height: 20px;
+      font-size: 20px;
+    }
+    .det p {
+      margin-top: 15px;
+    }
+    .det a,
+    .det a:hover {
+      cursor: pointer;
+      color: #ec5b53;
+    }
+    .date {
+      position: absolute;
+      background-color: #ec5b53;
+      color: white;
+      font-size: 25px;
+      padding: 10px;
+      border-radius: 10px;
+      height: 65px;
+      width: 50px;
+      margin-left: 20px;
+      margin-top: 180px;
+    }
+    .date:hover {
+      background: none;
+      color: #ec5b53;
+    }
+    footer {
+      background-color: #080627;
+      color: white;
+      padding: 20px;
+      padding-top: 70px;
+      margin-top: 100px;
+      height: 60vh;
+    }
+    footer .logo {
+      width: 60px;
+      margin-left: 60px;
+      margin-top: 20px;
+    }
+    footer h2 {
+      font-size: 40px;
+    }
+    footer .logo,
+    footer h2 {
+      display: inline;
+    }
+    footer p {
+      text-align: center;
+      margin-left: 15px;
+      margin-top: 20px;
+      font-size: 21px;
+      width: 40vh;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    html {
+      width: 100%;
+    }
+    body {
+      width: 100%;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    #title {
+      padding-top: 400px;
+      background-color: #e3e4e8;
+      height: 150px;
+      padding-left: 20px;
+    }
+    #title h1 {
+      position: absolute;
+      top: 200px;
+      font-size: 55px;
+      color: #000a2d;
+    }
+    #title p {
+      position: absolute;
+      top: 280px;
+      font-size: 20px;
+      color: #ec5b53;
+    }
+    .sub {
+      background: rgb(246, 245, 245);
+      width: 43vh;
+      margin-left: 10px;
+      margin-top: 30px;
+      padding: 20px;
+    }
+    input,
+    button {
+      width: 300px;
+      height: 50px;
+      margin-top: 10px;
+      border: none;
+    }
+    input {
+      border: solid 0.5px rgb(228, 222, 222);
+    }
+    .sub button {
+      border: solid 0.5px #ec5b53;
+      color: #ec5b53;
+      letter-spacing: 1px;
+      font-size: 15px;
+      text-transform: uppercase;
+      background: white;
+    }
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    .ic {
         margin-top: 30px;
+        margin-left: 115px;
       }
-      #for {
-        position: inherit;
-        padding-top: 1em;
+      .fab {
+        margin-left: 10px;
       }
-      h1 {
-        margin-left: 17px;
-      }
-      button {
-        height: 50px;
-        width: 200px;
-        background-color: #d3af37;
-        border: hidden;
-        cursor: pointer;
-      }
-      .column img {
-        border: solid;
-        border-width: thin;
-        margin-top: 1em;
-      }
-      .det > p {
-        margin-top: 26px;
+    @media (min-width: 900px) {
+      header li button {
+        display: none;
       }
       header {
-        background: linear-gradient(
-          90deg,
-          rgba(9, 9, 121, 1) 10%,
-          rgba(2, 0, 36, 1) 75%,
-          rgba(0, 212, 255, 1) 100%
-        );
-        color: white;
+        background: white;
         display: grid;
-        grid-template-columns: 50% 50%;
+        align-items: start;
+        grid-template-columns: 20% 60% 20%;
         width: 100%;
-        transition: 0.6s;
-        font-size: 25px;
-        position: fixed;
-      }
-      header > #ul {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-right: 400px;
-      }
-      header > #ul > #li {
-        position: relative;
-        list-style: none;
-      }
-      header > #ul > #li > a {
-        position: relative;
-        margin: 0 15px;
-        text-decoration: none;
-        color: white;
-        letter-spacing: 2px;
-        font-weight: 500px;
-        transition: 0.6s;
-      }
-      header > #ul > #li > a:hover,
-      header.sticky #ul #li a:hover {
-        color: #d3af37;
+        transition: 1s;
       }
       header.sticky {
         position: fixed;
-
-        background: #fff;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
       }
-      header.sticky #ul #li a {
+      header #ul {
+        display: flex;
+
+        float: right;
+        background: none;
         color: black;
+        margin-right: 100px;
+        margin-top: -10px;
       }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
-      #foot {
+      header #ul .li {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        background-color: #27241f;
-        opacity: 0.9;
-        padding-bottom: 90px;
-        margin-top: 475px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        line-height: 1em;
+        font-size: 20px;
+        margin-right: 3px;
+        cursor: pointer;
       }
-      aside {
-        margin-top: 50px;
-      }
-      #logo {
-        height: 50px;
-
-        margin-left: 200px;
-      }
-      #hd {
-        height: 90px;
-        font-size: 50px;
-        padding-left: 90px;
-        padding-bottom: 0px;
-        padding-top: 130px;
-        text-decoration: underline;
-        color: #d3af37;
-      }
-      @media (max-width: 1220px) {
-        header #dash {
-          margin-left: 270px;
-          margin-top: 20px;
-          display: block;
-        }
-        header {
-          background: linear-gradient(
-            90deg,
-            rgba(9, 9, 121, 1) 10%,
-            rgba(2, 0, 36, 1) 75%,
-            rgba(0, 212, 255, 1) 100%
-          );
-          color: white;
-          display: grid;
-          grid-template-rows: 25% 70%;
-          grid-template-columns: 1fr;
-          width: 100%;
-          transition: 0.6s;
-          position: relative;
-        }
-        header > #ul {
-          position: relative;
-          display: none;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          margin-left: 80px;
-        }
-        #bod {
-          display: grid;
-          grid-template-rows: 1fr 1fr;
-        }
-        .det {
-          width: 35vh;
-          margin-left: 5px;
-        }
-        #map {
-          width: 80%;
-          margin-top: 400px;
-          margin-left: 10px;
-        }
-        .column {
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr 1fr 1fr;
-        }
-        #logo {
-          height: 70px;
-          float: left;
-          margin-left: 5px;
-        }
-
-        input {
-          width: 250px;
-
-          height: 25px;
-
-          border-radius: 0;
-          border-width: thin;
-          border-color: #d3af37;
-        }
-        button {
-          height: 50px;
-          width: 100px;
-          background-color: #d3af37;
-          border: hidden;
-          cursor: pointer;
-        }
-        #foot {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
-          background-color: #27241f;
-          opacity: 0.9;
-          padding-bottom: 30px;
-          margin-top: 1811px;
-        }
-        section {
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 40% 1fr;
-          font-size: 20px;
-
-          margin-left: 2px;
-          margin-top: 80px;
-        }
-        #cont {
-          line-height: 1em;
-          margin-top: 130px;
-
-          width: 50vh;
-        }
-        .p {
-          margin-right: 30px;
-        }
-      }
-      @media (min-width: 1220px) {
-        header {
-          color: white;
-          display: grid;
-          grid-template-columns: 40% 60%;
-        }
-        #nav {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-          font-size: 30px;
-        }
+      header #ul .li li:hover {
+        color: #ec5b53;
+        transition: 0.5s;
       }
       span {
         background-color: white;
-        display: block;
+        display: none;
         width: 30px;
         height: 5px;
         margin: 3px;
       }
-      #dash {
-        margin-left: 270px;
-        margin-top: 20px;
+      #da {
         display: none;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
       }
-    </style>
-  </head>
+      .bt {
+        display: block;
+        margin-right: 100px;
+      }
+      .logo {
+        width: 50px;
+        margin-left: 200px;
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 30px;
+        width: 170px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #title {
+        font-size: 40px;
+        padding-top: 220px;
+        background-color: #e3e4e8;
+        height: 500px;
+        padding-left: 280px;
+      }
+      #title p {
+        padding: 10px;
+        color: #ec5b53;
+        font-size: 25px;
+      }
+      #article {
+        margin-top: 200px;
+        width: 100vh;
+        margin-left: 300px;
+        box-shadow: 2px 2px 4px lightgray;
+        box-shadow: -2px -2px 4px lightgray;
+      }
+
+      .image {
+        width: 100%;
+        height: 480px;
+      }
+      .det {
+        margin-top: 20px;
+        padding: 35px;
+        line-height: 20px;
+        font-size: 25px;
+      }
+      .date {
+        position: absolute;
+        background-color: #ec5b53;
+        color: white;
+        font-size: 30px;
+        padding: 15px;
+        border-radius: 10px;
+        height: 90px;
+        width: 70px;
+        margin-left: 20px;
+        margin-top: 400px;
+      }
+      .sub {
+        background: rgb(246, 245, 245);
+        width: 27%;
+
+        position: absolute;
+        top: 670px;
+        right: 50px;
+        padding: 20px;
+      }
+      input,
+      .sub button {
+        width: 370px;
+        height: 60px;
+        margin-top: 10px;
+        border: solid 1px;
+        border-radius: 0;
+      }
+      input {
+        border-color: lavender;
+        font-size: 20px;
+      }
+      footer {
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 60%;
+        text-align: center;
+      }
+      footer .logo {
+        width: 60px;
+        margin-left: 60px;
+        margin-top: 20px;
+      }
+      footer h2 {
+        font-size: 40px;
+      }
+      footer .logo,
+      footer h2 {
+        display: inline;
+      }
+      footer p {
+        text-align: center;
+        margin-left: 650px;
+        margin-top: 100px;
+        font-size: 21px;
+        width: 40vh;
+      }
+      .fab {
+          margin-left: 10px;
+        }
+        .ic {
+          margin-left: 50px;
+        }
+    }
+  </style>
   <body>
     <header>
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
       <div>
-        <img
-          src="images/logo.png"
-          alt="my logo"
-          id="logo"
-          style="margin-bottom: 2em"
-        />
-        <div id="dash">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
       </div>
-      <div id="ul">
-        <div id="li"><a href="Home.html">Home</a></div>
-        <div id="li"><a href="about me.html">About</a></div>
-        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
-        <div id="li"><a href="Skills.html">Skills</a></div>
-        <div id="li"><a href="blog.html">Contact</a></div>
-        <div id="li"><a href="contact.html">Blog</a></div>
-        <div id="li"><a href="Login.html">Login</a></div>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
       </div>
     </header>
-
-    <div id="bod">
-      <aside>
-        <p>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5098726476945!2d30.130840047434308!3d-1.9491354999999717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca70fc697c1a9%3A0x109e9bd1f6dfe1c6!2sKimironko%20Market%2C%20Kigali!5e0!3m2!1sen!2srw!4v1640248991765!5m2!1sen!2srw"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            id="map"
-          ></iframe>
-        </p>
-      </aside>
-      <section>
-        <div class="p">
-          <h1 style="color: #d3af37">
-            <strong>Get in touch</strong>
-          </h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <div class="column">
-            <div>
-              <img src="images/loca.png" alt="" style="height: 90px" />
-              <img src="images/phone.png" alt="" style="height: 90px" />
-              <img src="images/email.png" alt="" style="height: 90px" />
-            </div>
-
-            <div class="det">
-              <p>
-                <strong style="color: #d3af37">addres</strong>
-              </p>
-              <p>Kigali, Rwanda, Kimironko St 42 KG</p>
-
-              <p>
-                <strong style="color: #d3af37">phone</strong>
-              </p>
-              <p>+250 780026530 | +250 723733966</p>
-              <p>
-                <strong style="color: #d3af37">email</strong>
-              </p>
-              <p>
-                <a href="">landrybrok3@gmail.com</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div id="cont">
-          <h1 style="color: #d3af37">WORK WITH ME</h1>
-          <form action="post">
-            <div id="for">
-              <input type="text" name="name" placeholder="Name" required />
-            </div>
-
-            <div id="for">
-              <input type="text" name="email" placeholder="Email" required />
-            </div>
-            <div id="for">
-              <input type="text" placeholder="Message" style="height: 110px" />
-            </div>
-
-            <div id="for">
-              <button type="submit">submit</button>
-            </div>
-          </form>
-        </div>
-      </section>
+    <div id="title">
+      <h1>Blog area</h1>
+      <p>Home / Blog</p>
     </div>
+    <div id="article">
+      <div>
+        <a href="Article.html"><div class="date">15 jan</div></a>
+        <img src="images/neww.jpg" alt="" class="image" />
+      </div>
+      <div class="det">
+        <a href="Article.html"><h2>What is Lorem Ipsum?</h2></a>
 
-    <footer>
-      <div id="foot" style="color: white">
-        <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+        </p>
+        <div>
+          <i class="fas fa-thumbs-up"></i>
+          <a href="Article.html"></a><i class="fas fa-comment-alt"></i>
         </div>
-        <di style="padding-top: 5em">
-          <h3>Let's connect</h3>
-          <div style="line-height: 10em">
-            <a href="https://twitter.com/qg_landry"
-              ><img src="images/tw.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href="https://www.instagram.com/ooglandry/"
-              ><img src="images/ig.png" alt="" style="border-radius: 50%"
-            /></a>
-
-            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-              ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-          </div>
-        </di>
-        <di style="padding-top: 5em"
-          ><h3>Address</h3>
-          <p style="line-height: 3em">+250 780026530</p>
-          <p>Kigali, Street KG 42</p>
-        </di>
-        <di style="padding-top: 5em">
-          <h3>Services</h3>
-          <ol style="line-height: 3em">
-            <li>Web development</li>
-            <li>Software development</li>
-            <li>Networking</li>
-            <li>Software engineering</li>
-          </ol>
-        </di>
+      </div>
+    </div>
+    <div id="article">
+      <div>
+        <a href="Article.html"><div class="date">15 jan</div></a>
+        <img src="images/neww.jpg" alt="" class="image" />
+      </div>
+      <div class="det">
+        <a href="Article.html"><h2>What is Lorem Ipsum?</h2></a>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+        </p>
+        <div>
+          <i class="fas fa-thumbs-up"></i>
+          <a href="Article.html"></a><i class="fas fa-comment-alt"></i>
+        </div>
+      </div>
+    </div>
+    <div class="sub">
+      <h2>News letter</h2>
+      <input type="text" placeholder="Enter email" />
+      <button>Subscribe</button>
+    </div>
+    <footer>
+      <img src="images/logo.png" alt="" class="logo" />
+      <h2>Landry</h2>
+      <p>Landrybrok3@gmail.com</p>
+      <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      <div>
+        <p>stay connected</p>
+        <div class="ic">
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
+        </div>
       </div>
     </footer>
   </body>
   <script>
-    let dash = document.querySelector('#dash');
-    let ul = document.querySelector('#ul');
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
 
-    if (screen >= '1000px') {
-      ul.style.display = 'flex';
-    }
-    dash.addEventListener('click', function () {
-      if (ul.style.display === 'none') {
-        ul.style.display = 'block';
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
       } else {
-        ul.style.display = 'none';
+        li.style.display = 'none';
       }
+    });
+
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
     });
   </script>
 </html>

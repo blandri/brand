@@ -5,172 +5,321 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       * {
-        margin: 2px;
+        margin: 0;
         padding: 0;
-        list-style: none;
         text-decoration: none;
-      }
-      a {
-        color: inherit;
+        list-style: none;
       }
       body {
-        background-color: rgb(250, 242, 242);
         display: grid;
-        grid-gap: 5px;
-        height: 100%;
-        grid-template-columns: 20% 80%;
-        height: 100vh;
+        grid-template-columns: 1fr 90%;
+        height: 99.8vh;
+        max-width: 201.5vh;
       }
-      #column1 {
-        color: white;
-
-        font-size: 30px;
-
-        background: linear-gradient(
-          90deg,
-          rgba(9, 9, 121, 1) 0%,
-          rgba(159, 5, 96, 1) 100%,
-          rgba(0, 212, 255, 1) 100%
-        );
+      
+      .images {
+        width: 60px;
+        border-radius: 50px;
+      }
+      .sidebar img {
+        width: 90px;
+        margin-left: 70px;
+        
+      }
+      span {
+        background-color: black;
+        display: block;
+        width: 24px;
+        height: 3px;
+        margin: 3px;
+      }
+      .dash {
+        margin-top: 30px;
+        margin-left: 40px;
+        display: none;
+      }
+      aside {
+        background-color: white;
+        width: 30vh;
         display: grid;
-        grid-gap: 20px;
-        border-radius: 1%;
-        grid-template-rows: 5% 5% 5% 5% 5%;
+        grid-template-rows: 7.5% 92%;
       }
 
-      #row1 {
+      main {
+        background-color: rgb(243, 243, 243);
         display: grid;
+        grid-template-rows: 7.5% 90%;
+      }
+      main #header {
+        border-bottom: solid 1px rgb(224, 221, 221);
+        border-left: solid 1px rgb(224, 221, 221);
         background: white;
-
-        grid-template-columns: 1fr 1fr 1fr 1fr;
       }
-
-      .card {
+      .logo {
+        background: white;
+        width: 105%;
+        border-bottom: solid 1px rgb(224, 221, 221);
+        display: flex;
         font-size: 30px;
-
-        background-color: rgb(234, 237, 241);
-        border-bottom-right-radius: 5%;
-        border-bottom-left-radius: 5%;
-        display: grid;
-        grid-template-rows: 10% 40% 20%;
       }
-
-      img {
-        height: 90%;
-        width: 95%;
-      }
-
-      button {
-        background-color: #d3af37;
-        border-radius: 3%;
-        border: hidden;
-        cursor: pointer;
-        height: 40px;
-        width: 80px;
-        font-size: 20px;
-      }
-      .nbr {
-        padding: 10px;
-        margin-left: 60px;
-        color: #d3af37;
-        font-size: 50px;
-      }
-      @media (max-width: 1000px) {
-        button {
-          background-color: #d3af37;
-          border-radius: 3%;
-          border: hidden;
-          cursor: pointer;
+      .logo img{
+          width: 27px;
           height: 30px;
-          width: 70px;
-          font-size: 15px;
-        }
-        .nbr {
-          margin-left: 40px;
+      }
+      aside .logo,
+      aside .sidebar {
+        padding: 20px;
+      }
+      .sidebar {
+        font-size: 25px;
+      }
+      .sidebar div{
+          border-bottom: solid 1px black;
           margin-top: 20px;
-          color: #d3af37;
-          font-size: 25px;
-        }
+      }
+      .visits,
+      .views {
+        background: white;
+        width: 400px;
+        height: 150px;
+        margin-top: 10px;
+        margin-left: 30px;
+        border-radius: 7px;
+        padding: 15px;
+        box-shadow: 1px 1px 9px rgb(189, 179, 179),
+          1px 1px 9px rgb(134, 125, 125);
+        font-size: 20px;
+        display: grid;
+        position: absolute;
+        top: 105px;
+        
+      }
+      .views{
+          left:450px;
+          top: -10px;
+      }
+      
+      .calc{
+          display: flex;
+          justify-content: space-between;
+          margin-top: 80px;
+          
+      }
+      aside button{
+          height: 50px;
+          width: 150px;
+          margin-top: 30px;
+          font-size: 20px;
+          background: none;
+          border-color: #ec5b53;
+          color: #ec5b53;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      a{
+          color: inherit;
+      }
+      .fa-chart-bar,.calc p{
+        background-color: rgb(235, 253, 215);
+        width: 50px;
+        height: 25px;
+        padding: 5px;
+        padding-left: 10%;
+        border-radius: 21px;
+      }
+      .sidebar .fa-user-shield{
+        margin-left: 50px;
+      }
+      
+      @media (max-width:410px){
+        .sidebar .fa-user-shield{
+        margin-left: 20px;
+      }
+        aside button{
+          height: 35px;
+          width: 100px;
+          margin-top: 30px;
+          font-size: 15px;
+          background: none;
+          border-color: #ec5b53;
+          color: #ec5b53;
+          border-radius: 5px;
+          cursor: pointer;
+      }
         body {
-          background-color: rgb(250, 242, 242);
-          display: grid;
-          grid-gap: 3px;
-          height: 100%;
-          grid-template-columns: 40% 60%;
-          height: 100vh;
-          width: 33.5vh;
-        }
-        #column1 {
-          color: white;
-
-          font-size: 20px;
-
-          background: linear-gradient(
-            90deg,
-            rgba(9, 9, 121, 1) 0%,
-            rgba(159, 5, 96, 1) 100%,
-            rgba(0, 212, 255, 1) 100%
-          );
-          display: grid;
-          grid-gap: 5px;
-          border-radius: 1%;
-          grid-template-rows: 5% 5% 5% 5% 5%;
-        }
-        .card {
-          font-size: 20px;
-
-          background-color: rgb(234, 237, 241);
-          border-bottom-right-radius: 5%;
-          border-bottom-left-radius: 5%;
-          display: grid;
-          grid-template-rows: 10% 40% 20%;
-        }
-        #row1 {
-          width: 30vh;
-          display: grid;
-          background: white;
-          grid-template-columns: 1fr;
-          grid-template-rows: 15% 1fr 1fr 1fr;
-        }
-        img {
-          height: 100%;
-          width: 130px;
-        }
+        display: grid;
+        grid-template-columns: 1fr 90%;
+        height: 99.8vh;
+        
+      }
+      
+      .images {
+        width: 60px;
+        border-radius: 50px;
+      }
+      .sidebar img {
+        width: 50px;
+        margin-left: 40px;
+        
+      }
+      .sidebar {
+        font-size: 20px;
+        width: 15vh;
+        
+      }
+      aside {
+        background-color: white;
+        width: 20vh;
+        display: grid;
+        grid-template-rows: 7.5% 92%;
+        position: absolute;
+        z-index: 1;
+        top: 66px;
+        
+      }
+      main {
+        background-color: rgb(243, 243, 243);
+        display: grid;
+        grid-template-rows: 7.5% 90%;
+        width: 781%;
+        
+      }
+      .logo {
+        background: white;
+        width: 15vh;
+        border-bottom: solid 1px black;
+        display: flex;
+        font-size: 25px;
+        
+      }
+      .logo img{
+          width: 25px;
+          
+      }
+      .logo p{
+          font-size: 18px;
+          position: absolute;
+          left: 48px;
+          top: 13px;
+      }
+      .visits,
+      .views {
+        background: white;
+        width: 250px;
+        height: 100px;
+        margin-top: 10px;
+        margin-left: 30px;
+        border-radius: 7px;
+        padding: 15px;
+        box-shadow: 1px 1px 9px rgb(189, 179, 179),
+          1px 1px 9px rgb(134, 125, 125);
+        font-size: 20px;
+        display: grid;
+        position: absolute;
+        top: 105px;
+        
+      }
+      .views{
+          left:-29px;
+          top: 210px;
+      }
+      .log{
+          top: 6px;
+          position: absolute;
+      }
+      main #header {
+        border-bottom: solid 1px black;
+        border-left: none;
+        background: white;
+      }
+      .dash {
+        margin-top: 23px;
+        margin-left: 20px;
+        display: block;
+      }
+      .fa-chart-bar,.calc p{
+        background-color: rgb(235, 253, 215);
+        width: 40px;
+        height: 20px;
+        padding: 5px;
+        padding-left: 10%;
+        border-radius: 21px;
+        
+      }
+      .calc{
+          display: flex;
+          justify-content: space-between;
+          margin-top: 50px;
+          
+      }
       }
     </style>
   </head>
   <body>
-    <div id="column1">
-      <div><u>Admin's pannel</u></div>
-      <div style="margin-top: 15px"><a href="#">Portfolio</a></div>
-      <div><a href="all articles.html">Articles</a></div>
-      <div><a href="Queries.html">Queries</a></div>
+    <aside>
+      <div class="logo">
+        <img src="images/logo.png" alt="" class="log"/>
+        <p>Administrator</p>
+      </div>
 
-      <div class="row2">
-        <button id="log"><a href="Login.html">Logout</a></button>
+      <div class="sidebar">
+        <i class="fas fa-user-shield fa-3x"></i>
+        <div><i class="fas fa-chart-line"></i> Dashboard</div>
+        <div><a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a> </div>
+        <div><a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a> </div>
+        <a href="Login.html"><button>Logout</button></a>
       </div>
-    </div>
-    <div id="column2">
-      <div id="row1">
-        <h1>Portfolios statistics</h1>
-        <div class="card">
-          <div><p style="color: #d3af37">Visits</p></div>
-          <div><img src="images/vist.png" alt="" /></div>
-          <div class="nbr"><p>1000</p></div>
+    </aside>
+    <main>
+      <div id="header">
+        <div class="dash">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="card">
-          <div style="color: #d3af37">Members</div>
-          <div><img src="images/member.png" alt="" /></div>
-          <div class="nbr"><p>10</p></div>
+        
+      </div>
+      <div id="body">
+        <div class="visits">
+          <p>Total visits</p>
+          <div class="calc">
+            <i class="far fa-chart-bar"></i>
+            <p>50</p>
         </div>
-        <div class="card">
-          <div style="color: #d3af37">Likes</div>
-          <div><img src="images/likes.jpg" alt="" /></div>
-          <div class="nbr">500</div>
+        <div class="views">
+          <p>Total page views</p>
+          <div class="calc">
+            <i class="far fa-chart-bar"></i>
+              <p>10</p>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
+  <script>
+    let dash=document.querySelector('.dash');
+    let sidebar=document.querySelector('aside');
+    let main=document.querySelector('main');
+    
+    
+
+    dash.addEventListener('click', function(){
+
+      main.classList.toggle('hidd');
+
+      if (sidebar.style.display==='none'){
+      sidebar.style.display='block';
+    }
+    else{
+      sidebar.style.display='none';
+    }
+    });
+    
+  </script>
 </html>

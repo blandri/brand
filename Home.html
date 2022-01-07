@@ -5,346 +5,303 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Righteous" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        box-sizing: border-box;
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 8px;
+      position: absolute;
+      width: 100%;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    body {
+      background: #e3e4e8;
+    }
+    .image {
+      width: 250px;
+      border-radius: 10px;
+      margin-left: 30px;
+    }
+    body main {
+      padding: 10px;
+      padding-top: 370px;
+      width: 100%;
+      letter-spacing: 0.5px;
+      font-size: 20px;
+    }
+    h1 {
+      color: #002d5b;
+      margin-top: 30px;
+    }
+    h3 {
+      color: #ec5b53;
+      margin-top: 30px;
+    }
+    p {
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 30px;
+      width: 190px;
+      height: 70px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    .trans {
+      display: none;
+    }
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+      header li button {
+        display: none;
+      }
+      button {
+        margin-top: 30px;
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+      }
+      html {
+        width: 100%;
       }
       body {
-        background-image: url('images/te.png');
-
-        display: grid;
-      }
-
-      #logo {
-        height: 50px;
-        margin-left: 200px;
+        max-width: 100%;
       }
       header {
-        color: white;
+        background: white;
         display: grid;
-        grid-template-columns: 50% 50%;
+        align-items: start;
+        grid-template-columns: 20% 60% 20%;
         width: 100%;
-        transition: 0.6s;
-        padding-top: 30px;
-      }
-      header > #ul {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-right: 400px;
-      }
-      header > #ul > #li {
-        position: relative;
-        list-style: none;
-      }
-      header > #ul > #li > a {
-        position: relative;
-        margin: 0 15px;
-        text-decoration: none;
-        color: white;
-        letter-spacing: 2px;
-        font-weight: 500px;
-        transition: 0.6s;
-      }
-      header > #ul > #li > a:hover,
-      header.sticky #ul #li a:hover {
-        color: #d3af37;
+        height: 12%;
+        transition: 1s;
       }
       header.sticky {
         position: fixed;
-        height: 80px;
-
-        background: #fff;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
       }
-      header.sticky #ul #li a {
+      header #ul {
+        display: flex;
+        margin-top: -10px;
+        float: right;
+        background: none;
         color: black;
+        margin-right: 100px;
       }
-      #foot {
+      header #ul .li {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        background-color: rgb(55, 55, 104);
-        opacity: 0.9;
-        padding-bottom: 80px;
-        margin-top: 150px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        line-height: 1em;
+        font-size: 25px;
+        margin-right: 3px;
+        cursor: pointer;
       }
-      #main {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        color: white;
-        align-items: center;
-        margin-top: 70px;
-      }
-      #image {
-        height: 500px;
-        margin-top: 150px;
-
-        margin-left: 200px;
-        opacity: 1;
-      }
-
-      #button {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1em;
-        padding-top: 70px;
-        width: 300px;
-        height: 120px;
-      }
-      section {
-        font-size: 35px;
-        margin-left: 50px;
-        padding-top: 70px;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      .green {
-        border: transparent;
-        border-radius: 5%;
-        background-color: #d3af37;
-        color: white;
-      }
-      .gre {
-        border-radius: 5%;
-        border: solid;
-        border-color: #d3af37;
-        border-width: thin;
-        background: transparent;
-        color: white;
-      }
-      .gre:hover {
-        border-radius: 5%;
-        border: solid;
-        border-color: #d3af37;
-        border-width: thin;
-        background-color: #d3af37;
-        transition: 2s;
-      }
-      strong {
-        font-family: 'righteous';
-      }
-
-      @media (max-width: 1000px) {
-        header #dash {
-          margin-left: 270px;
-          margin-top: 20px;
-          display: block;
-          position: fixed;
-        }
-        .h2 {
-          font-size: 28px;
-        }
-        section {
-          font-size: 25px;
-          margin-left: 15px;
-        }
-        header.sticky {
-          display: none;
-          height: 0px;
-
-          background: #fff;
-        }
-        header > #ul {
-          display: block;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          margin-right: 0px;
-          margin-top: 30px;
-        }
-        header {
-          color: white;
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 25% 25%;
-        }
-        #main {
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr;
-          grid-gap: 2em;
-          color: white;
-          align-items: center;
-          padding-top: 5px;
-        }
-        #image {
-          height: 400px;
-          padding-top: 50px;
-
-          margin-left: 60px;
-          opacity: 1;
-        }
-
-        #logo {
-          height: 70px;
-          margin-left: 10px;
-          padding: 0;
-        }
-
-        #foot {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
-          background-color: rgb(55, 55, 104);
-          opacity: 0.9;
-          padding-bottom: 10px;
-          margin-top: 150px;
-        }
-        #button {
-          display: grid;
-          grid-template-columns: 30% 1fr;
-
-          padding-top: 70px;
-        }
-        button {
-          height: 40px;
-          width: 100px;
-        }
-      }
-      @media (min-width: 1220px) {
-        header {
-          color: white;
-          display: grid;
-          grid-template-columns: 40% 60%;
-        }
-        header > #ul {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-          font-size: 30px;
-        }
+      header #ul .li li:hover {
+        color: #ec5b53;
+        transition: 0.5s;
       }
       span {
         background-color: white;
-        display: block;
+        display: none;
         width: 30px;
         height: 5px;
         margin: 3px;
       }
-      #dash {
-        margin-left: 270px;
-        margin-top: 20px;
+      #da {
         display: none;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
       }
-    </style>
-  </head>
-  <body style="background-image: url(images/tes.jpg)">
+      .bt {
+        display: block;
+        margin-right: 100px;
+      }
+      .logo {
+        width: 50px;
+        margin-left: 200px;
+        margin-top: 20px;
+      }
+      body main {
+        padding: 15px;
+        padding-top: 280px;
+        display: flex;
+        flex-direction: row-reverse;
+
+        letter-spacing: 0.5px;
+        font-size: 25px;
+      }
+      .image {
+        width: 480px;
+        border-radius: 10px;
+      }
+      #image {
+        width: 100%;
+        margin-left: 200px;
+      }
+      #description {
+        width: 100%;
+        margin-left: 230px;
+        margin-top: 50px;
+      }
+      main button {
+        margin-top: 90px;
+        width: 190px;
+        height: 70px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+      }
+      .trans {
+        background: none;
+        border: thin solid #ec5b53;
+        color: black;
+        margin-left: 15px;
+      }
+    }
+  </style>
+  <body>
     <header>
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
       <div>
-        <div id="dash">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <img src="images/logo.png" alt="my logo" id="logo" />
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
       </div>
-      <div id="ul">
-        <div id="li"><a href="Home.html">Home</a></div>
-        <div id="li"><a href="about me.html">About</a></div>
-        <div id="li"><a href="Portfolio.html">Portfolio</a></div>
-        <div id="li"><a href="Skills.html">Skills</a></div>
-        <div id="li"><a href="blog.html">Contact</a></div>
-        <div id="li"><a href="contact.html">Blog</a></div>
-        <div id="li"><a href="Login.html">Login</a></div>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
       </div>
     </header>
     <main>
-      <div id="main">
-        <aside>
-          <div>
-            <img src="images/i.png" alt="profile picture" id="image" />
-          </div>
-        </aside>
-        <section>
-          <div>
-            <h2 class="h2">Get every single solution</h2>
-          </div>
-          <div class="h1">
-            <h1 style="padding-top: 50px">
-              Hi, I'm
-              <strong style="color: #d3af37">BISHINGA LANDRY</strong>
-            </h1>
-            <p>a professional IT.</p>
-          </div>
-          <div>
-            <h3 class="h3" style="padding-top: 30px">
-              Grow big with my sevrvices
-            </h3>
-          </div>
-
-          <div id="button">
-            <button class="green">
-              <p style="font-size: 20px">
-                <a href="about me.html">learn more</a>
-              </p>
-            </button>
-            <button class="gre">
-              <p style="font-size: 20px"><a href="blog.html">Hire me</a></p>
-            </button>
-          </div>
-        </section>
+      <div id="image">
+        <img src="images/i.png" alt="profile photo" class="image" />
+      </div>
+      <div id="description">
+        <h3>get every single solution</h3>
+        <h1>I'm BISHINGA Landry a proffessional IT</h1>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum
+        </p>
+        <div class="butt">
+          <a href="Skills.html"><button>Learn more</button> </a>
+        </div>
       </div>
     </main>
-    <footer>
-      <div id="foot" style="color: white">
-        <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
-        </div>
-        <di style="padding-top: 5em">
-          <h3>Let's connect</h3>
-          <div style="line-height: 10em">
-            <a href="https://twitter.com/qg_landry"
-              ><img src="images/tw.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href="https://www.instagram.com/ooglandry/"
-              ><img src="images/ig.png" alt="" style="border-radius: 50%"
-            /></a>
-
-            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-              ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-          </div>
-        </di>
-        <di style="padding-top: 5em"
-          ><h3>Address</h3>
-          <p style="line-height: 3em">+250 780026530</p>
-          <p>Kigali, Street KG 42</p>
-        </di>
-        <di style="padding-top: 5em">
-          <h3>Services</h3>
-          <ol style="line-height: 3em">
-            <li>Web development</li>
-            <li>Software development</li>
-            <li>Networking</li>
-            <li>Software engineering</li>
-          </ol>
-        </di>
-      </div>
-    </footer>
   </body>
   <script>
-    window.addEventListener('scroll', function () {
-      let header = document.querySelector('header');
-      header.classList.toggle('sticky', window.scrollY > 2);
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
+
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
     });
 
-    let dash = document.querySelector('#dash');
-    let ul = document.querySelector('#ul');
-
-    if (screen >= '1000px') {
-      ul.style.display = 'flex';
-    }
-    dash.addEventListener('click', function () {
-      if (ul.style.display === 'none') {
-        ul.style.display = 'block';
-      } else {
-        ul.style.display = 'none';
-      }
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
     });
   </script>
 </html>
