@@ -5,251 +5,303 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Righteous" />
-    <style>
-      * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: border-box;
-}
-body {
-  background-image: url('images/te.png');
-  display: grid;
-}
-
-#logo {
-  height: 50px;
-  margin-left: 200px;
-}
-
-#head {
-  color: white;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  padding-top: 50px;
-  position: fixed;
-        width: 100%;
-  background-color: rgb(55, 55, 104);
-  opacity: 1;
-}
-
-nav a:visited,
-nav a:link {
-  color: white;
-  text-decoration: none;
-  font-size: 25px;
-}
-nav a:hover {
-  color: #d3af37;
-  text-decoration: none;
-
-  opacity: 1;
-}
-ul > li {
-  display: flex;
-  padding-top: 0.5em;
-  float: right;
-  margin-inline: 1em;
-  font-weight: 900;
-  font-family: Rubik;
-  font-size: large;
-}
-#foot {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: rgb(55, 55, 104);
-  opacity: 0.9;
-  padding-bottom: 80px;
-  margin-top: 150px;
-}
-#main {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  color: white;
-  align-items: center;
-  padding-top: 200px;
-}
-#image {
-  height: 550px;
-  padding-top: 30px;
-  float: right;
-  margin-right: 100px;
-  opacity: 1;
-}
-#image:hover {
-  padding-top: 30px;
-
-  opacity: 1;
-  transition: 1s;
-}
-#button {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-  padding-top: 70px;
-  width: 300px;
-  height: 120px;
-}
-section {
-  font-size: 35px;
-  margin-left: 50px;
-  padding-top: 70px;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-.green {
-  border: transparent;
-  border-radius: 5%;
-  background-color: #d3af37;
-  color: white;
-}
-.gre {
-  border-radius: 5%;
-  border: solid;
-  border-color: #d3af37;
-  border-width: thin;
-  background: transparent;
-  color: white;
-}
-.gre:hover {
-  border-radius: 5%;
-  border: solid;
-  border-color: #d3af37;
-  border-width: thin;
-  background-color: #d3af37;
-  transition: 2s;
-}
-strong {
-  font-family: 'righteous';
-}
-input {
-  margin-top: 6px;
-  margin-left: 40px;
-  width: 200px;
-  height: 26px;
-  background-color: transparent;
-  border: solid;
-  border-width: thin;
-  border-radius: 5%;
-  border-color: white;
-  color: white;
-}
-
-    </style>
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body style="background-image: url(images/te.png)">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 8px;
+      position: absolute;
+      width: 100%;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    body {
+      background: #e3e4e8;
+    }
+    .image {
+      width: 250px;
+      border-radius: 10px;
+      margin-left: 30px;
+    }
+    body main {
+      padding: 10px;
+      padding-top: 370px;
+      width: 100%;
+      letter-spacing: 0.5px;
+      font-size: 20px;
+    }
+    h1 {
+      color: #002d5b;
+      margin-top: 30px;
+    }
+    h3 {
+      color: #ec5b53;
+      margin-top: 30px;
+    }
+    p {
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 30px;
+      width: 190px;
+      height: 70px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    .trans {
+      display: none;
+    }
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+      header li button {
+        display: none;
+      }
+      button {
+        margin-top: 30px;
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+      }
+      html {
+        width: 100%;
+      }
+      body {
+        max-width: 100%;
+      }
+      header {
+        background: white;
+        display: grid;
+        align-items: start;
+        grid-template-columns: 20% 60% 20%;
+        width: 100%;
+        height: 12%;
+        transition: 1s;
+      }
+      header.sticky {
+        position: fixed;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
+      }
+      header #ul {
+        display: flex;
+        margin-top: -10px;
+        float: right;
+        background: none;
+        color: black;
+        margin-right: 100px;
+      }
+      header #ul .li {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        line-height: 1em;
+        font-size: 25px;
+        margin-right: 3px;
+        cursor: pointer;
+      }
+      header #ul .li li:hover {
+        color: #ec5b53;
+        transition: 0.5s;
+      }
+      span {
+        background-color: white;
+        display: none;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #da {
+        display: none;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
+      }
+      .bt {
+        display: block;
+        margin-right: 100px;
+      }
+      .logo {
+        width: 50px;
+        margin-left: 200px;
+        margin-top: 20px;
+      }
+      body main {
+        padding: 15px;
+        padding-top: 280px;
+        display: flex;
+        flex-direction: row-reverse;
+
+        letter-spacing: 0.5px;
+        font-size: 25px;
+      }
+      .image {
+        width: 480px;
+        border-radius: 10px;
+      }
+      #image {
+        width: 100%;
+        margin-left: 200px;
+      }
+      #description {
+        width: 100%;
+        margin-left: 230px;
+        margin-top: 50px;
+      }
+      main button {
+        margin-top: 90px;
+        width: 190px;
+        height: 70px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+      }
+      .trans {
+        background: none;
+        border: thin solid #ec5b53;
+        color: black;
+        margin-left: 15px;
+      }
+    }
+  </style>
+  <body>
     <header>
-      <div id="head">
-        <div>
-          <img
-            src="images/logo.png"
-            alt="my logo"
-            id="logo"
-            style="margin-bottom: 2em"
-          />
-        </div>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <a href="Login.html">Login</a>
-              </li>
-              <li><a href="blog.html">Contact</a></li>
-              <li><a href="contact.html">Blog</a></li>
-              <li><a href="Skills.html">Skills</a></li>
-              <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="about me.html">About</a></li>
-              <li>
-                <a href="Home.html">Home</a>
-              </li>
-          </nav>
-        </div>
-        
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
+      <div>
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
+      </div>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
       </div>
     </header>
     <main>
-      <div id="main">
-        <section>
-          <div>
-            <h2 class="h2">Get every single solution</h2>
-          </div>
-          <div class="h1">
-            <h1 style="padding-top: 50px">
-              Hi, I'm
-              <strong style="color: #d3af37">BISHINGA LANDRY</strong>
-            </h1>
-            <p>a professional IT.</p>
-          </div>
-          <div>
-            <h3 class="h3" style="padding-top: 30px">
-              Grow big with my sevrvices
-            </h3>
-          </div>
-
-          <div id="button">
-            <button class="green">
-              <p style="font-size: 20px"><a href="about me.html">learn more</a> </p>
-            </button>
-            <button class="gre"><p style="font-size: 20px"><a href="Conatct.html">Hire me</a> </p></button>
-          </div>
-        </section>
-        <aside>
-          <div id="image">
-            <img
-              src="images/i.png"
-              alt="profile picture"
-              style="height: 550px"
-            />
-          </div>
-        </aside>
+      <div id="image">
+        <img src="images/i.png" alt="profile photo" class="image" />
+      </div>
+      <div id="description">
+        <h3>get every single solution</h3>
+        <h1>I'm BISHINGA Landry a proffessional IT</h1>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum
+        </p>
+        <div class="butt">
+          <a href="Skills.html"><button>Learn more</button> </a>
+        </div>
       </div>
     </main>
-    <footer>
-      <div id="foot" style="color: white">
-        <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
-        </div>
-        <di style="padding-top: 5em">
-          <h3>Let's connect</h3>
-          <div style="line-height: 10em">
-            <a href="https://twitter.com/qg_landry"
-              ><img src="images/tw.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href="https://www.instagram.com/ooglandry/"
-              ><img src="images/ig.png" alt="" style="border-radius: 50%"
-            /></a>
-            
-            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-              ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-            
-          </div>
-        </di>
-        <di style="padding-top: 5em"
-          ><h3>Address</h3>
-          <p style="line-height: 3em">+250 780026530</p>
-          <p>Kigali, Street KG 42</p>
-        </di>
-        <di style="padding-top: 5em">
-          <h3>Services</h3>
-          <ol style="line-height: 3em">
-            <li>Web development</li>
-            <li>Software development</li>
-            <li>Networking</li>
-            <li>Software engineering</li>
-          </ol>
-        </di>
-      </div>
-    </footer>
   </body>
   <script>
-    let head=document.getElementById("head");
-    
-    head.addEventListener("scroll",function(){
-      head.style="opacity:1";
-    })
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
+
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
+    });
+
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
+    });
   </script>
 </html>

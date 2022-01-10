@@ -5,290 +5,523 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        text-decoration: none;
-      }
-      #head {
-        color: black;
-        display: grid;
-        grid-template-columns: 25% 50% 25%;
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    html {
+      width: 100%;
+    }
+    body {
+      width: 100%;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    #title {
+      padding-top: 400px;
+      background-color: #e3e4e8;
+      height: 150px;
+      padding-left: 20px;
+    }
+    #title h1 {
+      position: absolute;
+      top: 200px;
+      font-size: 55px;
+      color: #000a2d;
+    }
+    #title p {
+      position: absolute;
+      top: 280px;
+      font-size: 20px;
+      color: #ec5b53;
+    }
+    form {
+      display: block;
+      text-align: center;
+    }
+    input {
+      width: 310px;
+      height: 40px;
+      margin-top: 20px;
 
-        background-color: rgba(192, 172, 172, 0.959);
-      }
-      nav a:visited,
-      nav a:link {
-        color: black;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 30px;
-        opacity: 1;
-      }
+      border: solid 1px #e3e4e8;
+    }
+    textarea {
+      width: 310px;
+      height: 150px;
+      margin-top: 30px;
 
-      nav a:hover {
-        color: #d3af37;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 40px;
+      border: solid 1px #e3e4e8;
+    }
+    form button {
+      margin-top: 30px;
+      height: 40px;
+      width: 110px;
+      float: left;
+      margin-left: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: none;
+      color: #ec5b53;
+      border: solid 1px #ec5b53;
+    }
+    #ico {
+      margin-top: 120px;
+      margin-left: 20px;
+      font-size: 15px;
+
+      display: grid;
+      grid-template-columns: 10% 20%;
+      grid-gap: 20px;
+    }
+    #ico .fas {
+      margin-top: 20px;
+    }
+    .i {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-gap: 5px;
+      margin-top: 25px;
+    }
+    .i .fas {
+      margin-top: 20px;
+      margin-left: 10px;
+    }
+    form h2 {
+      float: left;
+      margin-left: 30px;
+      margin-top: 20px;
+    }
+    footer {
+      background-color: #080627;
+      color: white;
+      padding: 20px;
+      padding-top: 70px;
+      margin-top: 100px;
+      height: 60vh;
+    }
+    footer .logo {
+      width: 60px;
+      margin-left: 60px;
+      margin-top: 20px;
+    }
+    footer h1 {
+      font-size: 40px;
+      margin-left: 120px;
+    }
+    footer .logo,
+    footer h2 {
+      display: inline;
+      margin-left: 140px;
+    }
+    footer p {
+      text-align: center;
+      margin-left: 15px;
+      margin-top: 20px;
+      font-size: 21px;
+      width: 40vh;
+    }
+    iframe {
+      width: 280px;
+      margin-left: 20px;
+      margin-top: 80px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    .ic {
+      margin-top: 0px;
+      margin-left: 15px;
+    }
+    .fab {
+      margin-left: 10px;
+    }
+    @media (min-width: 900px) {
+      .fab {
+        margin-left: 10px;
       }
-      ul > li {
-        display: flex;
-        padding-top: 0.5em;
-        float: right;
-        margin-inline: 1em;
-        font-weight: 900;
-        font-family: Rubik;
-        font-size: large;
-      }
-      ul > li {
-        text-decoration: underline;
-      }
-      #foot {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        background-color: #27241f;
-        opacity: 0.9;
-        padding-bottom: 100px;
-        margin-top: 500px;
-      }
-      #logo {
-        height: 50px;
-        border-radius: 20%;
-        margin-left: 200px;
-        margin-top: 2px;
-      }
-      main {
-        display: grid;
-        grid-template-columns: auto auto auto;
-        grid-gap: 3em;
+      .ic {
         margin-left: 50px;
-        margin-right: 50px;
       }
-      #nav {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        justify-self: center;
-        grid-gap: 5em;
-        padding-top: 270px;
+      header li button {
+        display: none;
       }
-      body {
-        display: grid;
-        grid-template-rows: 30% 40% 30%;
-        grid-gap: 150px;
+      form button {
+        margin-top: 80px;
+        height: 50px;
+        width: 130px;
+        float: left;
+        margin-left: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: none;
+        color: #ec5b53;
+        border: solid 1px #ec5b53;
       }
-      #ad {
-        display: flex;
+      #title {
+        font-size: 40px;
+        padding-top: 220px;
+        background-color: #e3e4e8;
+        height: 500px;
+        padding-left: 280px;
       }
-      .ima {
-        width: 592px;
-        border-radius: 2%;
-        height: ;
-      }
-      #article {
-        display: grid;
-        grid-template-rows: 70% 5% 5% 20%;
-
-        background-color: lavender;
-        border-radius: 12px;
-        justify-items: center;
-        grid-gap: 1em;
+      #title p {
+        padding: 10px;
+        color: #ec5b53;
         font-size: 25px;
       }
 
-      .box {
-        background-color: rgb(204, 240, 168);
-        border-radius: 10%;
-        height: 50px;
+      header {
+        background: white;
+        display: grid;
+        align-items: start;
+        grid-template-columns: 20% 60% 20%;
+        width: 100%;
+        transition: 1s;
+      }
+      header.sticky {
+        position: fixed;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
+      }
+      header #ul {
+        display: flex;
+
+        float: right;
+        background: none;
+        color: black;
+        margin-right: 100px;
+        margin-top: -10px;
+      }
+      header #ul .li {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        line-height: 1em;
+        font-size: 20px;
+        margin-right: 3px;
+        cursor: pointer;
+      }
+      header #ul .li li:hover {
+        color: #ec5b53;
+        transition: 0.5s;
+      }
+      span {
+        background-color: white;
+        display: none;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #da {
+        display: none;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
+      }
+      .bt {
+        display: block;
+        margin-right: 100px;
+      }
+      .logo {
         width: 50px;
-        text-align: center;
-        padding: 5px;
-        font-size: 30px;
+        margin-left: 200px;
+        margin-top: 20px;
       }
 
-      #port {
-        margin-top: 260px;
-        line-height: 4em;
+      footer {
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 60%;
         text-align: center;
+      }
+      footer .logo {
+        width: 60px;
+        margin-left: 60px;
+        margin-top: 20px;
+      }
+      footer h2 {
+        font-size: 40px;
+      }
+      footer .logo,
+      footer h2 {
+        display: inline;
+      }
+      footer p {
+        text-align: center;
+        margin-left: 650px;
+        margin-top: 100px;
+        font-size: 21px;
+        width: 40vh;
+      }
+      button {
+        margin-top: 30px;
+        width: 170px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      iframe {
+        margin-left: 210px;
+        width: 70%;
+        height: 500px;
+      }
+      form {
+        display: grid;
+        grid-template-rows: auto 5%;
+        grid-gap: 30px;
+      }
+      form {
+        margin-left: 200px;
+        margin-top: 60px;
+      }
+      .fas {
+        color: rgb(212, 205, 205);
+      }
+      form h2 {
+        font-size: 40px;
+        position: absolute;
+        top: 1090px;
+        left: 180px;
+      }
+      #ico {
+        position: absolute;
+        right: 90px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        top: 1050px;
+      }
+      .ic {
+        display: flex;
+        justify-content: space-between;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 470px;
+        margin-top: -25px;
       }
       input {
+        width: 320px;
+        height: 60px;
         margin-top: 30px;
-        margin-left: 40px;
-        width: 200px;
-        height: 26px;
-        background-color: transparent;
-        border: solid;
-        border-width: thin;
-        border-radius: 5%;
-        border-color: black;
-        color: white;
+        margin-left: 10px;
+
+        border: solid 1px #e3e4e8;
       }
-      .news {
-        margin-bottom: 6em;
-        margin-left: 1em;
+      textarea {
+        width: 650px;
+        height: 210px;
+        margin-top: 30px;
+        margin-left: 10px;
+        border: solid 1px #e3e4e8;
       }
-    </style>
-  </head>
+      .sm {
+        width: 650px;
+      }
+      .lin {
+        position: absolute;
+        top: 1371px;
+      }
+      .i {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 25px;
+        font-size: 20px;
+        margin-top: -5px;
+      }
+      .icc {
+        margin-top: 10px;
+        margin-left: 45px;
+      }
+    }
+  </style>
   <body>
-    <div id="head">
+    <header>
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
       <div>
-        <img
-          src="images/logo.png"
-          alt="my logo"
-          id="logo"
-          style="padding: 150px"
-        />
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
       </div>
-      <div class="nav">
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <a href="Login.html">Login</a>
-              </li>
-              <li><a href="Contact.html">Contact</a></li>
-              <li><a href="blogs.html">Blog</a></li>
-              <li><a href="Skills.html">Skills</a></li>
-              <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="about me.html">About</a></li>
-              <li>
-                <a href="Home.html">Home</a>
-              </li>
-            </ul>
-          </nav>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
+      </div>
+    </header>
+    <div id="title">
+      <h1>Contact us</h1>
+      <p>Home / Contact us</p>
+    </div>
+    <div>
+      <p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.5098726476945!2d30.130840047434308!3d-1.9491354999999717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca70fc697c1a9%3A0x109e9bd1f6dfe1c6!2sKimironko%20Market%2C%20Kigali!5e0!3m2!1sen!2srw!4v1640248991765!5m2!1sen!2srw"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          id="map"
+        ></iframe>
+      </p>
+    </div>
+    <div>
+      <form action="post">
+        <h2>Get in touch</h2>
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          placeholder="message"
+        ></textarea>
+        <div class="lin">
+          <input type="text" placeholder="Enter your name" />
+          <input type="text" placeholder="Email" />
         </div>
 
-        <div id="port">
-          <h1 style="color: black"><strong>Blog page</strong></h1>
-        </div>
-      </div>
-      <div>
-        <input type="text" placeholder="Search" />
-      </div>
+        <input type="text" placeholder="Subject" class="sm" />
+        <button>Send</button>
+      </form>
     </div>
-    <main>
-      <div id="article">
-        <div>
-          <a href="articles/article 1.html"
-            ><img src="images/r.jpg" alt="" class="ima"
-          /></a>
-        </div>
-        <div id="ad">
-          <p>Admin</p>
-          <p>22/12/2020</p>
-          <p>3comments</p>
-        </div>
-        <div>
-          <a href="articles/article 1.html">
-            Google inks pact for new 35-storey office</a
-          >
-        </div>
-        <div class="news">
-          That dominion stars lights dominion divide years for fourth have don't
-          stars is that he earth it first without heaven in place seed it second
-          morning saying.
-        </div>
+    <div id="ico">
+      <div class="ic">
+        <i class="fas fa-home fa-2x"></i>
+        <i class="fas fa-mobile-alt fa-3x"></i>
+        <i class="fas fa-envelope-open-text fa-2x"></i>
       </div>
-      <div id="article">
-        <div class="ima">
-          <a href="articles/article 2.html"
-            ><img src="iamges/rn.jpg" alt="" class="ima"
-          /></a>
-        </div>
-        <div id="ad">
-          <p>Admin</p>
-          <p>22/12/2020</p>
-          <p>3comments</p>
-        </div>
-        <div>
-          <a href="articles/article 2.html"
-            >Google inks pact for new 35-storey office</a
-          >
-        </div>
-        <div class="news">
-          That dominion stars lights dominion divide years for fourth have don't
-          stars is that he earth it first without heaven in place seed it second
-          morning saying.
-        </div>
-      </div>
-      <div id="article">
-        <div class="ima">
-          <a href="articles/article 3.html"
-            ><img src="images/hg.jpg" alt="" class="ima"
-          /></a>
-        </div>
-        <div id="ad">
-          <p>Admin</p>
-          <p>10/06/2000</p>
-          <p>3comments</p>
-        </div>
-        <div>
-          <a href="articles/article 3.html"
-            >Google inks pact for new 35-storey office</a
-          >
-        </div>
-        <div class="news">
-          That dominion stars lights dominion divide years for fourth have don't
-          stars is that he earth it first without heaven in place seed it second
-          morning saying.
-        </div>
-      </div>
-    </main>
-    <div id="nav">
-      <div class="box"><</div>
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
-      <div class="box">4</div>
-      <div class="box">></div>
-      <div class="box" style="width: 80px">
-        <p style="font-size: 25px">
-          <a href="articles/all articles.html">read all</a>
-        </p>
+
+      <div class="i">
+        <p>Kigali, Rwanda. Kimironko st 42 kg</p>
+        <p>+250 780026530 Monday to Friday 9am-6pm</p>
+        <p>Landrybrok3@gmail.com Send us your queries anytime</p>
       </div>
     </div>
     <footer>
-      <div id="foot" style="color: white">
-        <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
+      <img src="images/logo.png" alt="" class="logo" />
+      <h1>Landry</h1>
+      <p>Landrybrok3@gmail.com</p>
+      <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      <div>
+        <p>stay connected</p>
+        <div class="icc">
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
+            ><i class="fab fa-linkedin fa-2x"></i
+          ></a>
+          <a href="https://twitter.com/qg_landry"
+            ><i class="fab fa-twitter fa-2x"></i
+          ></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"
+            ><i class="fab fa-instagram fa-2x"></i
+          ></a>
         </div>
-        <di style="padding-top: 5em">
-          <h3>Let's connect</h3>
-          <div style="line-height: 10em">
-            <a href=""
-              ><img src="images/tw.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
-              ><img src="images/ig.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
-              ><img src="images/f.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
-              ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href=""
-              ><img src="images/g.png" alt="" style="border-radius: 50%"
-            /></a>
-          </div>
-        </di>
-        <di style="padding-top: 5em"
-          ><h3>Address</h3>
-          <p style="line-height: 3em">+250 780026530</p>
-          <p>Kigali, Street KG 42</p>
-        </di>
-        <di style="padding-top: 5em">
-          <h3>Services</h3>
-          <ol style="line-height: 3em">
-            <li>Web development</li>
-            <li>Software development</li>
-            <li>Networking</li>
-            <li>Software engineering</li>
-          </ol>
-        </di>
       </div>
     </footer>
   </body>
+  <script>
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
+
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
+    });
+
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
+    });
+  </script>
 </html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+      }
+      body {
+        display: grid;
+        grid-template-columns: 1fr 90%;
+        height: 99.8vh;
+        max-width: 201.5vh;
+      }
+      
+      .images {
+        width: 60px;
+        border-radius: 50px;
+      }
+      .sidebar img {
+        width: 90px;
+        margin-left: 70px;
+        
+      }
+      span {
+        background-color: black;
+        display: block;
+        width: 24px;
+        height: 3px;
+        margin: 3px;
+      }
+      .dash {
+        margin-top: 30px;
+        margin-left: 40px;
+       display: none;
+      }
+      aside {
+        background-color: white;
+        width: 30vh;
+        display: grid;
+        grid-template-rows: 7.5% 92%;
+      }
+
+      main {
+        background-color: rgb(243, 243, 243);
+        display: grid;
+        grid-template-rows: 7.5% 90%;
+      }
+      main #header {
+        border-bottom: solid 1px rgb(224, 221, 221);
+        border-left: solid 1px rgb(224, 221, 221);
+        background: white;
+      }
+      .logo {
+        background: white;
+        width: 105%;
+        border-bottom: solid 1px rgb(224, 221, 221);
+        display: flex;
+        font-size: 30px;
+      }
+      .logo img{
+          width: 27px;
+          height: 30px;
+      }
+      aside .logo,
+      aside .sidebar {
+        padding: 20px;
+      }
+      .sidebar {
+        font-size: 25px;
+        margin-top: 28px;
+      }
+      .sidebar div{
+          border-bottom: solid 1px rgb(39, 38, 38);
+          margin-top: 20px;
+      }
+      .visits
+       {
+        background: white;
+        width: 500px;
+        height: 450px;
+        margin-top: 10px;
+        margin-left: 30px;
+        border-radius: 7px;
+        padding: 15px;
+        box-shadow: 1px 1px 9px rgb(189, 179, 179),
+          1px 1px 9px rgb(134, 125, 125);
+        font-size: 20px;
+        display: grid;
+        grid-template-rows: 10% 20% 1fr;
+        position: absolute;
+        top: 105px;
+        
+      }
+      
+      
+      .calc p{
+          background: rgb(240, 238, 238);
+          padding: 10px;
+      }
+      .mes{
+        height: 180px;
+        
+      }
+      aside button{
+          height: 50px;
+          width: 150px;
+          margin-top: 30px;
+          font-size: 20px;
+          background: none;
+          border-color: #ec5b53;
+          color: #ec5b53;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+      .rep input{
+        margin-top: 20px;
+        margin-left: 10px;
+        height: 90px;
+        width: 300px;
+        font-size: 15px;
+      }
+      .rep button{
+        height: 50px;
+        width: 100px;
+        margin-top: 50px;
+        position: absolute;
+        right: 30px;
+        font-size: 18px;
+      }
+      
+      a{
+          color: inherit;
+      }
+      .sidebar .fa-user-shield{
+        margin-left: 50px;
+      }
+      @media (max-width:410px){
+        
+        .sidebar .fa-user-shield{
+        margin-left: 20px;
+      }
+        aside button{
+          height: 35px;
+          width: 100px;
+          margin-top: 30px;
+          font-size: 15px;
+          background: none;
+          border-color: #ec5b53;
+          color: #ec5b53;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+        body {
+        display: grid;
+        grid-template-columns: 1fr 90%;
+        height: 99.8vh;
+        max-width: 201.5vh;
+      }
+      .images {
+        width: 60px;
+        border-radius: 50px;
+      }
+      .sidebar img {
+        width: 50px;
+        margin-left: 40px;
+        
+      }
+      .sidebar {
+        font-size: 20px;
+        width: 15vh;
+      }
+      aside {
+        background-color: white;
+        width: 20vh;
+        display: grid;
+        grid-template-rows: 7.5% 92%;
+        position: absolute;
+        z-index: 1;
+        top: 66px;
+        
+      }
+      main {
+        background-color: rgb(243, 243, 243);
+        display: grid;
+        grid-template-rows: 7.5% 90%;
+        width: 739.5%;
+        
+      }
+      .logo {
+        background: white;
+        width: 15vh;
+        border-bottom: solid 1px black;
+        display: flex;
+        font-size: 25px;
+      }
+      .logo img{
+          width: 25px;
+          position: absolute;
+          top: 9px;
+      }
+      .logo p{
+          font-size: 18px;
+          position: absolute;
+          left: 48px;
+          top: 13px;
+      }
+      .visits
+       {
+        background: white;
+        width: 290px;
+        height: 350px;
+        
+        
+        border-radius: 7px;
+        padding: 15px;
+        box-shadow: 1px 1px 9px rgb(189, 179, 179),
+          1px 1px 9px rgb(134, 125, 125);
+        font-size: 20px;
+        display: grid;
+        grid-template-rows: 10% 20% 1fr;
+        position: absolute;
+        top: 105px;
+        
+      }
+      .calc p{
+          background: rgb(240, 238, 238);
+          padding: 10px;
+      }
+      .mes{
+        height: 80px;
+        
+      }
+      .rep input{
+        margin-top: 20px;
+        margin-left: 0px;
+        height: 80px;
+        width: 150px;
+        font-size: 15px;
+      }
+      .rep button{
+        
+        height: 35px;
+        width: 60px;
+        margin-top: 65px;
+        position: absolute;
+        right: 15px;
+        font-size: 15px;
+      }
+      }
+    </style>
+</head>
+<body>
+    <aside>
+        <div class="logo">
+          <img src="images/logo.png" alt="" class="log"/>
+          <p>Administrator</p>
+        </div>
+  
+        <div class="sidebar">
+          <i class="fas fa-user-shield fa-3x"></i>
+          <div><a href="Admin's panel.html"><i class="fas fa-chart-line"></i> Dashboard</a> </div>
+        <div><a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a> </div>
+        <div><a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a> </div>
+          <a href="Login.html"><button>Logout</button></a>
+        </div>
+      </aside>
+      <main>
+        <div id="header">
+          <div class="dash">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          
+        </div>
+        <div id="body">
+          <div class="visits">
+            <p>Chatbox</p>
+            <div class="calc">
+              <p>Email</p>
+              
+          </div>
+          <div class="calc"><p class="mes">hi,message</p></div>
+          <div class="rep">
+            <i class="fas fa-reply-all"></i>
+            <input type="text" placeholder="Enter message">
+            <button>Send</button>
+          </div>
+        </div>
+      </main>
+</body>
+<script>
+  let dash=document.querySelector('.dash');
+  let sidebar=document.querySelector('aside');
+  
+  
+
+  dash.addEventListener('click', function(){
+
+    if (sidebar.style.display==='none'){
+    sidebar.style.display='block';
+  }
+  else{
+    sidebar.style.display='none';
+  }
+  });
+  
+</script>
+</html>

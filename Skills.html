@@ -5,147 +5,376 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  box-sizing: border-box;
-}
-#head {
-  color: white;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  padding-top: 50px;
-  position: fixed;
-        width: 100%;
-  background-color: rgb(55, 55, 104);
-  opacity: 0.6;
-}
-nav a:visited,
-nav a:link {
-  color: white;
-  text-decoration: none;
-  font-size: 25px;
-}
-nav a:hover {
-  color: #d3af37;
-  text-decoration: none;
-
-  opacity: 1;
-}
-ul > li {
-  display: flex;
-  padding-top: 0.5em;
-  float: right;
-  margin-inline: 1em;
-  font-weight: 900;
-  font-family: Rubik;
-  font-size: large;
-}
-#foot {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: rgb(55, 55, 104);
-  opacity: 0.9;
-  padding-bottom: 80px;
-  margin-top: 150px;
-}
-#logo {
-  height: 50px;
-  margin-left: 200px;
-}
-body{
-    display: grid;
-    grid-template-rows: 26% 96% 1fr;
-}
-main{
-    background-color: lemonchiffon;
-    margin-top: 70px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-self: center;
-    grid-gap: 80px;
-}
-    </style>
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    #title {
+      padding-top: 400px;
+      background-color: #e3e4e8;
+      height: 150px;
+      padding-left: 20px;
+    }
+    #title h1 {
+      position: absolute;
+      top: 200px;
+      font-size: 55px;
+      color: #000a2d;
+    }
+    #title p {
+      position: absolute;
+      top: 280px;
+      font-size: 20px;
+      color: #ec5b53;
+    }
+    #box1 {
+      border: solid #d0d2d1;
+      border-width: thin;
+      border-radius: 5px;
+      height: 350px;
+      width: 350px;
+      margin-left: 10px;
+      margin-top: 53px;
+    }
+    .fas,
+    .fab {
+      margin-left: 35%;
+      margin-top: 70px;
+      border: none;
+      padding: 25px;
+      color: #ec5b53;
+    }
+    main h2 {
+      margin-top: 30px;
+      text-align: center;
+      color: #1c165c;
+    }
+    main p {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 20px;
+      color: #7c8099;
+    }
+    aside {
+      margin-top: 300px;
+      padding: 10px;
+      background: #fff4f4;
+      padding-bottom: 30px;
+    }
+    aside button {
+      margin-left: 2px;
+      letter-spacing: 1px;
+      margin-top: 30px;
+      width: 150px;
+      height: 50px;
+      font-size: 15px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    aside h2 {
+      font-size: 20px;
+
+      margin-top: 10px;
+      margin-left: 2px;
+      color: #ee7069;
+    }
+    button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+    }
+    @media (min-width: 900px) {
+      header li button {
+        display: none;
+      }
+      header {
+        background: white;
+        display: grid;
+        align-items: start;
+        grid-template-columns: 20% 60% 20%;
+        transition: 1s;
+        z-index: 1;
+      }
+      header.sticky {
+        position: fixed;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
+      }
+      header #ul {
+        display: flex;
+
+        float: right;
+        background: none;
+        color: black;
+        margin-right: 100px;
+        margin-top: -10px;
+      }
+      header #ul .li {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        line-height: 1em;
+        font-size: 20px;
+        margin-right: 3px;
+        cursor: pointer;
+      }
+      header #ul .li li:hover {
+        color: #ec5b53;
+        transition: 0.5s;
+      }
+      span {
+        background-color: white;
+        display: none;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #da {
+        display: none;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
+      }
+      .bt {
+        display: block;
+        margin-right: 100px;
+      }
+      .logo {
+        width: 50px;
+        margin-left: 200px;
+        margin-top: 20px;
+      }
+      button {
+        margin-top: 30px;
+        width: 170px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #title {
+        font-size: 40px;
+        padding-top: 220px;
+        background-color: #e3e4e8;
+        height: 500px;
+        padding-left: 280px;
+      }
+      #title p {
+        padding: 10px;
+        color: #ec5b53;
+        font-size: 25px;
+      }
+      main {
+        display: flex;
+        margin-top: 210px;
+        justify-content: space-evenly;
+      }
+      #box1 {
+        border: solid #d0d2d1;
+        border-width: thin;
+        border-radius: 5px;
+        height: 480px;
+        width: 400px;
+        margin-left: 10px;
+        margin-top: 53px;
+        transition: color 0.4s linear;
+        position: relative;
+      }
+      #box1:hover {
+        color: #fff;
+      }
+      #box1::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #ff3d1c;
+        z-index: -1;
+        transition: transform 1s;
+        transform-origin: 0 0;
+        transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+        transform: scaleY(0);
+      }
+      #box1:hover::before {
+        transform: scaleY(1);
+      }
+      main h2 {
+        margin-top: 140px;
+        text-align: center;
+        color: #1c165c;
+        font-size: 35px;
+      }
+      main p {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 20px;
+        color: #7c8099;
+        font-size: 26px;
+      }
+      aside {
+        margin-top: 300px;
+        padding: 150px;
+        background: #fff4f4;
+        display: flex;
+      }
+      aside button {
+        margin-left: 600px;
+        width: 190px;
+        height: 70px;
+        font-size: 16px;
+      }
+      aside h2 {
+        font-size: 50px;
+        width: 100vh;
+        margin-top: 10px;
+        margin-left: 120px;
+        color: #ee7069;
+      }
+    }
+  </style>
   <body>
     <header>
-        <div id="head">
-          <div>
-            <img
-              src="images/logo.png"
-              alt="my logo"
-              id="logo"
-              style="margin-bottom: 2em"
-            />
-          </div>
-          <div>
-            <nav>
-              <ul>
-                <li>
-                  <a href="Login.html">Login</a>
-                </li>
-                <li><a href="blog.html">Contact</a></li>
-              <li><a href="contact.html">Blog</a></li>
-                <li><a href="Skills.html">Skills</a></li>
-                <li><a href="Portfolio.html">Portfolio</a></li>
-                <li><a href="about me.html">About</a></li>
-                <li>
-                  <a href="Home.html">Home</a>
-                </li>
-            </nav>
-          </div>
-          
-        </div>
-      </header>
-      <main>
-          <div>
-              <img src="images/html.jpg" alt="">
-          </div>
-          <div>
-              <img src="images/net.png" alt="">
-          </div>
-          <div>
-              <img src="images/java.png" alt="">
-          </div>
-      </main>
-      <footer>
-        <div id="foot" style="color: white">
-          <div style="padding-top: 5em">
-            <img src="images/logo.png" alt="my logo" id="logo" />
-          </div>
-          <di style="padding-top: 5em">
-            <h3>Let's connect</h3>
-            <div style="line-height: 10em">
-              <a href="https://twitter.com/qg_landry"
-                ><img src="images/tw.png" alt="" style="border-radius: 50%"
-              /></a>
-              <a href="https://www.instagram.com/ooglandry/"
-                ><img src="images/ig.png" alt="" style="border-radius: 50%"
-              /></a>
-              
-              <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-                ><img src="images/in.png" alt="" style="border-radius: 50%"
-              /></a>
-              
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
+      <div>
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-          </di>
-          <di style="padding-top: 5em"
-            ><h3>Address</h3>
-            <p style="line-height: 3em">+250 780026530</p>
-            <p>Kigali, Street KG 42</p>
-          </di>
-          <di style="padding-top: 5em">
-            <h3>Services</h3>
-            <ol style="line-height: 3em">
-              <li>Web development</li>
-              <li>Software development</li>
-              <li>Networking</li>
-              <li>Software engineering</li>
-            </ol>
-          </di>
-        </div>
-      </footer>
+          </div>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
+      </div>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
+      </div>
+    </header>
+    <div id="title">
+      <h1>My services</h1>
+      <p>Home / My services</p>
+    </div>
+    <main>
+      <div id="box1">
+        <i class="fas fa-file-code fa-4x"></i>
+        <h2>HTML&CSS</h2>
+        <p>front end development</p>
+      </div>
+      <div id="box1">
+        <i class="fab fa-js-square fa-4x"></i>
+        <h2>Javascript</h2>
+        <p>back end development</p>
+      </div>
+      <div id="box1">
+        <i class="fas fa-network-wired fa-4x"></i>
+        <h2>Networking</h2>
+        <p>setting up different kinds of networks</p>
+      </div>
+    </main>
+    <aside>
+      <h2>Dont worry for Contact i'm available</h2>
+      <a href="Contact.html"><button>Contact me now</button></a>
+    </aside>
   </body>
+  <script>
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
+
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
+    });
+
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
+    });
+  </script>
 </html>

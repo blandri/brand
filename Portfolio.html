@@ -5,265 +5,433 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.google.com/specimen/Fira+Sans?query=fira"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.google.com/specimen/Oxygen?query=oxy"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.google.com/specimen/Poppins?query=popp"
-    />
-    <link rel="stylesheet" href="https://fonts.google.com/specimen/Righteous" />
+    <script
+      src="https://kit.fontawesome.com/58847b45f6.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       * {
         margin: 0;
         padding: 0;
+        text-decoration: none;
         list-style: none;
+        box-sizing: border-box;
       }
-      #head {
-        color: white;
-        display: grid;
-        grid-template-columns: 25% 50% 25%;
-
-        font-family: 'oxygen';
-        padding-top: 50px;
-        background-image: url('images/port.png');
-
-        background-repeat: no-repeat;
+      a {
+        color: inherit;
       }
-      nav a:visited,
-      nav a:link {
-        color: white;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 150px;
-        opacity: 1;
-      }
-
-      nav a:hover {
-        color: #d3af37;
-        text-decoration: none;
-        font-size: 25px;
-        padding-top: 155px;
-        opacity: 1;
-      }
-      ul > li {
+      header {
+        background: white;
         display: flex;
-        padding-top: 0.5em;
-        float: right;
-        margin-inline: 1em;
-        font-weight: 900;
-        font-family: Rubik;
-        font-size: 30px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
       }
-
-      #foot {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        background-color: #27241f;
-        opacity: 0.9;
-        padding-bottom: 90px;
-        margin-top: 355px;
-      }
-      #body {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        margin-top: 40px;
-        margin-left: 40px;
-        margin-right: 30px;
+      header ul {
+        padding: 5px;
+        margin-left: 0px;
         font-size: 20px;
+        line-height: 1em;
+        letter-spacing: 1px;
       }
-      #logo {
-        height: 50px;
+      #ul {
+        background-color: #333333;
+        color: white;
+        border-radius: 1px;
+        min-height: 48px;
+      }
+      #ul .li {
+        padding-top: 50px;
+        line-height: 2em;
+      }
+      .logo {
+        width: 50px;
+      }
+      span {
+        background-color: white;
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #da {
+        display: flex;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
+      }
+      .bt {
+        display: none;
+      }
+      #title {
+        padding-top: 400px;
+        background-color: #e3e4e8;
+        height: 150px;
+        padding-left: 20px;
+      }
+      #title h1 {
+        position: absolute;
+        top: 200px;
+        font-size: 55px;
+        color: #000a2d;
+      }
+      #title p {
+        position: absolute;
+        top: 280px;
+        font-size: 20px;
+        color: #ec5b53;
+      }
 
-        padding: 100px;
+      .net {
+        margin-top: 30px;
       }
-      #bod {
-        display: grid;
-        grid-template-rows: 33% 15% 52%;
+      .image {
+        width: 300px;
+        margin-left: 25px;
       }
-      #bo {
-        display: grid;
-        grid-template-rows: 22% 33% 45%;
+      footer {
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 60vh;
       }
-      .ima {
-        margin-left: 300px;
-        margin-top: 35px;
+      footer .logo {
+        width: 60px;
+        margin-left: 60px;
+        margin-top: 20px;
       }
-      .h2 {
-        margin-top: 40px;
-        margin-left: 10px;
-        margin-right: 250px;
+      footer h2 {
+        font-size: 40px;
       }
-
-      h2 {
-        line-height: 3em;
+      footer .logo,
+      footer h2 {
+        display: inline;
       }
-
-      body {
-        display: grid;
-        grid-template-rows: 20% 50% 30%;
-        background: rgb(2, 0, 36);
-        background: linear-gradient(
-          90deg,
-          rgba(2, 0, 36, 1) 0%,
-          rgba(9, 9, 121, 1) 35%,
-          rgba(0, 212, 255, 1) 100%
-        );
-      }
-      .nav {
-        display: grid;
-        grid-template-rows: 50% 1fr;
-      }
-      #port {
-        margin-top: 70px;
-        line-height: 4em;
+      footer p {
         text-align: center;
+        margin-left: 15px;
+        margin-top: 20px;
+        font-size: 21px;
+        width: 40vh;
+      }
+      .slideframe {
+        margin-top: 200px;
+      }
+      .imgcont h2 {
+        color: #ec5b53;
+        text-decoration: underline;
+      }
+      .imgcont {
+        margin-top: 40px;
+      }
+      .imgcont p,
+      .imgcont h2 {
+        margin-left: 20px;
+        margin-top: 10px;
       }
       button {
-        margin-top: 100px;
-        margin-left: 100px;
+        margin-top: 20px;
         width: 100px;
-        height: 40px;
-        border-radius: 5%;
-        border: solid;
-        border-color: #d3af37;
-        border-width: thin;
-        background: transparent;
-        font-size: 14px;
-      }
-      input {
-        margin-top: 160px;
-        margin-left: 40px;
-        width: 200px;
-        height: 26px;
-        background-color: transparent;
-        border: solid;
-        border-width: thin;
-        border-radius: 5%;
-        border-color: white;
+        height: 42px;
+        font-size: 20px;
         color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+      }
+      .ic {
+        margin-top: 30px;
+        margin-left: 115px;
+      }
+      .fab {
+        margin-left: 10px;
+      }
+      @media (min-width: 900px) {
+        .fab {
+          margin-left: 10px;
+        }
+        .ic {
+          margin-left: 50px;
+        }
+        header li button {
+          display: none;
+        }
+        header {
+          background: white;
+          display: grid;
+          align-items: start;
+          grid-template-columns: 20% 60% 20%;
+          transition: 1s;
+          z-index: 1;
+        }
+        header.sticky {
+          position: fixed;
+          box-shadow: 0px 3px 5px #757272;
+          transition: 0.45s;
+        }
+        header #ul {
+          display: flex;
+
+          float: right;
+          background: none;
+          color: black;
+          margin-right: 100px;
+          margin-top: -10px;
+        }
+        header #ul .li {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          justify-items: center;
+          line-height: 1em;
+          font-size: 20px;
+          margin-right: 3px;
+          cursor: pointer;
+        }
+        header #ul .li li:hover {
+          color: #ec5b53;
+          transition: 0.5s;
+        }
+        span {
+          background-color: white;
+          display: none;
+          width: 30px;
+          height: 5px;
+          margin: 3px;
+        }
+        #da {
+          display: none;
+          background: black;
+          padding: 7px;
+          float: right;
+          border-radius: 5px;
+        }
+        .bt {
+          display: block;
+          margin-right: 100px;
+        }
+        .logo {
+          width: 50px;
+          margin-left: 200px;
+          margin-top: 20px;
+        }
+        #title {
+          font-size: 40px;
+          padding-top: 220px;
+          background-color: #e3e4e8;
+          height: 500px;
+          padding-left: 280px;
+        }
+        #title p {
+          padding: 10px;
+          color: #ec5b53;
+          font-size: 25px;
+        }
+        footer {
+          background-color: #080627;
+          color: white;
+          padding: 20px;
+          padding-top: 70px;
+          margin-top: 100px;
+          height: 60%;
+          text-align: center;
+        }
+        footer .logo {
+          width: 60px;
+          margin-left: 60px;
+          margin-top: 20px;
+        }
+        footer h2 {
+          font-size: 40px;
+        }
+        footer .logo,
+        footer h2 {
+          display: inline;
+        }
+        footer p {
+          text-align: center;
+          margin-left: 650px;
+          margin-top: 100px;
+          font-size: 21px;
+          width: 40vh;
+        }
+        button {
+          margin-top: 30px;
+          width: 170px;
+          height: 50px;
+          font-size: 20px;
+          color: white;
+          background-color: #e96760;
+          border: 0;
+          border-radius: 5px;
+        }
+        .image {
+          width: 30%;
+          height: 30%;
+          border-radius: 10px;
+        }
+        .slideframe {
+          overflow: hidden;
+          height: 600px;
+          width: 700px;
+          margin-left: 500px;
+          margin-top: 60px;
+        }
+        @-webkit-keyframes slide {
+          0% {
+            left: 3000px;
+          }
+          10% {
+            left: 3000px;
+          }
+          20% {
+            left: 1000px;
+          }
+          30% {
+            left: 1000px;
+          }
+          40% {
+            left: 3000px;
+          }
+          50% {
+            left: 3000px;
+          }
+          60% {
+            left: 1000px;
+          }
+          70% {
+            left: 1000px;
+          }
+          80% {
+            left: 3000px;
+          }
+          90% {
+            left: 3000px;
+          }
+          100% {
+            left: 3000px;
+          }
+        }
+        .slideimages {
+          width: 9000px;
+          height: 700px;
+          margin: 0 0 0 -3000px;
+          position: relative;
+          -webkit-animation-name: slide;
+          -webkit-animation-duration: 44s;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-direction: alternate;
+          -webkit-animation-play-state: running;
+        }
+        .imgcont {
+          height: 1200px;
+          width: 2000px;
+          position: relative;
+          float: left;
+        }
+        .imgcont p,
+        .imgcont h2 {
+          margin-top: 20px;
+          margin-left: 120px;
+          font-size: 20px;
+          width: 20%;
+          text-align: center;
+        }
       }
     </style>
   </head>
   <body>
-    <div id="head" style="background-image: url('images/port.png')">
+    <header>
+      <div><img src="images/logo.png" alt="logo" class="logo" /></div>
       <div>
-        <img
-          src="images/logo.png"
-          alt="my logo"
-          id="logo"
-          style="padding: 150px"
-        />
+        <ul id="ul">
+          <div id="da">
+            <p style="margin-top: 0"><strong>Menu</strong></p>
+            <div class="dash">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="li">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Skills.html">Skills</a></li>
+            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li><a href="Blog.html">Blog</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
+          </div>
+        </ul>
       </div>
-      <div class="nav">
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <a href="Login.html">Login</a>
-              </li>
-              <li><a href="blog.html">Contact</a></li>
-              <li><a href="contact.html">Blog</a></li>
-              <li><a href="Skills.html">Skills</a></li>
-              <li><a href="Portfolio.html">Portfolio</a></li>
-              <li><a href="about me.html">About</a></li>
-              <li>
-                <a href="Home.html">Home</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-
-        <div id="port">
-          <h1 style="color: #d3af37"><strong>PORTFOLIO</strong></h1>
-          <h2 style="font-family: righteous">Projects I have worked on</h2>
-        </div>
-      </div>
+      <div class="bt"><button>Log in</button></div>
+    </header>
+    <div id="title">
+      <h1>My Portfolio</h1>
+      <p>Home / My Portfolio</p>
     </div>
 
-    <div id="body">
-      <div id="bod">
-        <di class="ima"
-          ><img src="images/n.jpg" alt="" style="height: 400px"
-        /></di>
-
-        <di class="h2">
-          <h2 style="color: #d3af37">Web development Project</h2>
-          <p style="color: white">
+    <div class="slideframe">
+      <div class="slideimages">
+        <div class="imgcont">
+          <img src="images/w.jpg" alt="" class="image" />
+          <h2>Web development project</h2>
+          <p>
             In 2020 I worked on a web development project with my colleagues in
             which we developed a website for a mini-market and it was a awesome
             website.
           </p>
-        </di>
-        <div class="ima">
-          <img src="images/art.jpg" alt="" style="height: 600px" />
         </div>
-      </div>
-      <div id="bo">
-        <di style="margin-left: 150px">
-          <h2 style="color: #d3af37">Networking Project</h2>
-          <p style="margin-right: 30px">
+        <div class="imgcont">
+          <img src="images/n.jpg" alt="" class="image" />
+          <h2>Networking project</h2>
+          <p>
             Latery I was working on a Networking project in which i was setting
             up a working environment for the ....... company, it included
             setting up servers and clients both on linux and windows OS.
           </p>
-        </di>
-        <di class="im" style="margin-top: 50px"
-          ><img src="images/w.jpg" alt="" style="height: 400px"
-        /></di>
-        <div style="margin-left: 180px" class="h2">
-          <h2 style="color: #d3af37">Digital Art works</h2>
-          <p>
-            I have more than 50 art works including digital ones, paintings and
-            some are pencil works. I have worked with some well known artists a
-            tone of marvelous works.
-          </p>
-
-          <button><p style="color: #d3af37">View more -></p></button>
         </div>
       </div>
     </div>
-    <footer>
-      <div id="foot" style="color: white">
-        <div style="padding-top: 5em">
-          <img src="images/logo.png" alt="my logo" id="logo" />
-        </div>
-        <di style="padding-top: 5em">
-          <h3>Let's connect</h3>
-          <div style="line-height: 10em">
-            <a href="https://twitter.com/qg_landry"
-              ><img src="images/tw.png" alt="" style="border-radius: 50%"
-            /></a>
-            <a href="https://www.instagram.com/ooglandry/"
-              ><img src="images/ig.png" alt="" style="border-radius: 50%"
-            /></a>
 
-            <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-              ><img src="images/in.png" alt="" style="border-radius: 50%"
-            /></a>
-          </div>
-        </di>
-        <di style="padding-top: 5em"
-          ><h3>Address</h3>
-          <p style="line-height: 3em">+250 780026530</p>
-          <p>Kigali, Street KG 42</p>
-        </di>
-        <di style="padding-top: 5em">
-          <h3>Services</h3>
-          <ol style="line-height: 3em">
-            <li>Web development</li>
-            <li>Software development</li>
-            <li>Networking</li>
-            <li>Software engineering</li>
-          </ol>
-        </di>
+    <footer>
+      <img src="images/logo.png" alt="" class="logo" />
+      <h2>Landry</h2>
+      <p>Landrybrok3@gmail.com</p>
+      <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      <div>
+        <p>stay connected</p>
+        <div class="ic">
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
+        </div>
       </div>
     </footer>
   </body>
+
+  <script>
+    let li = document.querySelector('.li');
+    let dash = document.querySelector('#da');
+
+    dash.addEventListener('click', () => {
+      if (li.style.display === 'none') {
+        li.style.display = 'block';
+      } else {
+        li.style.display = 'none';
+      }
+    });
+
+    let header = document.querySelector('header');
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('sticky', window.scrollY > 100);
+    });
+  </script>
 </html>
