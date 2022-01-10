@@ -10,6 +10,11 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      #butt{
+        position: absolute;
+        left: 44%;
+        top: 74%;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -146,6 +151,11 @@
       }
       
       @media (max-width: 900px) {
+        #butt{
+        position: absolute;
+        left: 29%;
+        top: 66%;
+      }
         html {
         width: 100%;
       }
@@ -314,14 +324,21 @@
       </div>
       <div class="bt"><button>Log in</button></div>
     </header>
-    <form >
+    <a href="Admin's panel.html">
+      <button id="butt" onclick="function next()">Login</button>
+    </a>
+    <form method="post">
+
       <div id="icon"><i class="fas fa-user-tie fa-5x"></i> 
       <div class="form">
         <input type="text" id="name" placeholder="First name"  />
-        <input type="text" id="name" placeholder="Last name" />
+        <input type="text" id="nam" placeholder="Last name" />
         <input type="text" id="password" placeholder="Password" />
-        <a href="Admin's panel.html"><button>Login</button></a>
+        
+        
       </div>
+      
+      
       
       
     </form>
@@ -338,12 +355,11 @@
       }
     });
 
-    let name=document.querySelector('#name');
-    let password=document.querySelector('#password');
-    let but=document.querySelector('.bt')
+    
 
-    const nam=name.value;
-    const pass=password.value;
+    
+    
+    
 
     
     
