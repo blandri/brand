@@ -403,8 +403,8 @@
       </div>
     </div>
     <div class="comme">
-      <input type="text" placeholder="write comment" />
-      <button>Send</button>
+      <input type="text" placeholder="write comment" id="com" />
+      <button id="bt">Send</button>
     </div>
 
     <footer>
@@ -415,9 +415,15 @@
       <div>
         <p>stay connected</p>
         <div class="ic">
-          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
-          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
-          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
+            ><i class="fab fa-linkedin fa-2x"></i
+          ></a>
+          <a href="https://twitter.com/qg_landry"
+            ><i class="fab fa-twitter fa-2x"></i
+          ></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"
+            ><i class="fab fa-instagram fa-2x"></i
+          ></a>
         </div>
       </div>
     </footer>
@@ -449,6 +455,19 @@
       } else {
         comme.style.display = 'none';
       }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let comm = document.querySelector('#com');
+      let bt = document.querySelector('#bt');
+
+      const comment = comm.value.trim();
+
+      bt.addEventListener('click', (w) => {
+        w.preventDefault();
+
+        console.log(comment);
+      });
     });
   </script>
 </html>
