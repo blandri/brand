@@ -200,13 +200,17 @@
       border-radius: 5px;
     }
     .ic {
-        margin-top: 30px;
-        margin-left: 115px;
-      }
-      .fab {
-        margin-left: 10px;
-      }
+      margin-top: 30px;
+      margin-left: 115px;
+    }
+    .fab {
+      margin-left: 10px;
+    }
     @media (min-width: 900px) {
+      .lik {
+        float: right;
+        margin-left: 5px;
+      }
       header li button {
         display: none;
       }
@@ -370,11 +374,11 @@
         width: 40vh;
       }
       .fab {
-          margin-left: 10px;
-        }
-        .ic {
-          margin-left: 50px;
-        }
+        margin-left: 10px;
+      }
+      .ic {
+        margin-left: 50px;
+      }
     }
   </style>
   <body>
@@ -411,7 +415,7 @@
       <h1>Blog area</h1>
       <p>Home / Blog</p>
     </div>
-    <div id="article">
+    <div id="article" class="at1">
       <div>
         <a href="Article.html"><div class="date">15 jan</div></a>
         <img src="images/neww.jpg" alt="" class="image" />
@@ -425,12 +429,12 @@
           using Lorem Ipsum is that it has a more-or-less normal distribution of
         </p>
         <div>
-          <i class="fas fa-thumbs-up"></i>
-          <a href="Article.html"></a><i class="fas fa-comment-alt"></i>
+          <i class="fas fa-thumbs-up"><p class="lik"></p></i>
+          <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
         </div>
       </div>
     </div>
-    <div id="article">
+    <div id="article" class="at2">
       <div>
         <a href="Article.html"><div class="date">15 jan</div></a>
         <img src="images/neww.jpg" alt="" class="image" />
@@ -443,8 +447,8 @@
           using Lorem Ipsum is that it has a more-or-less normal distribution of
         </p>
         <div>
-          <i class="fas fa-thumbs-up"></i>
-          <a href="Article.html"></a><i class="fas fa-comment-alt"></i>
+          <i class="fas fa-thumbs-up"><p class="lik"></p></i>
+          <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
         </div>
       </div>
     </div>
@@ -461,9 +465,15 @@
       <div>
         <p>stay connected</p>
         <div class="ic">
-          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
-          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
-          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
+            ><i class="fab fa-linkedin fa-2x"></i
+          ></a>
+          <a href="https://twitter.com/qg_landry"
+            ><i class="fab fa-twitter fa-2x"></i
+          ></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"
+            ><i class="fab fa-instagram fa-2x"></i
+          ></a>
         </div>
       </div>
     </footer>
@@ -483,6 +493,32 @@
     let header = document.querySelector('header');
     window.addEventListener('scroll', function () {
       header.classList.toggle('sticky', window.scrollY > 100);
+    });
+
+    window.addEventListener('DOMContentLoaded', function e() {
+      let article1 = document.querySelector('.at1');
+      let article2 = document.querySelector('.at2');
+      let like = document.querySelector('.fa-thumbs-up');
+      let body = document.getElementById('body');
+      let del = document.querySelector('.fa-trash-alt');
+      let edit = document.querySelector('.fa-edit');
+      let post = document.querySelector('.pos');
+
+      let articles = {
+        first: article1,
+        second: article2,
+      };
+//Likes
+      console.log(articles);
+      let k = 0;
+      let count = document.querySelector('.lik');
+      count.innerHTML = k;
+      like.addEventListener('click', () => {
+        count.innerHTML = k++;
+      });
+
+//comment
+           
     });
   </script>
 </html>

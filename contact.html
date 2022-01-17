@@ -200,6 +200,9 @@
     .fab {
       margin-left: 10px;
     }
+    .error {
+      border-color: red;
+    }
     @media (min-width: 900px) {
       .fab {
         margin-left: 10px;
@@ -455,7 +458,7 @@
       </p>
     </div>
     <div>
-      <form action="post">
+      <form method="Post" action="Contact.html">
         <h2>Get in touch</h2>
         <textarea
           name="message"
@@ -465,12 +468,12 @@
           placeholder="message"
         ></textarea>
         <div class="lin">
-          <input type="text" placeholder="Enter your name" />
-          <input type="text" placeholder="Email" />
+          <input id="name" type="text" placeholder="Enter your name" />
+          <input id="Email" type="text" placeholder="Email" />
         </div>
 
-        <input type="text" placeholder="Subject" class="sm" />
-        <button>Send</button>
+        <input id="mess" type="text" placeholder="Subject" class="sm" />
+        <button type="submit">Send</button>
       </form>
     </div>
     <div id="ico">
@@ -522,6 +525,61 @@
     let header = document.querySelector('header');
     window.addEventListener('scroll', function () {
       header.classList.toggle('sticky', window.scrollY > 100);
+    });
+
+    let name = document.querySelector('#name');
+    let message = document.querySelector('textarea');
+    let email = document.querySelector('#Email');
+
+    //dom manipulation
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let form = document.querySelector('form');
+
+      //form manipulation
+      let nom = name.value.trim();
+      let mess = message.value.trim();
+      let mail = email.value.trim();
+
+      form.addEventListener('submit', (nw) => {
+        nw.preventDefault();
+        let message = {};
+        message.name = nom;
+        message.email = mail;
+        message.mess = mess;
+
+        localStorage.setItem(nom, mail);
+        console.log(localStorage);
+        /*error function*/ const showError = (input) => {
+          const formField = input.parentElement;
+
+          input.classList.add('error');
+
+          const error = formField.querySelector('#small');
+        };
+        /*success*/ const success = (input) => {
+          input.classList.remove('error');
+          name.classList.add('error');
+        };
+
+        const mailValid = (email) => {
+          const re =
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+        };
+        let name = document.querySelector('#name');
+
+        if (mailValid(mail) == false) {
+          showError(email);
+        }
+
+        if (nom < 3) {
+          showError(name);
+        }
+        if (mess < 1) {
+          showError(message);
+        }
+      });
     });
   </script>
 </html>
