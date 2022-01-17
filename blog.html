@@ -207,10 +207,6 @@
       margin-left: 10px;
     }
     @media (min-width: 900px) {
-      .lik {
-        float: right;
-        margin-left: 5px;
-      }
       header li button {
         display: none;
       }
@@ -415,15 +411,15 @@
       <h1>Blog area</h1>
       <p>Home / Blog</p>
     </div>
-    <div id="article" class="at1">
+    <div id="article" class="0001">
       <div>
         <a href="Article.html"><div class="date">15 jan</div></a>
         <img src="images/neww.jpg" alt="" class="image" />
       </div>
       <div class="det">
-        <a href="Article.html"><h2>What is Lorem Ipsum?</h2></a>
+        <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
 
-        <p>
+        <p class="content">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
@@ -434,20 +430,20 @@
         </div>
       </div>
     </div>
-    <div id="article" class="at2">
+    <div id="article" class="0002">
       <div>
         <a href="Article.html"><div class="date">15 jan</div></a>
         <img src="images/neww.jpg" alt="" class="image" />
       </div>
       <div class="det">
-        <a href="Article.html"><h2>What is Lorem Ipsum?</h2></a>
-        <p>
+        <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
+        <p class="content">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
         </p>
         <div>
-          <i class="fas fa-thumbs-up"><p class="lik"></p></i>
+          <i class="fas fa-thumbs-up"><p class="lik">0</p></i>
           <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
         </div>
       </div>
@@ -495,30 +491,28 @@
       header.classList.toggle('sticky', window.scrollY > 100);
     });
 
-    window.addEventListener('DOMContentLoaded', function e() {
-      let article1 = document.querySelector('.at1');
-      let article2 = document.querySelector('.at2');
-      let like = document.querySelector('.fa-thumbs-up');
-      let body = document.getElementById('body');
-      let del = document.querySelector('.fa-trash-alt');
-      let edit = document.querySelector('.fa-edit');
-      let post = document.querySelector('.pos');
+    //article manipulation
 
-      let articles = {
-        first: article1,
-        second: article2,
-      };
-//Likes
-      console.log(articles);
-      let k = 0;
-      let count = document.querySelector('.lik');
-      count.innerHTML = k;
-      like.addEventListener('click', () => {
-        count.innerHTML = k++;
-      });
+    let articl = document.querySelector('#article');
+    let picture = document.querySelector('.image');
+    let title = document.querySelector('.title');
+    let content = document.querySelector('.content');
+    let likes = document.querySelector('.lik');
+    let lik = document.querySelector('.fa-thumbs-up');
 
-//comment
-           
+    lik.addEventListener('click', (a) => {
+      a.preventDefault();
+      let lik = 0;
+      lik = lik + 1;
+      likes.innerHTML = lik;
+      localStorage.setItem('likes', JSON.stringify(lik));
     });
+
+    let Article = JSON.parse(localStorage.getItem('articles'));
+    console.log(Article);
+    let img = localStorage.getItem('image');
+    picture.setAttribute('src', img);
+    title.innerHTML = Article[2];
+    content.innerHTML = Article[3];
   </script>
 </html>

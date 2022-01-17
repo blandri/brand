@@ -10,6 +10,17 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .add {
+        display: none;
+     
+     grid-template-rows: 1fr 1fr 1fr;
+     grid-gap:13px;
+     margin-left: 10px;
+      }
+      .add input,.add button{
+        width: 50%;
+        height: 50px;
+      }
       * {
         margin: 0.1;
         padding: 0;
@@ -200,16 +211,7 @@
       .sidebar .fa-user-shield{
         margin-left: 50px;
       }
-      .add {
-     display: grid;
-     grid-template-rows: 1fr 1fr 1fr;
-     grid-gap:13px;
-     margin-left: 10px;
-      }
-      .add input,.add button{
-        width: 50%;
-        height: 50px;
-      }
+      
       @media (max-width: 411px) {
         .sidebar .fa-user-shield{
         margin-left: 20px;
@@ -426,25 +428,31 @@
         
       </div>
       <div id="body">
-        <div id="article" class="at1">
+        <div id="article" class="0001">
           <div>
             <a href="article.html"><div class="date">15 jan</div></a>
             <img src="images/neww.jpg" alt="" class="image" />
           </div>
           <div class="det">
-            <a href="article.html"><h2>What is Lorem Ipsum?</h2></a>
+            <a href="article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
 
-            <p class="p">
+            <p class="content">
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
               point of using Lorem Ipsum is that it has a more-or-less normal
               distribution of
             </p>
             <div>
-              <i class="fas fa-thumbs-up">Likes</i>
+              <i class="fas fa-thumbs-up"><p class="lik"></p></i>
               
               <i class="far fa-edit">edit</i>
               <i class="fas fa-trash-alt">delete</i>
+            </div>
+            <div class="add">
+              <input type="text" id="jas" placeholder="Content" />
+               <input type="text" id="js" placeholder="Title" />
+              <input type="file" id="fil" > 
+              <button id="j">Confirm</button>
             </div>
           </div>
         </div>
@@ -496,7 +504,7 @@
     }
     });
     
-  
+    
   </script>
   <script src="java.js"></script>
 </html>

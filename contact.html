@@ -380,7 +380,7 @@
         height: 60px;
         margin-top: 30px;
         margin-left: 10px;
-
+        font-size: 20px;
         border: solid 1px #e3e4e8;
       }
       textarea {
@@ -389,6 +389,7 @@
         margin-top: 30px;
         margin-left: 10px;
         border: solid 1px #e3e4e8;
+        font-size: 25px;
       }
       .sm {
         width: 650px;
@@ -537,29 +538,21 @@
       let form = document.querySelector('form');
 
       //form manipulation
+      let name = document.querySelector('#name');
+
       let nom = name.value.trim();
       let mess = message.value.trim();
       let mail = email.value.trim();
 
       form.addEventListener('submit', (nw) => {
         nw.preventDefault();
-        let message = {};
-        message.name = nom;
-        message.email = mail;
-        message.mess = mess;
 
-        localStorage.setItem(nom, mail);
-        console.log(localStorage);
-        /*error function*/ const showError = (input) => {
+        /*error function*/ let showError = (input) => {
           const formField = input.parentElement;
 
           input.classList.add('error');
 
           const error = formField.querySelector('#small');
-        };
-        /*success*/ const success = (input) => {
-          input.classList.remove('error');
-          name.classList.add('error');
         };
 
         const mailValid = (email) => {
@@ -568,17 +561,21 @@
           return re.test(email);
         };
         let name = document.querySelector('#name');
+        let nom = name.value.trim();
+        let mess = message.value.trim();
+        let mail = email.value.trim();
 
-        if (mailValid(mail) == false) {
+        if (mailValid(mail) == false || mess == '' || nom < 2) {
           showError(email);
+          showError(message);
+          showError(name);
+        } else {
+          let newMessage = { maile: mail, messa: mess };
+
+          localStorage.setItem('mesaje', JSON.stringify(newMessage));
         }
 
-        if (nom < 3) {
-          showError(name);
-        }
-        if (mess < 1) {
-          showError(message);
-        }
+        console.log(localStorage);
       });
     });
   </script>

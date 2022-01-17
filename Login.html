@@ -325,7 +325,7 @@
         
         <input type="text" id="Email" placeholder="Email" />
         
-        <input type="text" id="password" placeholder="Password"/>
+        <input type="password" id="password" placeholder="Password" autocomplete="off"/>
         <small id="small"></small>
         <button type="submit" name="butt">Login</button>
       </div>
@@ -380,13 +380,14 @@
       email:MAIL
     }
     
-    window.location="Admin's panel.html";
+      window.location="Admin's panel.html"
       USERS.status='logged in';
-      console.log(USERS);
-
+      
+     localStorage.setItem('user1',JSON.stringify(USERS));
+     
     }
     
-
+    console.log(localStorage);
       
     
 
@@ -410,8 +411,8 @@ const mailValid = (email) => {
 };
 
 if (mailValid(MAIL)===false){showError(email,'email is invalid');}
-if(NOM<3){showError(name,'name is invalid');}
-if(PASS<6){showError(password,'password is invalid');}
+if(NOM<3){showError(name,'you are not the admin please');}
+if(PASS<6){showError(password,'password is incorrect');}
       })
 
 })

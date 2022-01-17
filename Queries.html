@@ -87,8 +87,8 @@
       .visits
        {
         background: white;
-        width: 500px;
-        height: 450px;
+        width: 450px;
+        height: 300px;
         margin-top: 10px;
         margin-left: 30px;
         border-radius: 7px;
@@ -97,7 +97,7 @@
           1px 1px 9px rgb(134, 125, 125);
         font-size: 20px;
         display: grid;
-        grid-template-rows: 10% 20% 1fr;
+        grid-template-rows: 10% 19%;
         position: absolute;
         top: 105px;
         
@@ -288,15 +288,11 @@
           <div class="visits">
             <p>Chatbox</p>
             <div class="calc">
-              <p>Email</p>
+              <p class="mail">Email</p>
               
           </div>
           <div class="calc"><p class="mes">hi,message</p></div>
-          <div class="rep">
-            <i class="fas fa-reply-all"></i>
-            <input type="text" placeholder="Enter message">
-            <button>Send</button>
-          </div>
+          
         </div>
       </main>
 </body>
@@ -315,6 +311,26 @@
     sidebar.style.display='none';
   }
   });
+
+window.addEventListener('DOMContentLoaded',()=>{
+
+  const MESAJE=JSON.parse(localStorage.getItem('mesaje'));
+  
+  
+
+  let body=document.querySelector('#body');
+  let email=document.querySelector('.mail');
+  let message=document.querySelector('.mes');
+  let box=document.querySelector('.visits');
+
+  
+
+  email.innerHTML=MESAJE.maile;
+  message.innerHTML=MESAJE.messa;
+  
+  
+})
+  
   
 </script>
 </html>

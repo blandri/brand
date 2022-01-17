@@ -1,48 +1,97 @@
-window.addEventListener('DOMContentLoaded', function e() {
-  let article1 = document.querySelector('.at1');
-  let article2 = document.querySelector('.at2');
-  let like = document.querySelector('.fa-thumbs-up');
-  let body = document.getElementById('body');
-  let del = document.querySelector('.fa-trash-alt');
-  let edit = document.querySelector('.fa-edit');
-  let post = document.querySelector('.pos');
+let body = document.getElementById('body');
+let del = document.querySelector('.fa-trash-alt');
 
-  let articles = {
-    first: article1,
-    second: article2,
-  };
+let post = document.querySelector('.pos');
 
-  console.log(articles);
+let picture = document.querySelector('.image');
+let par = document.querySelector('#article');
+let articl = picture.parentNode;
+let art = articl.parentNode;
+let ar = art.parentNode;
+let title = document.querySelector('.title');
+let content = document.querySelector('.content');
+let likes = document.querySelector('.lik');
+let a = ar.childNodes;
 
-  del.addEventListener('click', () => {
-    body.removeChild(article1);
-  });
-  edit.addEventListener('click', () => {
-    let div = document.createElement('div');
-    div.classList.add('add');
+function nullP(mes, me) {
+  title.innerHTML = mes;
+  content.innerHTML = me;
+}
+console.log(par.childNodes);
+//Likes operation
+let value = JSON.parse(localStorage.getItem('likes'));
+likes.innerHTML = value;
 
-    div.innerHTML =
-      '<input type="text" id="jas" placeholder="Content" /> <input type="text" id="js" placeholder="Title" /> <input type="file" id="fil" accept="images/*"> <button id="j">Confirm</button>';
-    ('');
+//article operation
 
-    article1.appendChild(div);
-  });
-  post.addEventListener('click', () => {});
+function stringLocal(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
 
-  const jas = document.querySelector('#jas');
-  const js = document.querySelector('#js');
-  const j = document.querySelector('#j');
-  const fil = document.querySelector('#fil');
-  let img = document.querySelector('.image');
-  let p = document.querySelector('.p');
-  let h2 = document.querySelector('h2');
+function parseLocal(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
 
-  j.addEventListener('click', (a) => {
-    a.preventDefault();
-    const u = jas.value;
-    const up = js.value;
-    const upd = fil.value;
+function deleteArticle(child) {
+  ar.removeChild(child);
+}
 
-    console.log('hi');
-  });
+function newArt(artic) {
+  ar.appendChild(artic);
+}
+let aaa = [title.innerHTML, content.innerHTML];
+stringLocal('articles', aaa);
+
+//the article is stored in an array :new code
+let edit = document.querySelector('.fa-edit');
+edit.addEventListener('click', () => {
+  let add = document.querySelector('.add');
+  console.log('huhu');
+  if (add.style.display === 'none') {
+    add.style.display = 'grid';
+  } else {
+    add.style.display = 'none';
+  }
 });
+
+function editt(key) {
+  let arr = parseLocal(key);
+  let jas = document.querySelector('#jas').value.trim();
+  let js = document.querySelector('#js').value.trim();
+
+  arr.push(jas);
+  arr.push(js);
+
+  nullP(arr[2], arr[3]);
+  stringLocal(key, arr);
+}
+
+let edb = document.querySelector('#j');
+edb.addEventListener('click', () => {
+  editt('articles');
+
+  let file = document.querySelector('#fil');
+  file.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      localStorage.setItem('image', reader.result);
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+  console.log(localStorage);
+  let img = localStorage.getItem('image');
+  picture.setAttribute('src', img);
+});
+
+function apply() {
+  let pp = editt('articles');
+
+  let div = document.createElement('div');
+  div.innerHTML = pp[0];
+  let aaaa = par.childNodes;
+  aaaa[3].replaceChild(div, content);
+}
+
+console.log();
+
+let delt = document.querySelector('fa-trash-alt');

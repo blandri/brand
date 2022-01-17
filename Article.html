@@ -198,6 +198,22 @@
         margin-left: 10px;
       }
       @media (min-width: 900px) {
+        .commbox {
+          display: grid;
+          grid-gap: 10px;
+          position: absolute;
+          top: 200px;
+          right: 250px;
+          background-color: #ebe8e8;
+          padding: 10px;
+          width: 400px;
+        }
+        .commbox textArea {
+          font-size: 25px;
+        }
+        .commbox input {
+          height: 40px;
+        }
         header li button {
           display: none;
         }
@@ -389,18 +405,22 @@
         <img src="images/neww.jpg" alt="" class="image" />
       </div>
       <div class="det">
-        <a href="article.html"><h2>What is Lorem Ipsum?</h2></a>
+        <a href="article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
 
-        <p>
+        <p class="content">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
         </p>
         <div>
-          <i class="fas fa-thumbs-up"></i>
+          <i class="fas fa-thumbs-up"><p class="lik"></p></i>
           <i class="fas fa-comment-alt"></i>
         </div>
       </div>
+    </div>
+    <div class="commbox">
+      <input type="text" id="ar" />
+      <textarea name="comment" id="area" cols="30" rows="10"></textarea>
     </div>
     <div class="comme">
       <input type="text" placeholder="write comment" id="com" />
@@ -431,6 +451,7 @@
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
+    let comment = document.querySelector('.fa-comment-alt');
 
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {
@@ -447,7 +468,19 @@
       header.classList.toggle('sticky', window.scrollY > 100);
     });
 
-    let comment = document.querySelector('.fa-comment-alt');
+    let lik = document.querySelector('.lik');
+    let value = JSON.parse(localStorage.getItem('likes'));
+    lik.innerHTML = value;
+
+    let articl = document.querySelector('#article');
+    let picture = document.querySelector('.image');
+    let title = document.querySelector('.title');
+    let content = document.querySelector('.content');
+    let Article = JSON.parse(localStorage.getItem('articles'));
+    let img = localStorage.getItem('image');
+    picture.setAttribute('src', img);
+    title.innerHTML = Article[2];
+    content.innerHTML = Article[3];
 
     comment.addEventListener('click', () => {
       if (comme.style.display === 'none') {
@@ -457,17 +490,23 @@
       }
     });
 
-    window.addEventListener('DOMContentLoaded', () => {
-      let comm = document.querySelector('#com');
-      let bt = document.querySelector('#bt');
+    let comm = document.querySelector('#com');
+    let bt = document.querySelector('#bt');
 
-      const comment = comm.value.trim();
+    bt.addEventListener('click', (w) => {
+      w.preventDefault();
+      let commen = comm.value.trim();
+      let arr = [];
+      arr.push(commen);
 
-      bt.addEventListener('click', (w) => {
-        w.preventDefault();
-
-        console.log(comment);
-      });
+      localStorage.setItem('comment', JSON.stringify(arr));
     });
+    let ar = JSON.parse(localStorage.getItem('comment'));
+    function display() {
+      let are = document.querySelector('#ar');
+      let area = document.querySelector('#area');
+      area.innerHTML = ar[0];
+    }
+    display();
   </script>
 </html>
