@@ -321,7 +321,7 @@
     <form method="post" action="Admin's panel.html">
       <div id="icon"><i class="fas fa-user-tie fa-5x"></i> 
       <div class="form">
-        <input type="text" id="name" placeholder="Names"/>
+        
         
         <input type="text" id="Email" placeholder="Email" />
         
@@ -352,19 +352,19 @@
       
 
       let form = document.querySelector("form");
-      let name=document.querySelector('#name');
+      
       let password=document.querySelector('#password');
       let email=document.querySelector('#Email');
 
       form.addEventListener('submit',(nw)=>{
        nw.preventDefault();
 
-       const NOM=name.value.trim();
+       
        const PASS=password.value.trim();
        const MAIL=email.value.trim();
 
         let user1={
-      userName:'Landry',
+      
       passWord:'123456',
       email:'landrybrok3@gmail.com',
     }
@@ -373,9 +373,9 @@
       passWord:'000000'
     }
 
-    if(NOM==user1.userName && PASS==user1.passWord && MAIL==user1.email){
+    if(PASS==user1.passWord && MAIL==user1.email){
       const USERS={
-      name:NOM,
+      
       password:PASS,
       email:MAIL
     }
@@ -387,7 +387,7 @@
      
     }
     
-    console.log(localStorage);
+    
       
     
 
@@ -411,8 +411,8 @@ const mailValid = (email) => {
 };
 
 if (mailValid(MAIL)===false){showError(email,'email is invalid');}
-if(NOM<3){showError(name,'you are not the admin please');}
-if(PASS<6){showError(password,'password is incorrect');}
+
+else if(PASS<6){showError(password,'password is incorrect');}
       })
 
 })

@@ -19,6 +19,16 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .bx{
+        background-color: #e96760;
+        font-size: 30px;
+        width: 30%;
+        position: absolute;
+        left: 40%;
+        bottom: 40%;
+        border-radius: 5px;
+        padding: 10px;
+      }
       .visits .dat{
         width: 20%;
         height: 30px;
@@ -26,7 +36,7 @@
       #delete{
         margin-top:30px
       }
-      #de button{
+      #dele{
         
       }
       #delete #de{
@@ -484,17 +494,19 @@
         </div>
         
         <div id="delete">
-          <button id="del">Edit</button>
+          
           <div id="dele">
-            <p>choose the article to delete</p>
+            <p>Enter id of an article</p>
             <input type="number" id="id">
-            <button id="de">Confirm</button>
+            <button id="de">Delete</button>
+            <button id="del">Edit</button>
+          <button class="rd">Read comments</button>
           </div>
         </div>
         <div id="visits">
           <div>
             <label for="file">Choose a photo</label>
-            <input type="file" id="file">
+            <input type="file" id="fi">
             <input type="number" class="rev"> change id
             <input type="text" placeholder="date" class="dte">
           </div>
@@ -505,6 +517,9 @@
           <div class="calc">
             
             <button class="p">confirm</button>
+        </div>
+        <div id="comments">
+
         </div>
       </div>
       
@@ -578,6 +593,7 @@ delet.addEventListener('click',()=>{
 
 
 let dte=document.querySelector('.dte');
+let fi=document.querySelector('#fi');
   let ttle=document.querySelector('.ttle');
   let con=document.querySelector('.con');
   let rev=document.querySelector('.rev');
@@ -585,6 +601,21 @@ let dte=document.querySelector('.dte');
   let p=document.querySelector('.p');
   let e=document.querySelector('#del');
   
+
+file.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load',()=>{
+      if (localStorage.getItem('image')==null){
+        localStorage.setItem('image',JSON.stringify(imgs));
+      }
+      let ima=JSON.parse(localStorage.getItem('image'))
+      ima.push(reader.result)
+      localStorage.setItem('image',JSON.stringify(ima));
+    })
+      
+    reader.readAsDataURL(this.files[0]);
+    
+  });
 
   e.addEventListener('click',()=>{
     if(visit.style.display=='none'){
@@ -624,6 +655,33 @@ let dte=document.querySelector('.dte');
     
     
   }
+  })
+  
+  
+  let read=document.querySelector('.rd')
+  read.addEventListener('click',()=>{
+    if(localStorage.key(idd.value)){
+      let gh=JSON.parse(localStorage.getItem(idd.value));
+      let bod=document.querySelector('body');
+      
+      for (let n=0;n<=gh.length;n++){
+        let box=document.createElement('div');
+      
+      box.classList.toggle('bx');
+      
+      if(gh[n]){
+        let wo=document.createElement('p');
+      wo.style='background:white';
+      box.append(wo);
+        wo.innerHTML=gh[0];
+     }
+      
+        
+      
+      bod.append(box);
+      }
+      
+    }
   })
   </script>
   

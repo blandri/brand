@@ -11,6 +11,15 @@
     ></script>
   </head>
   <style>
+    #com {
+      background-color: rgb(233, 233, 233);
+      width: 30%;
+      height: 200px;
+      position: absolute;
+      top: 150%;
+      right: 10%;
+      padding: 10px;
+    }
     .fa-thumbs-up,
     .fa-comment-alt {
       color: #e96760;
@@ -429,8 +438,10 @@
             distribution of
           </p>
           <div class="smash">
-            <i class="fas fa-thumbs-up"><p class="lik"></p></i>
-            <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
+            <i class="fas fa-thumbs-up" onclick="function like(){}"
+              ><p class="lik"></p
+            ></i>
+            <i class="fas fa-comment-alt"></i>
           </div>
         </div>
       </div>
@@ -463,6 +474,18 @@
     </footer>
   </body>
   <script>
+    function like() {
+      let like = document.querySelector('.fa-thumbs-up');
+      Comme = document.querySelector('.fa-comment-alt');
+      let lik = document.querySelector('.lik');
+      let likes = 0;
+      like.addEventListener('click', () => {
+        likes = likes + 1;
+        lik.innerHTML = likes;
+      });
+    }
+    like();
+    //likes
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
 
@@ -494,13 +517,26 @@
     let date = document.querySelector('.date');
     let art = JSON.parse(localStorage.getItem('article'));
     let ima = JSON.parse(localStorage.getItem('image'));
-    console.log(art);
 
-    function design(a, b, d, z) {
+    function design(a, b, d, z, p, k) {
       let da = date.cloneNode();
       let smash = document.querySelector('.smash');
       let add = document.querySelector('.add');
       let sma = smash.cloneNode('deep');
+      let cc = document.createElement('input');
+      let bt = document.createElement('button');
+      bt.innerText = 'send';
+
+      sma.append(cc, bt);
+      p.comments = [];
+      bt.addEventListener('click', () => {
+        if (localStorage.getItem(k) == null) {
+          localStorage.setItem(k, JSON.stringify(p.comments));
+        }
+        let bh = JSON.parse(localStorage.getItem(k));
+        bh.unshift(cc.value);
+        localStorage.setItem(k, JSON.stringify(bh));
+      });
 
       let dap = document.createElement('div');
       let pic = document.createElement('img');
@@ -526,16 +562,16 @@
 
       body.append(ad);
     }
-
+    console.log(typeof art[0].id);
     for (let i = 0; i <= art.length; i++) {
-      design(art[i].title, art[i].content, ima[i], art[i].date);
+      design(
+        art[i].title,
+        art[i].content,
+        ima[i],
+        art[i].date,
+        art[i],
+        art[i].id
+      );
     }
-
-    let like = document.querySelector('.fas');
-    let lik = document.querySelector('.lik');
-    let likes = 0;
-    like.addEventListener('click', () => {
-      console.log('jhu');
-    });
   </script>
 </html>

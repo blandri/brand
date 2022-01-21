@@ -326,11 +326,14 @@
     }
     });
     
+    let locations=[];
 let locat=document.querySelector('#location');
     locat.addEventListener('click', function (){
       if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(function(position){
           console.log(position)
+          /*locations.push(position);
+          localStorage.setItem('user locations',JSON.stringify(locations));*/
         })
       }
       else{
