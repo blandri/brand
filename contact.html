@@ -543,6 +543,7 @@
     let mail = email.value.trim();
 
     let arr = [];
+    let locations = [];
 
     form.addEventListener('submit', (nw) => {
       nw.preventDefault();
@@ -565,10 +566,10 @@
       let mess = message.value.trim();
       let mail = email.value.trim();
 
-      if (mailValid(mail) == false) {
-        showError(email);
-      } else if (mess == '') {
+      if (mess == '') {
         showError(message);
+      } else if (mailValid(mail) == false) {
+        showError(email);
       } else if (nom < 2) {
         showError(name);
       }
@@ -576,12 +577,35 @@
         email: mail,
         message: mess,
       };
-      if (localStorage.getItem('me') == null) {
-        localStorage.setItem('me', JSON.stringify(arr));
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      } else {
+        console.log('not supported');
       }
-      let a = JSON.parse(localStorage.getItem('me'));
-      a.push(messag);
-      localStorage.setItem('me', JSON.stringify(a));
+
+      function onError(error) {}
+      function onSuccess(position) {
+        let { latitude, longitude } = position.coords;
+
+        //https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=cae9baea2c3a4ad799e5ea9aa28267de
+        fetch(
+          `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=cae9baea2c3a4ad799e5ea9aa28267de`
+        )
+          .then((response) => response.json())
+          .then((result) => {
+            let locationn = result.results[0].components;
+            let { country, county, state, road } = locationn;
+
+            messag.location = [country, county, state, road];
+            if (localStorage.getItem('me') == null) {
+              localStorage.setItem('me', JSON.stringify(arr));
+            }
+            let a = JSON.parse(localStorage.getItem('me'));
+            a.push(messag);
+            localStorage.setItem('me', JSON.stringify(a));
+          });
+      }
     });
   </script>
 </html>
