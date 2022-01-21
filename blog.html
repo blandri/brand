@@ -17,11 +17,11 @@
       margin-top: 40px;
       margin-left: 20px;
     }
-    #article {
+    .article {
       margin-top: 30px;
       width: 43vh;
       margin-left: 15px;
-      box-shadow: 2px 2px 4px lightgray, -2px -2px 4px lightgray;
+      box-shadow: 2px 2px 9px lightgray, -2px -2px 9px lightgray;
     }
     .image {
       width: 349px;
@@ -32,12 +32,14 @@
       line-height: 20px;
       font-size: 20px;
     }
-    .det p {
+    .content {
       margin-top: 15px;
     }
     .det a,
     .det a:hover {
       cursor: pointer;
+    }
+    .title {
       color: #ec5b53;
     }
     .date {
@@ -290,7 +292,7 @@
         color: #ec5b53;
         font-size: 25px;
       }
-      #article {
+      .article {
         margin-top: 200px;
         width: 100vh;
         margin-left: 300px;
@@ -411,47 +413,33 @@
       <h1>Blog area</h1>
       <p>Home / Blog</p>
     </div>
-    <div id="article" class="0001">
-      <div>
-        <a href="Article.html"><div class="date">15 jan</div></a>
-        <img src="images/neww.jpg" alt="" class="image" />
-      </div>
-      <div class="det">
-        <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
+    <div id="body">
+      <div class="article" class="0001">
+        <div>
+          <a href="Article.html"><div class="date">15 jan</div></a>
+          <img src="images/neww.jpg" alt="" class="image" />
+        </div>
+        <div class="det">
+          <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
 
-        <p class="content">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-        </p>
-        <div>
-          <i class="fas fa-thumbs-up"><p class="lik"></p></i>
-          <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
+          <p class="content">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking at its layout. The point
+            of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of
+          </p>
+          <div class="smash">
+            <i class="fas fa-thumbs-up"><p class="lik"></p></i>
+            <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
+          </div>
         </div>
       </div>
     </div>
-    <div id="article" class="0002">
-      <div>
-        <a href="Article.html"><div class="date">15 jan</div></a>
-        <img src="images/neww.jpg" alt="" class="image" />
-      </div>
-      <div class="det">
-        <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
-        <p class="content">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-        </p>
-        <div>
-          <i class="fas fa-thumbs-up"><p class="lik">0</p></i>
-          <a href="Article.html"><i class="fas fa-comment-alt"></i></a>
-        </div>
-      </div>
-    </div>
+
     <div class="sub">
       <h2>News letter</h2>
-      <input type="text" placeholder="Enter email" />
-      <button>Subscribe</button>
+      <input type="text" placeholder="Enter email" id="sub" />
+      <button id="su">Subscribe</button>
     </div>
     <footer>
       <img src="images/logo.png" alt="" class="logo" />
@@ -491,28 +479,63 @@
       header.classList.toggle('sticky', window.scrollY > 100);
     });
 
-    //article manipulation
+    //subscribing
 
-    let articl = document.querySelector('#article');
-    let picture = document.querySelector('.image');
-    let title = document.querySelector('.title');
-    let content = document.querySelector('.content');
-    let likes = document.querySelector('.lik');
-    let lik = document.querySelector('.fa-thumbs-up');
+    let sub = document.querySelector('#sub').value.trim();
+    let su = document.querySelector('#su');
 
-    lik.addEventListener('click', (a) => {
-      a.preventDefault();
-      let lik = 0;
-      lik = lik + 1;
-      likes.innerHTML = lik;
-      localStorage.setItem('likes', JSON.stringify(lik));
+    const mailValid = (email) => {
+      const re =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    };
+
+    let body = document.querySelector('#body');
+    let date = document.querySelector('.date');
+    let art = JSON.parse(localStorage.getItem('article'));
+    let ima = JSON.parse(localStorage.getItem('image'));
+    console.log(art);
+
+    function design(a, b, d, z) {
+      let da = date.cloneNode();
+      let smash = document.querySelector('.smash');
+      let add = document.querySelector('.add');
+      let sma = smash.cloneNode('deep');
+
+      let dap = document.createElement('div');
+      let pic = document.createElement('img');
+      pic.classList.toggle('image');
+      pic.setAttribute('src', d);
+      da.innerHTML = z;
+      dap.append(da, pic);
+
+      let tc = document.createElement('div');
+      tc.classList.toggle('det');
+
+      let t = document.createElement('h2');
+      t.classList.toggle('title');
+      let c = document.createElement('p');
+      c.classList.toggle('content');
+      t = a;
+      c = b;
+
+      tc.append(t, c);
+      let ad = document.createElement('div');
+      ad.classList.toggle('article');
+      ad.append(dap, tc, sma);
+
+      body.append(ad);
+    }
+
+    for (let i = 0; i <= art.length; i++) {
+      design(art[i].title, art[i].content, ima[i], art[i].date);
+    }
+
+    let like = document.querySelector('.fas');
+    let lik = document.querySelector('.lik');
+    let likes = 0;
+    like.addEventListener('click', () => {
+      console.log('jhu');
     });
-
-    let Article = JSON.parse(localStorage.getItem('articles'));
-    console.log(Article);
-    let img = localStorage.getItem('image');
-    picture.setAttribute('src', img);
-    title.innerHTML = Article[2];
-    content.innerHTML = Article[3];
   </script>
 </html>

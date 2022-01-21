@@ -10,6 +10,15 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .query {
+        background-color: white;
+        margin-left: 10px;
+        width: 40%;
+        font-size: 20px;
+        padding-left: 15px;
+        border-radius: 10px;
+        font-family: monospace;
+      }
         * {
         margin: 0.1;
         padding: 0;
@@ -285,13 +294,7 @@
           
         </div>
         <div id="body">
-          <div class="visits">
-            <p>Chatbox</p>
-            <div class="calc">
-              <p class="mail">Email</p>
-              
-          </div>
-          <div class="calc"><p class="mes">hi,message</p></div>
+          
           
         </div>
       </main>
@@ -312,24 +315,22 @@
   }
   });
 
-window.addEventListener('DOMContentLoaded',()=>{
+  let MESAJE = JSON.parse(localStorage.getItem('me'));
+    let body = document.querySelector('#body');
+    let email = document.querySelector('.mail');
+    let message = document.querySelector('.mes');
+    let box = document.querySelector('.visits');
 
-  const MESAJE=JSON.parse(localStorage.getItem('mesaje'));
-  
-  
-
-  let body=document.querySelector('#body');
-  let email=document.querySelector('.mail');
-  let message=document.querySelector('.mes');
-  let box=document.querySelector('.visits');
-
-  
-
-  email.innerHTML=MESAJE.maile;
-  message.innerHTML=MESAJE.messa;
-  
-  
-})
+    for (let i = 0; i <= MESAJE.length; i++) {
+      let em = document.createElement('p');
+      let mes = document.createElement('p');
+      let di = document.createElement('div');
+      di.classList.toggle('query');
+      di.append(em, mes);
+      em.innerHTML = MESAJE[i].email;
+      mes.innerHTML = MESAJE[i].message;
+      body.append(di);
+    }
   
   
 </script>

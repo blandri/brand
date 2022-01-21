@@ -10,14 +10,21 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .ti {
+        font-size: 45px;
+      }
+      .con {
+        font-size: 150px;
+      }
       .add {
         display: none;
-     
-     grid-template-rows: 1fr 1fr 1fr;
-     grid-gap:13px;
-     margin-left: 10px;
+
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 13px;
+        margin-left: 10px;
       }
-      .add input,.add button{
+      .add input,
+      .add button {
         width: 50%;
         height: 50px;
       }
@@ -35,13 +42,13 @@
       body {
         display: grid;
         grid-template-columns: 1fr 90%;
-        
+
         width: 100%;
       }
-      #body{
+      #body {
         min-height: 100%;
       }
-      
+
       .images {
         width: 60px;
         border-radius: 50px;
@@ -109,12 +116,11 @@
         margin-top: 20px;
         width: 25.5vh;
       }
-      .visits
-       {
+      .visits {
         background: white;
         width: 620px;
         height: 450px;
-        
+
         border-radius: 7px;
         padding: 15px;
         box-shadow: 1px 1px 9px rgb(189, 179, 179),
@@ -128,15 +134,15 @@
         position: absolute;
         display: none;
       }
-      .visits textarea{
+      .visits textarea {
         height: 200px;
         width: 590px;
       }
-      .visits input{
+      .visits input {
         height: 50px;
         width: 590px;
       }
-      .visits button{
+      .visits button {
         font-size: 20px;
         width: 150px;
         height: 40px;
@@ -159,12 +165,11 @@
       a {
         color: inherit;
       }
-      #article {
+      .article {
         margin-top: 10px;
         width: 100vh;
         margin-left: 100px;
-        box-shadow: 2px 2px 4px lightgray,-2px -2px 4px lightgray;
-        
+        box-shadow: 2px 2px 4px lightgray, -2px -2px 4px lightgray;
       }
 
       .image {
@@ -177,7 +182,7 @@
         line-height: 25px;
         font-size: 25px;
       }
-      .det p{
+      .det p {
         margin-top: 20px;
       }
       .date {
@@ -203,120 +208,118 @@
         float: right;
         margin-right: 20px;
       }
-      .plus .fa-plus-square{
+      .plus .fa-plus-square {
         position: absolute;
         right: 100px;
         top: 97%;
       }
-      .sidebar .fa-user-shield{
+      .sidebar .fa-user-shield {
         margin-left: 50px;
       }
-      
+
       @media (max-width: 411px) {
-        .sidebar .fa-user-shield{
-        margin-left: 20px;
-      }
+        .sidebar .fa-user-shield {
+          margin-left: 20px;
+        }
         .sidebar div {
-        border-bottom: solid 1px black;
-        margin-top: 20px;
-        width: 17vh;
-      }
+          border-bottom: solid 1px black;
+          margin-top: 20px;
+          width: 17vh;
+        }
         html {
-        width: 97.7%;
-        height: 100%;
-      }
-      
+          width: 97.7%;
+          height: 100%;
+        }
+
         .fa-thumbs-up,
-    .fa-comment-alt {
-      color: #e96760;
-      margin-top: 40px;
-      margin-left: 20px;
-    }
-    #article {
-      margin-top: 30px;
-      width: 43vh;
-      margin-left: 15px;
-      box-shadow: 2px 2px 4px lightgray, -2px -2px 4px lightgray;
-    }
-    .visits
-       {
-        background: white;
-        width: 43vh;
-        height: 350px;
-        
-        border-radius: 7px;
-        padding: 15px;
-        box-shadow: 1px 1px 9px rgb(189, 179, 179),
-          1px 1px 9px rgb(134, 125, 125);
-        font-size: 20px;
-        display: grid;
-        grid-template-rows: 1fr 10% 1fr 10%;
-        grid-gap: 10px;
-        margin-left: 10px;
-        margin-top: 100px;
-        
-      }
-      .visits textarea{
-        height: 80px;
-        width: 300px;
-        margin-left: 10px;
-        margin-top: 30px;
-        font-size: 20px;
-        border-bottom: solid 0.5px;
-        border-top: 0;
-        border-left: 0;
-        border-right: 0;
-      }
-      .visits input{
-        height: 40px;
-        width: 300px;
-        margin-left: 10px;
-        margin-top: 10px;
-        border-bottom: solid 0.5px;
-        border-top: 0;
-        border-left: 0;
-        border-right: 0;
-        font-size: 20px;
-      }
-      
-      .visits button{
-        font-size: 20px;
-        width: 90px;
-        height: 30px;
-        cursor: pointer;
-        margin-left: 10px;
-        margin-top: 10px;
-      }
-    .image {
-      width: 349px;
-    }
-    .det {
-      margin-top: 20px;
-      padding: 10px;
-      line-height: 20px;
-      font-size: 20px;
-    }
-    .det p {
-      margin-top: 15px;
-    }
-    .det a,
-    .det a:hover {
-      cursor: pointer;
-      color: #ec5b53;
-    }
-    .date {
-      position: absolute;
-      background-color: #ec5b53;
-      color: white;
-      font-size: 25px;
-      padding: 10px;
-      border-radius: 10px;
-      height: 65px;
-      width: 50px;
-      margin-left: 20px;
-      margin-top: 180px;
-    }
-        
+        .fa-comment-alt {
+          color: #e96760;
+          margin-top: 40px;
+          margin-left: 20px;
+        }
+        #article {
+          margin-top: 30px;
+          width: 43vh;
+          margin-left: 15px;
+          box-shadow: 2px 2px 4px lightgray, -2px -2px 4px lightgray;
+        }
+        .visits {
+          background: white;
+          width: 43vh;
+          height: 350px;
+
+          border-radius: 7px;
+          padding: 15px;
+          box-shadow: 1px 1px 9px rgb(189, 179, 179),
+            1px 1px 9px rgb(134, 125, 125);
+          font-size: 20px;
+          display: grid;
+          grid-template-rows: 1fr 10% 1fr 10%;
+          grid-gap: 10px;
+          margin-left: 10px;
+          margin-top: 100px;
+        }
+        .visits textarea {
+          height: 80px;
+          width: 300px;
+          margin-left: 10px;
+          margin-top: 30px;
+          font-size: 20px;
+          border-bottom: solid 0.5px;
+          border-top: 0;
+          border-left: 0;
+          border-right: 0;
+        }
+        .visits input {
+          height: 40px;
+          width: 300px;
+          margin-left: 10px;
+          margin-top: 10px;
+          border-bottom: solid 0.5px;
+          border-top: 0;
+          border-left: 0;
+          border-right: 0;
+          font-size: 20px;
+        }
+
+        .visits button {
+          font-size: 20px;
+          width: 90px;
+          height: 30px;
+          cursor: pointer;
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+        .image {
+          width: 349px;
+        }
+        .det {
+          margin-top: 20px;
+          padding: 10px;
+          line-height: 20px;
+          font-size: 20px;
+        }
+        .det p {
+          margin-top: 15px;
+        }
+        .det a,
+        .det a:hover {
+          cursor: pointer;
+          color: #ec5b53;
+        }
+        .date {
+          position: absolute;
+          background-color: #ec5b53;
+          color: white;
+          font-size: 25px;
+          padding: 10px;
+          border-radius: 10px;
+          height: 65px;
+          width: 50px;
+          margin-left: 20px;
+          margin-top: 180px;
+        }
+
         aside button {
           height: 35px;
           width: 100px;
@@ -329,31 +332,28 @@
           cursor: pointer;
         }
         body {
-        display: grid;
-        grid-template-columns: 1fr 90%;
-        height: 99.8vh;
-        
-      }
-        
+          display: grid;
+          grid-template-columns: 1fr 90%;
+          height: 99.8vh;
+        }
+
         .sidebar img {
-        width: 50px;
-        margin-left: 30px;
-        
-      }
-      .sidebar {
-        font-size: 20px;
-        width: 15vh;
-      }
-      aside {
-        background-color: white;
-        width: 20vh;
-        display: grid;
-        grid-template-rows: 7.5% 92%;
-        position: absolute;
-        z-index: 1;
-        top: 66px;
-        
-      }
+          width: 50px;
+          margin-left: 30px;
+        }
+        .sidebar {
+          font-size: 20px;
+          width: 15vh;
+        }
+        aside {
+          background-color: white;
+          width: 20vh;
+          display: grid;
+          grid-template-rows: 7.5% 92%;
+          position: absolute;
+          z-index: 1;
+          top: 66px;
+        }
         main {
           background-color: rgb(243, 243, 243);
           display: grid;
@@ -361,12 +361,12 @@
           width: 103%;
         }
         main #header {
-        border-bottom: solid 1px black;
-        border-left: none;
-        background: white;
-        width: 100%;
-        height: 42%;
-      }
+          border-bottom: solid 1px black;
+          border-left: none;
+          background: white;
+          width: 100%;
+          height: 42%;
+        }
         aside .logo {
           background: white;
           width: 20vh;
@@ -377,7 +377,7 @@
         .logo img {
           width: 25px;
           position: absolute;
-          
+
           top: 9px;
         }
         .logo p {
@@ -387,19 +387,19 @@
           top: 13px;
           right: 0;
         }
-        .plus .fas{
-        position: absolute;
-        right: 40px;
-        top: 76%;
-      }
-      #article img{
-        height: 230px;
-      }
-      .dash {
-        margin-top: 30px;
-        margin-left: 40px;
-       display: block;
-      }
+        .plus .fas {
+          position: absolute;
+          right: 40px;
+          top: 76%;
+        }
+        #article img {
+          height: 230px;
+        }
+        .dash {
+          margin-top: 30px;
+          margin-left: 40px;
+          display: block;
+        }
       }
     </style>
   </head>
@@ -412,9 +412,17 @@
 
       <div class="sidebar">
         <i class="fas fa-user-shield fa-3x"></i>
-        <div><a href="Admin's panel.html"><i class="fas fa-chart-line"></i> Dashboard</a> </div>
-        <div><a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a> </div>
-        <div><a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a> </div>
+        <div>
+          <a href="Admin's panel.html"
+            ><i class="fas fa-chart-line"></i> Dashboard</a
+          >
+        </div>
+        <div>
+          <a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a>
+        </div>
+        <div>
+          <a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a>
+        </div>
         <a href="Login.html"><button>Logout</button></a>
       </div>
     </aside>
@@ -425,16 +433,17 @@
           <span></span>
           <span></span>
         </div>
-        
       </div>
       <div id="body">
-        <div id="article" class="0001">
+        <div class="article" class="0001">
           <div>
             <a href="article.html"><div class="date">15 jan</div></a>
             <img src="images/neww.jpg" alt="" class="image" />
           </div>
           <div class="det">
-            <a href="article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
+            <a href="article.html"
+              ><h2 class="title">What is Lorem Ipsum?</h2></a
+            >
 
             <p class="content">
               It is a long established fact that a reader will be distracted by
@@ -442,69 +451,45 @@
               point of using Lorem Ipsum is that it has a more-or-less normal
               distribution of
             </p>
-            <div>
+            <div class="smash">
               <i class="fas fa-thumbs-up"><p class="lik"></p></i>
-              
+
               <i class="far fa-edit">edit</i>
               <i class="fas fa-trash-alt">delete</i>
             </div>
             <div class="add">
               <input type="text" id="jas" placeholder="Content" />
-               <input type="text" id="js" placeholder="Title" />
-              <input type="file" id="fil" > 
+              <input type="text" id="js" placeholder="Title" />
+              <input type="file" id="fil" />
               <button id="j">Confirm</button>
             </div>
           </div>
         </div>
-        <div class="visits">
-          <div>
-            <label for="file">Choose a photo</label>
-            <input type="file" id="file" accept="images/*">
-          </div>
-          <div><input type="text" placeholder="Title"></div>
-          <div><textarea name="new" id="new" cols="30" rows="10" placeholder="Article"></textarea></div>
-          
-          <div class="calc">
-            
-            <button class="pos">Post</button>
-        </div>
-        
-      </div>
-      <div class="plus">
-        <i class="fas fa-plus-square fa-3x"></i>
       </div>
     </main>
   </body>
   <script>
-    let plus=document.querySelector('.plus .fas');
-    let visit=document.querySelector('.visits');
-    
-    plus.addEventListener('click',function(){
-       if(visit.style.display==='none'){
-        visit.style.display='block';
-       }
-       else{
-        visit.style.display='none'
-       }
+    let plus = document.querySelector('.plus .fas');
+    let visit = document.querySelector('.visits');
+
+    plus.addEventListener('click', function () {
+      if (visit.style.display === 'none') {
+        visit.style.display = 'block';
+      } else {
+        visit.style.display = 'none';
+      }
     });
 
+    let dash = document.querySelector('.dash');
+    let sidebar = document.querySelector('aside');
 
-    let dash=document.querySelector('.dash');
-    let sidebar=document.querySelector('aside');
-    
-    
-
-    dash.addEventListener('click', function(){
-
-      if (sidebar.style.display==='none'){
-      sidebar.style.display='block';
-    }
-    else{
-      sidebar.style.display='none';
-    }
+    dash.addEventListener('click', function () {
+      if (sidebar.style.display === 'none') {
+        sidebar.style.display = 'block';
+      } else {
+        sidebar.style.display = 'none';
+      }
     });
-    
-    
   </script>
   <script src="java.js"></script>
 </html>

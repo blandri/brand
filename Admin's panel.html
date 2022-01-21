@@ -273,6 +273,7 @@
         <div><i class="fas fa-chart-line"></i> Dashboard</div>
         <div><a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a> </div>
         <div><a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a> </div>
+        <div><a href="post.html"><i class="far fa-newspaper"></i>Create</a> </div>
         <a href="Login.html"><button>Logout</button></a>
       </div>
     </aside>
@@ -299,6 +300,10 @@
               <p>10</p>
           </div>
         </div>
+        <div>
+          <button id="location">Get user's location</button>
+          <div id="output"></div>
+        </div>
       </div>
     </main>
   </body>
@@ -321,5 +326,16 @@
     }
     });
     
+let locat=document.querySelector('#location');
+    locat.addEventListener('click', function (){
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(function(position){
+          console.log(position)
+        })
+      }
+      else{
+        console.log('location not supported');
+      }
+    })
   </script>
 </html>

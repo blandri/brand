@@ -528,55 +528,60 @@
       header.classList.toggle('sticky', window.scrollY > 100);
     });
 
-    let name = document.querySelector('#name');
     let message = document.querySelector('textarea');
     let email = document.querySelector('#Email');
 
     //dom manipulation
 
-    window.addEventListener('DOMContentLoaded', () => {
-      let form = document.querySelector('form');
+    let form = document.querySelector('form');
 
-      //form manipulation
+    //form manipulation
+    let name = document.querySelector('#name');
+
+    let nom = name.value.trim();
+    let mess = message.value.trim();
+    let mail = email.value.trim();
+
+    let arr = [];
+
+    form.addEventListener('submit', (nw) => {
+      nw.preventDefault();
+
+      /*error function*/ let showError = (input) => {
+        const formField = input.parentElement;
+
+        input.classList.add('error');
+
+        const error = formField.querySelector('#small');
+      };
+
+      const mailValid = (email) => {
+        const re =
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      };
       let name = document.querySelector('#name');
-
       let nom = name.value.trim();
       let mess = message.value.trim();
       let mail = email.value.trim();
 
-      form.addEventListener('submit', (nw) => {
-        nw.preventDefault();
-
-        /*error function*/ let showError = (input) => {
-          const formField = input.parentElement;
-
-          input.classList.add('error');
-
-          const error = formField.querySelector('#small');
-        };
-
-        const mailValid = (email) => {
-          const re =
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return re.test(email);
-        };
-        let name = document.querySelector('#name');
-        let nom = name.value.trim();
-        let mess = message.value.trim();
-        let mail = email.value.trim();
-
-        if (mailValid(mail) == false || mess == '' || nom < 2) {
-          showError(email);
-          showError(message);
-          showError(name);
-        } else {
-          let newMessage = { maile: mail, messa: mess };
-
-          localStorage.setItem('mesaje', JSON.stringify(newMessage));
-        }
-
-        console.log(localStorage);
-      });
+      if (mailValid(mail) == false) {
+        showError(email);
+      } else if (mess == '') {
+        showError(message);
+      } else if (nom < 2) {
+        showError(name);
+      }
+      let messag = {
+        email: mail,
+        message: mess,
+      };
+      if (localStorage.getItem('me') == null) {
+        localStorage.setItem('me', JSON.stringify(arr));
+      }
+      let a = JSON.parse(localStorage.getItem('me'));
+      a.push(messag);
+      localStorage.setItem('me', JSON.stringify(a));
     });
   </script>
 </html>
