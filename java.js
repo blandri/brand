@@ -1,48 +1,128 @@
-window.addEventListener('DOMContentLoaded', function e() {
-  let article1 = document.querySelector('.at1');
-  let article2 = document.querySelector('.at2');
-  let like = document.querySelector('.fa-thumbs-up');
-  let body = document.getElementById('body');
-  let del = document.querySelector('.fa-trash-alt');
-  let edit = document.querySelector('.fa-edit');
-  let post = document.querySelector('.pos');
+let body = document.getElementById('body');
+let del = document.querySelector('.fa-trash-alt');
+let date = document.querySelector('.date');
+let picture = document.querySelector('.image');
+let par = document.querySelector('#article');
+let articl = picture.parentNode;
+let art = articl.parentNode;
+let ar = art.parentNode;
+let title = document.querySelector('.title');
+let content = document.querySelector('.content');
+let likes = document.querySelector('.lik');
+let a = ar.childNodes;
 
-  let articles = {
-    first: article1,
-    second: article2,
-  };
+//creating article
 
-  console.log(articles);
+console.log(localStorage.new);
+function nullP(mes, me) {
+  title.innerHTML = mes;
+  content.innerHTML = me;
+}
 
-  del.addEventListener('click', () => {
-    body.removeChild(article1);
-  });
-  edit.addEventListener('click', () => {
-    let div = document.createElement('div');
-    div.classList.add('add');
+//Likes operation
+let value = JSON.parse(localStorage.getItem('likes'));
+likes.innerHTML = value;
 
-    div.innerHTML =
-      '<input type="text" id="jas" placeholder="Content" /> <input type="text" id="js" placeholder="Title" /> <input type="file" id="fil" accept="images/*"> <button id="j">Confirm</button>';
-    ('');
+//article operation
 
-    article1.appendChild(div);
-  });
-  post.addEventListener('click', () => {});
+function stringLocal(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
 
-  const jas = document.querySelector('#jas');
-  const js = document.querySelector('#js');
-  const j = document.querySelector('#j');
-  const fil = document.querySelector('#fil');
-  let img = document.querySelector('.image');
-  let p = document.querySelector('.p');
-  let h2 = document.querySelector('h2');
+function parseLocal(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
 
-  j.addEventListener('click', (a) => {
-    a.preventDefault();
-    const u = jas.value;
-    const up = js.value;
-    const upd = fil.value;
+function deleteArticle(child) {
+  ar.removeChild(child);
+}
 
-    console.log('hi');
-  });
+//the article is stored in an array :new code
+let edit = document.querySelector('.fa-edit');
+edit.addEventListener('click', () => {
+  let add = document.querySelector('.add');
+
+  if (add.style.display === 'none') {
+    add.style.display = 'grid';
+  } else {
+    add.style.display = 'none';
+  }
 });
+
+function editt(key) {
+  let arr = parseLocal(key);
+  let jas = document.querySelector('#jas').value.trim();
+  let js = document.querySelector('#js').value.trim();
+
+  arr.unshift(jas);
+  arr.unshift(js);
+
+  nullP(arr[0], arr[1]);
+  stringLocal(key, arr);
+}
+
+let edb = document.querySelector('#j');
+edb.addEventListener('click', () => {
+  editt('articles');
+
+  let file = document.querySelector('#fil');
+  file.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      localStorage.setItem('image', reader.result);
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+
+  let img = localStorage.getItem('image');
+  picture.setAttribute('src', img);
+});
+
+function apply() {
+  let pp = editt('articles');
+
+  let div = document.createElement('div');
+  div.innerHTML = pp[0];
+  let aaaa = par.childNodes;
+  aaaa[3].replaceChild(div, content);
+}
+
+let arti = JSON.parse(localStorage.getItem('article'));
+let ima = JSON.parse(localStorage.getItem('image'));
+console.log(arti);
+
+function design(a, b, d, z) {
+  let da = date.cloneNode();
+  let smash = document.querySelector('.smash');
+  let add = document.querySelector('.add');
+  let sma = smash.cloneNode('deep');
+  let addd = add.cloneNode('deep');
+
+  let dap = document.createElement('div');
+  let pic = document.createElement('img');
+  pic.classList.toggle('image');
+  pic.setAttribute('src', d);
+  da.innerHTML = z;
+  dap.append(da, pic);
+
+  let tc = document.createElement('div');
+  tc.classList.toggle('det');
+
+  let t = document.createElement('h2');
+  t.classList.toggle('title');
+  let c = document.createElement('p');
+  c.classList.toggle('content');
+  t = a;
+  c = b;
+
+  tc.append(t, c);
+  let ad = document.createElement('div');
+  ad.classList.toggle('article');
+  ad.append(dap, tc, sma, addd);
+
+  ar.append(ad);
+}
+
+for (let i = 0; i <= arti.length; i++) {
+  design(arti[i].title, arti[i].content, ima[i], arti[i].date);
+}

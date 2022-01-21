@@ -10,6 +10,15 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .query {
+        background-color: white;
+        margin-left: 10px;
+        width: 40%;
+        font-size: 20px;
+        padding-left: 15px;
+        border-radius: 10px;
+        font-family: monospace;
+      }
         * {
         margin: 0.1;
         padding: 0;
@@ -87,8 +96,8 @@
       .visits
        {
         background: white;
-        width: 500px;
-        height: 450px;
+        width: 450px;
+        height: 300px;
         margin-top: 10px;
         margin-left: 30px;
         border-radius: 7px;
@@ -97,7 +106,7 @@
           1px 1px 9px rgb(134, 125, 125);
         font-size: 20px;
         display: grid;
-        grid-template-rows: 10% 20% 1fr;
+        grid-template-rows: 10% 19%;
         position: absolute;
         top: 105px;
         
@@ -285,18 +294,8 @@
           
         </div>
         <div id="body">
-          <div class="visits">
-            <p>Chatbox</p>
-            <div class="calc">
-              <p>Email</p>
-              
-          </div>
-          <div class="calc"><p class="mes">hi,message</p></div>
-          <div class="rep">
-            <i class="fas fa-reply-all"></i>
-            <input type="text" placeholder="Enter message">
-            <button>Send</button>
-          </div>
+          
+          
         </div>
       </main>
 </body>
@@ -315,6 +314,24 @@
     sidebar.style.display='none';
   }
   });
+
+  let MESAJE = JSON.parse(localStorage.getItem('me'));
+    let body = document.querySelector('#body');
+    let email = document.querySelector('.mail');
+    let message = document.querySelector('.mes');
+    let box = document.querySelector('.visits');
+
+    for (let i = 0; i <= MESAJE.length; i++) {
+      let em = document.createElement('p');
+      let mes = document.createElement('p');
+      let di = document.createElement('div');
+      di.classList.toggle('query');
+      di.append(em, mes);
+      em.innerHTML = MESAJE[i].email;
+      mes.innerHTML = MESAJE[i].message;
+      body.append(di);
+    }
+  
   
 </script>
 </html>
