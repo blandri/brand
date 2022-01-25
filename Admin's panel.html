@@ -300,10 +300,7 @@
               <p>10</p>
           </div>
         </div>
-        <div>
-          <button id="location">Get user's location</button>
-          <div id="output"></div>
-        </div>
+        
       </div>
     </main>
   </body>
@@ -326,19 +323,6 @@
     }
     });
     
-    let locations=[];
-let locat=document.querySelector('#location');
-    locat.addEventListener('click', function (){
-      if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(function(position){
-          console.log(position)
-          /*locations.push(position);
-          localStorage.setItem('user locations',JSON.stringify(locations));*/
-        })
-      }
-      else{
-        console.log('location not supported');
-      }
-    })
+    
   </script>
 </html>

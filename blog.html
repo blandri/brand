@@ -11,6 +11,39 @@
     ></script>
   </head>
   <style>
+    .cm {
+      float: right;
+      margin-top: 10px;
+      background-color: #e96760;
+      color: white;
+      width: 280px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+    .giv p {
+      margin-top: 30px;
+      margin-left: 10px;
+    }
+    .giv {
+      display: inline-flex;
+    }
+    .se,
+    .sen {
+      width: 50px;
+      height: 20px;
+      font-size: 15px;
+      margin-left: 10px;
+    }
+    .sen {
+      float: right;
+    }
+    .in {
+      width: 280px;
+      height: 40px;
+      margin-left: 10px;
+      float: right;
+    }
     #com {
       background-color: rgb(233, 233, 233);
       width: 30%;
@@ -50,6 +83,7 @@
     }
     .title {
       color: #ec5b53;
+      margin-bottom: 20px;
     }
     .date {
       position: absolute;
@@ -426,7 +460,7 @@
       <div class="article" class="0001">
         <div>
           <a href="Article.html"><div class="date">15 jan</div></a>
-          <img src="images/neww.jpg" alt="" class="image" />
+          <img src="images/article.jpg" alt="" class="image" />
         </div>
         <div class="det">
           <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
@@ -474,18 +508,6 @@
     </footer>
   </body>
   <script>
-    function like() {
-      let like = document.querySelector('.fa-thumbs-up');
-      Comme = document.querySelector('.fa-comment-alt');
-      let lik = document.querySelector('.lik');
-      let likes = 0;
-      like.addEventListener('click', () => {
-        likes = likes + 1;
-        lik.innerHTML = likes;
-      });
-    }
-    like();
-    //likes
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
 
@@ -498,6 +520,7 @@
     });
 
     let header = document.querySelector('header');
+
     window.addEventListener('scroll', function () {
       header.classList.toggle('sticky', window.scrollY > 100);
     });
@@ -518,24 +541,64 @@
     let art = JSON.parse(localStorage.getItem('article'));
     let ima = JSON.parse(localStorage.getItem('image'));
 
-    function design(a, b, d, z, p, k) {
+    function commen(a, b) {
+      let hh = JSON.parse(localStorage.getItem('article'));
+      for (k = 0; k <= hh.length; k++) {
+        if (hh[k].title == a && hh[k].content == b) {
+          console.log(hh[k].comments);
+        }
+      }
+    }
+
+    function design(a, b, d, z, p, k, x) {
+      let ad = document.createElement('div');
+      ad.classList.toggle('article');
+
       let da = date.cloneNode();
-      let smash = document.querySelector('.smash');
-      let add = document.querySelector('.add');
-      let sma = smash.cloneNode('deep');
+      let tf = document.querySelector('.title');
+      let ft = tf.cloneNode('deep');
+      ft.innerHTML = a;
+      let lik = document.createElement('button');
+      lik.classList.toggle('se');
+      lik.innerHTML = 'like';
+      let l = document.createElement('p');
+      let giv = document.createElement('div');
+      giv.classList.toggle('giv');
+      giv.append(lik, l);
+
+      let sma = document.createElement('div');
       let cc = document.createElement('input');
+      cc.classList.toggle('in');
       let bt = document.createElement('button');
+      bt.classList.toggle('sen');
       bt.innerText = 'send';
 
-      sma.append(cc, bt);
+      lik.addEventListener('click', () => {
+        let lk = 0;
+
+        lk = lk + 1;
+        l.innerHTML = lk;
+        p.likes = lk;
+        localStorage.setItem(k, JSON.stringify(x));
+      });
+
+      sma.append(giv, cc, bt);
+      //comments
       p.comments = [];
       bt.addEventListener('click', () => {
-        if (localStorage.getItem(k) == null) {
-          localStorage.setItem(k, JSON.stringify(p.comments));
+        p.comments.push(cc.value);
+        localStorage.setItem(k, JSON.stringify(x));
+
+        let are = document.createElement('div');
+        let ar = document.createElement('p');
+        are.classList.toggle('cm');
+        let h = JSON.parse(localStorage.getItem(k));
+        for (let r = 0; r <= h.length; r++) {
+          console.log(h[r].comments);
+          ar.innerHTML = h[r].comments;
+          are.append(ar);
+          ad.append(are);
         }
-        let bh = JSON.parse(localStorage.getItem(k));
-        bh.unshift(cc.value);
-        localStorage.setItem(k, JSON.stringify(bh));
       });
 
       let dap = document.createElement('div');
@@ -548,29 +611,27 @@
       let tc = document.createElement('div');
       tc.classList.toggle('det');
 
-      let t = document.createElement('h2');
-      t.classList.toggle('title');
       let c = document.createElement('p');
       c.classList.toggle('content');
-      t = a;
+
       c = b;
 
-      tc.append(t, c);
-      let ad = document.createElement('div');
-      ad.classList.toggle('article');
+      tc.append(ft, c);
+
       ad.append(dap, tc, sma);
 
       body.append(ad);
     }
-    console.log(typeof art[0].id);
+
     for (let i = 0; i <= art.length; i++) {
       design(
         art[i].title,
         art[i].content,
-        ima[i],
+        art[i].image,
         art[i].date,
         art[i],
-        art[i].id
+        'article',
+        art
       );
     }
   </script>
