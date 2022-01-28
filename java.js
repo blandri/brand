@@ -12,8 +12,10 @@ let likes = document.querySelector('.lik');
 let a = ar.childNodes;
 
 //creating article
+let k = document.querySelector('.image');
+let d = k.getAttribute('src');
+localStorage.setItem('img', JSON.stringify(d));
 
-console.log(localStorage.new);
 function nullP(mes, me) {
   title.innerHTML = mes;
   content.innerHTML = me;
@@ -88,15 +90,59 @@ function apply() {
 }
 
 let arti = JSON.parse(localStorage.getItem('article'));
-let ima = JSON.parse(localStorage.getItem('image'));
-console.log(arti);
 
-function design(a, b, d, z) {
+function dele(x, y) {
+  if (confirm('you are about to delete this article.')) {
+    let h = [];
+    console.log(x);
+    let i = x.indexOf(y);
+    x.splice(i, 1);
+    h = x;
+    localStorage.setItem('article', JSON.stringify(h));
+  }
+}
+
+function edi(a, b) {
+  let div = document.createElement('div');
+  div.classList.toggle('edt');
+  let co = document.createElement('input');
+  co.value = b;
+  let t = document.createElement('input');
+  t.value = a;
+  let conf = document.createElement('button');
+  conf.innerHTML = 'confirm';
+  div.append(t, co, conf);
+  ar.append(div);
+
+  conf.addEventListener('click', () => {
+    let hh = JSON.parse(localStorage.getItem('article'));
+    for (let i = 0; i <= hh.length; i++) {
+      if (hh[i].title == a && hh[i].content == b) {
+        hh[i].title = t.value;
+        hh[i].content = co.value;
+        localStorage.setItem('article', JSON.stringify(hh));
+      }
+    }
+  });
+}
+
+function design(a, b, d, z, x, y) {
   let da = date.cloneNode();
-  let smash = document.querySelector('.smash');
-  let add = document.querySelector('.add');
-  let sma = smash.cloneNode('deep');
-  let addd = add.cloneNode('deep');
+  let tf = document.querySelector('.title');
+  let ft = tf.cloneNode('deep');
+  ft.innerHTML = a;
+  let upd = document.createElement('div');
+  let edit = document.createElement('button');
+  edit.innerHTML = 'edit';
+  edit.classList.toggle('edi');
+  let delet = document.createElement('button');
+  delet.innerHTML = 'delete';
+  delet.classList.toggle('del');
+  upd.append(edit, delet);
+
+  edit.addEventListener('click', () => {
+    edi(a, b);
+  });
 
   let dap = document.createElement('div');
   let pic = document.createElement('img');
@@ -108,21 +154,32 @@ function design(a, b, d, z) {
   let tc = document.createElement('div');
   tc.classList.toggle('det');
 
-  let t = document.createElement('h2');
-  t.classList.toggle('title');
   let c = document.createElement('p');
   c.classList.toggle('content');
-  t = a;
+
   c = b;
 
-  tc.append(t, c);
+  tc.append(ft, c);
   let ad = document.createElement('div');
   ad.classList.toggle('article');
-  ad.append(dap, tc, sma, addd);
+  ad.append(dap, tc, upd);
 
   ar.append(ad);
+
+  delet.addEventListener('click', () => {
+    dele(x, y);
+  });
 }
 
 for (let i = 0; i <= arti.length; i++) {
-  design(arti[i].title, arti[i].content, ima[i], arti[i].date);
+  design(
+    arti[i].title,
+    arti[i].content,
+    arti[i].image,
+    arti[i].date,
+    arti,
+    arti[i]
+  );
 }
+
+

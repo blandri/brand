@@ -598,6 +598,7 @@
             let { country, county, state, road } = locationn;
 
             messag.location = [country, county, state, road];
+
             if (localStorage.getItem('me') == null) {
               localStorage.setItem('me', JSON.stringify(arr));
             }

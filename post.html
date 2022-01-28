@@ -532,6 +532,8 @@
       let file=document.querySelector('#file');
       let dat=document.querySelector('.dat');
 
+      
+
       let imgs=[];
 
       file.addEventListener('change', function () {
@@ -550,15 +552,20 @@
   });
 
   
-  
+  let v = JSON.parse(localStorage.getItem('img'));
+
+
     let articles=[];
     let id=0;
     
     post.addEventListener('click',(e)=>{
+      
       e.preventDefault();
-      id=id+1;
+      if(confirm('you are about to post this article.')){
+        id=id+1;
       console.log(id);
       let newArt={
+        image:v,
         title:title.value,
         content:content.value,
         date:dat.value,
@@ -570,25 +577,18 @@
         localStorage.setItem('article',JSON.stringify(articles));
       }
       let arti=JSON.parse(localStorage.getItem('article'));
+      arti.id=id+1;
       arti.push(newArt);
       localStorage.setItem('article',JSON.stringify(arti));
+      }
+      
     })
 
 
   let delet=document.querySelector('#de');
 let idd=document.querySelector('#id');
 
-delet.addEventListener('click',()=>{
-  let ide=idd.value;
-  let arto=JSON.parse(localStorage.getItem('article'));
-  
-  for(let k=0;k<=arto.length;k++){
-    if(arto[k].id==ide){
-      arto.pop(arto[k]);
-    }
-  }
-  localStorage.setItem('article',JSON.stringify(arto));
-})
+
     
 
 
