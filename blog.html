@@ -910,8 +910,12 @@
 
       // read one
       let readmore = document.createElement('button');
-      readmore.innerHTML = 'READ MORE';
-      readmore.style.background = 'black';
+      readmore.innerHTML = 'read more &raquo';
+      readmore.style.background = '#e79b97';
+      readmore.style.height = '40px';
+      readmore.style.width = '130px';
+      readmore.style.cursor = 'pointer';
+      readmore.style.marginLeft = '20px';
       let singl = document.querySelector('.single');
       let singcomm = document.querySelector('.singcomm');
       let ig = document.querySelector('#singim');
@@ -922,14 +926,18 @@
       clo.setAttribute('class', 'fa fa-2x');
       clo.innerHTML = '&#xf057';
 
+      let head = document.querySelector('header');
+      let bod = document.querySelector('body');
       clous.append(clo);
 
       readmore.addEventListener('click', () => {
+        readmore.style.background = '#ec5b53';
         if (singl.style.visibility === 'hidden') {
           singl.style.visibility = 'visible';
         } else {
           singl.style.visibility = 'hidden';
         }
+
         ig.setAttribute('src', d);
         sc.innerHTML = b;
         st.innerHTML = a;
@@ -945,6 +953,8 @@
               singcomm.append(commen);
             }
           });
+        head.style.background = 'rgb(64, 61, 73)';
+        bod.style.background = 'rgb(64, 61, 73)';
       });
 
       clous.addEventListener('click', () => {
@@ -953,6 +963,8 @@
         } else {
           singl.style.visibility = 'hidden';
         }
+        head.style.background = 'white';
+        bod.style.background = 'white';
       });
       /////////
 
