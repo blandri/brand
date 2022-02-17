@@ -254,6 +254,40 @@
       margin-left: 10px;
     }
     @media (min-width: 900px) {
+      .single {
+        position: fixed;
+        background-color: #f1eaea;
+        top: 10%;
+        left: 15%;
+        height: 89.9%;
+        width: 70%;
+        z-index: 1;
+        visibility: hidden;
+        transition: 0.5s;
+      }
+      #sing {
+        height: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      .singcomments {
+        display: grid;
+        padding: 30px;
+      }
+      .singcomm {
+        font-size: 30px;
+        margin-top: 20px;
+        padding: 30px;
+      }
+      #appe {
+        background-color: white;
+        padding: 10px;
+      }
+      #clous {
+        float: right;
+        height: 40px;
+        cursor: pointer;
+      }
       .comment {
         position: fixed;
         width: 30%;
@@ -312,6 +346,7 @@
         grid-template-columns: 20% 60% 20%;
         width: 100%;
         transition: 1s;
+        z-index: 2;
       }
       header.sticky {
         position: fixed;
@@ -538,6 +573,32 @@
             </div>
           </div>
         </div>
+        <div class="single">
+          <div id="sing">
+            <div id="clous"></div>
+            <img src="images/article.jpg" alt="" class="image" id="singim" />
+            <div class="det">
+              <a href="Article.html"
+                ><h2 class="title" id="singti">What is Lorem Ipsum?</h2></a
+              >
+
+              <p class="content" id="singcont">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of
+              </p>
+            </div>
+            <div class="singcomments">
+              <u
+                ><strong><p>COMMENTS</p></strong></u
+              >
+            </div>
+            <div class="singcomm">
+              <div id="appe"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -742,16 +803,16 @@
 
         if (tim.length > 1) {
           console.log('already liked');
-          fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
+          /*fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
             method: 'delete',
           }).then((res) => res.json());
-          l.innerHTML = n - 1;
+          l.innerHTML = n - 1;*/
         } else {
           console.log('thanks');
           fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
             method: 'post',
           }).then((res) => res.json());
-          l.innerHTML = n + 1;
+          l.innerHTML = `${n + 1} likes`;
           lik.style.color = '#ec5b53'; //#ec5b53
         }
       });
@@ -847,6 +908,54 @@
       da.innerHTML = z;
       dap.append(da, pic);
 
+      // read one
+      let readmore = document.createElement('button');
+      readmore.innerHTML = 'READ MORE';
+      readmore.style.background = 'black';
+      let singl = document.querySelector('.single');
+      let singcomm = document.querySelector('.singcomm');
+      let ig = document.querySelector('#singim');
+      let clous = document.querySelector('#clous');
+      let st = document.querySelector('#singti');
+      let sc = document.querySelector('#singcont');
+      let clo = document.createElement('i');
+      clo.setAttribute('class', 'fa fa-2x');
+      clo.innerHTML = '&#xf057';
+
+      clous.append(clo);
+
+      readmore.addEventListener('click', () => {
+        if (singl.style.visibility === 'hidden') {
+          singl.style.visibility = 'visible';
+        } else {
+          singl.style.visibility = 'hidden';
+        }
+        ig.setAttribute('src', d);
+        sc.innerHTML = b;
+        st.innerHTML = a;
+
+        fetch(`https://my-brand-node.herokuapp.com/api/v1/comment/${p}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            for (let i = 0; i <= data.length; i++) {
+              let commen = document.createElement('div');
+              commen.setAttribute('id', 'appe');
+              commen.innerHTML = `${data[i].name}: ${data[i].comment}`;
+              singcomm.append(commen);
+            }
+          });
+      });
+
+      clous.addEventListener('click', () => {
+        if (singl.style.visibility === 'visible') {
+          singl.style.visibility = 'hidden';
+        } else {
+          singl.style.visibility = 'hidden';
+        }
+      });
+      /////////
+
       let tc = document.createElement('div');
       tc.classList.toggle('det');
 
@@ -857,7 +966,7 @@
 
       tc.append(ft, c);
 
-      ad.append(dap, tc, sma);
+      ad.append(dap, tc, sma, readmore);
 
       body.append(ad);
     }
