@@ -204,6 +204,11 @@
       border-color: red;
     }
     @media (min-width: 900px) {
+      .now {
+        border-bottom: solid;
+        padding-bottom: 10px;
+        border-color: #e96760;
+      }
       .fab {
         margin-left: 10px;
       }
@@ -430,7 +435,7 @@
             <li><a href="Skills.html">Skills</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="Blog.html">Blog</a></li>
-            <li><a href="Contact.html">Contact</a></li>
+            <li class="now"><a href="Contact.html">Contact</a></li>
             <li>
               <a href="Login.html"><button>Log in</button></a>
             </li>
@@ -474,7 +479,7 @@
         </div>
 
         <input id="mess" type="text" placeholder="Subject" class="sm" />
-        <button type="submit">Send</button>
+        <button type="submit" id="sent">Send</button>
       </form>
     </div>
     <div id="ico">
@@ -514,6 +519,7 @@
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
+    let sent = document.querySelector('#sent');
 
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {
@@ -597,15 +603,25 @@
             let locationn = result.results[0].components;
             let { country, county, state, road } = locationn;
 
-            messag.location = [country, county, state, road];
+            messag.location = JSON.stringify([country, county, state, road]);
 
-            if (localStorage.getItem('me') == null) {
-              localStorage.setItem('me', JSON.stringify(arr));
-            }
-            let a = JSON.parse(localStorage.getItem('me'));
-            a.push(messag);
-            localStorage.setItem('me', JSON.stringify(a));
+            messs = JSON.stringify(messag);
+
+            fetch('https://my-brand-node.herokuapp.com/api/v1/queries', {
+              method: 'POST',
+              body: messs,
+              headers: {
+                'content-type': 'application/json; charset=UTF-8',
+
+                'Access-Allow-Cross-Origin': '*',
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data));
           });
+        sent.innerHTML = 'SENT';
+        sent.style.color = 'green';
+        sent.style.borderColor = 'green';
       }
     });
   </script>
