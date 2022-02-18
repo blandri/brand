@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <script>
-      const uss=JSON.parse(localStorage.getItem('users'))
-      if(uss.status==='logged out'){
-        window.location='Login.html'
+      const uss = JSON.parse(localStorage.getItem('users'));
+      if (uss.status === 'logged out') {
+        window.location = 'Login.html';
       }
-      console.log('wel')
+      console.log('wel');
     </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -223,8 +223,8 @@
         position: absolute;
         background-color: #ec5b53;
         color: white;
-        font-size: 30px;
-        padding: 15px;
+        font-size: 26px;
+        padding: 8px;
         border-radius: 10px;
         height: 90px;
         width: 70px;
@@ -634,7 +634,10 @@
           },
         })
           .then((res) => res.json())
-          .then((data) => console.log(data));
+          .then((data) => {
+            console.log(data);
+            window.location.reload();
+          });
       }
     }
 
@@ -681,6 +684,7 @@
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
+              window.location.reload();
             });
         }
       });
@@ -733,9 +737,10 @@
     fetch('https://my-brand-node.herokuapp.com/api/v1/articles')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         for (let i = 0; i < data.length; i++) {
+          console.log(data[i].created_on);
           let wor = data[i].created_on.split('-');
+          let w = wor[2].split('T');
           //months
           let a;
           switch (wor[1]) {
@@ -758,7 +763,7 @@
             default:
               break;
           }
-          let wo = `${wor[0]} ${a}`;
+          let wo = `${wor[0]} ${w[0]} ${a}`;
           design(
             data[i].title,
             data[i].content,

@@ -254,6 +254,18 @@
       margin-left: 10px;
     }
     @media (min-width: 900px) {
+      .singll {
+        position: fixed;
+        background-color: black;
+        opacity: 0.8;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        visibility: hidden;
+        transition: 0.5s;
+      }
       .single {
         position: fixed;
         background-color: #f1eaea;
@@ -442,8 +454,8 @@
         position: absolute;
         background-color: #ec5b53;
         color: white;
-        font-size: 29px;
-        padding: 8px;
+        font-size: 26px;
+        padding: 5px;
         border-radius: 10px;
         height: 90px;
         width: 70px;
@@ -573,6 +585,7 @@
             </div>
           </div>
         </div>
+        <div class="singll"></div>
         <div class="single">
           <div id="sing">
             <div id="clous"></div>
@@ -710,6 +723,7 @@
         const art = JSON.parse(req.response);
         for (let i = 0; i <= art.length; i++) {
           let wor = art[i].created_on.split('-');
+          let w = wor[2].split('T');
           //months
           let a;
           switch (wor[1]) {
@@ -732,7 +746,7 @@
             default:
               break;
           }
-          let wo = `${wor[0]} ${a}`;
+          let wo = `${wor[0]} ${w[0]} ${a}`;
           console.log(
             design(
               art[i].title,
@@ -801,12 +815,13 @@
         console.log(tim.length);
         localStorage.setItem(`time${p}`, JSON.stringify(tim));
 
-        if (tim.length > 1) {
+        if (tim.length % 2 === 0) {
           console.log('already liked');
-          /*fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
+          fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
             method: 'delete',
           }).then((res) => res.json());
-          l.innerHTML = n - 1;*/
+          l.innerHTML = `${n - 0} likes`;
+          lik.style.color = '#e79b97'; //#ec5b53
         } else {
           console.log('thanks');
           fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
@@ -917,7 +932,9 @@
       readmore.style.cursor = 'pointer';
       readmore.style.marginLeft = '20px';
       let singl = document.querySelector('.single');
+      let singll = document.querySelector('.singll');
       let singcomm = document.querySelector('.singcomm');
+      const sic = singcomm.cloneNode('deep');
       let ig = document.querySelector('#singim');
       let clous = document.querySelector('#clous');
       let st = document.querySelector('#singti');
@@ -926,16 +943,19 @@
       clo.setAttribute('class', 'fa fa-2x');
       clo.innerHTML = '&#xf057';
 
-      let head = document.querySelector('header');
-      let bod = document.querySelector('body');
       clous.append(clo);
 
       readmore.addEventListener('click', () => {
         readmore.style.background = '#ec5b53';
-        if (singl.style.visibility === 'hidden') {
+        if (
+          singl.style.visibility === 'hidden' &&
+          singll.style.visibility === 'hidden'
+        ) {
           singl.style.visibility = 'visible';
+          singll.style.visibility = 'visible';
         } else {
           singl.style.visibility = 'hidden';
+          singll.style.visibility = 'hidden';
         }
 
         ig.setAttribute('src', d);
@@ -953,18 +973,19 @@
               singcomm.append(commen);
             }
           });
-        head.style.background = 'rgb(64, 61, 73)';
-        bod.style.background = 'rgb(64, 61, 73)';
       });
 
       clous.addEventListener('click', () => {
-        if (singl.style.visibility === 'visible') {
+        if (
+          singl.style.visibility === 'visible' &&
+          singll.style.visibility === 'visible'
+        ) {
           singl.style.visibility = 'hidden';
+          singll.style.visibility = 'hidden';
         } else {
           singl.style.visibility = 'hidden';
+          singll.style.visibility = 'hidden';
         }
-        head.style.background = 'white';
-        bod.style.background = 'white';
       });
       /////////
 
