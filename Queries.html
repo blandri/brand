@@ -316,7 +316,13 @@
     const user = JSON.parse(localStorage.getItem('users'));
     const token = user.accessToken;
 
-    fetch('https://my-brand-node.herokuapp.com/api/v1/queries')
+    fetch('https://my-brand-node.herokuapp.com/api/v1/queries', {
+      headers: {
+        //'content-type': 'application/json; charset=UTF-8',
+
+        authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         for (let i = 0; i <= data.length; i++) {
