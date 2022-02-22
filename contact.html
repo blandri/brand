@@ -611,17 +611,19 @@
               method: 'POST',
               body: messs,
               headers: {
-                'content-type': 'application/json; charset=UTF-8',
+                'content-type': 'application/json',
 
                 'Access-Allow-Cross-Origin': '*',
               },
             })
               .then((res) => res.json())
-              .then((data) => console.log(data));
+              .then((data) => {
+                console.log(data);
+                sent.innerHTML = 'SENT';
+                sent.style.color = 'green';
+                sent.style.borderColor = 'green';
+              });
           });
-        sent.innerHTML = 'SENT';
-        sent.style.color = 'green';
-        sent.style.borderColor = 'green';
       }
     });
   </script>
