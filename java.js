@@ -91,37 +91,65 @@ function apply() {
 
 let arti = JSON.parse(localStorage.getItem('article'));
 
-function dele(x, y) {
+const user = JSON.parse(localStorage.getItem('users'));
+const token = user.accessToken;
+
+function dele(i) {
   if (confirm('you are about to delete this article.')) {
-    let h = [];
-    console.log(x);
-    let i = x.indexOf(y);
-    x.splice(i, 1);
-    h = x;
-    localStorage.setItem('article', JSON.stringify(h));
+    fetch(`https://my-brand-node.herokuapp.com/api/v1/articles/${i}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json; charset=UTF-8',
+
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }
 }
 
-function edi(a, b) {
+function edi(a, b, d, y) {
   let div = document.createElement('div');
   div.classList.toggle('edt');
+  let im = document.createElement('input');
+  im.setAttribute('type', 'file');
   let co = document.createElement('input');
   co.value = b;
   let t = document.createElement('input');
   t.value = a;
   let conf = document.createElement('button');
   conf.innerHTML = 'confirm';
-  div.append(t, co, conf);
+  div.append(im, t, co, conf);
   ar.append(div);
 
+  im.addEventListener('change', function () {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      d = reader.result;
+    });
+
+    reader.readAsDataURL(this.files[0]);
+  });
+
+  let etd = { title: t.value /*, content: co.value, image: d*/ };
+
+  let ev = JSON.stringify(etd);
+
   conf.addEventListener('click', () => {
-    let hh = JSON.parse(localStorage.getItem('article'));
-    for (let i = 0; i <= hh.length; i++) {
-      if (hh[i].title == a && hh[i].content == b) {
-        hh[i].title = t.value;
-        hh[i].content = co.value;
-        localStorage.setItem('article', JSON.stringify(hh));
-      }
+    if (confirm('you are about to edit this article.')) {
+      fetch(`https://my-brand-node.herokuapp.com/api/v1/articles/${y}`, {
+        method: 'PATCH',
+        body: ev,
+        headers: {
+          'content-type': 'application/json; charset=UTF-8',
+          authorization: `Bearer ${token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
     }
   });
 }
@@ -141,7 +169,7 @@ function design(a, b, d, z, x, y) {
   upd.append(edit, delet);
 
   edit.addEventListener('click', () => {
-    edi(a, b);
+    edi(a, b, d, y);
   });
 
   let dap = document.createElement('div');
@@ -167,19 +195,20 @@ function design(a, b, d, z, x, y) {
   ar.append(ad);
 
   delet.addEventListener('click', () => {
-    dele(x, y);
+    dele(y);
   });
 }
-
-for (let i = 0; i <= arti.length; i++) {
-  design(
-    arti[i].title,
-    arti[i].content,
-    arti[i].image,
-    arti[i].date,
-    arti,
-    arti[i]
-  );
-}
-
-
+fetch('https://my-brand-node.herokuapp.com/api/v1/articles')
+  .then((res) => res.json())
+  .then((data) => {
+    for (let i = 0; i <= data.length; i++) {
+      design(
+        data[i].title,
+        data[i].content,
+        data[i].image,
+        data[i].created_on,
+        data,
+        data[i]._id
+      );
+    }
+  });

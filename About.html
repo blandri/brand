@@ -172,6 +172,11 @@
         margin-left: 10px;
       }
      @media (min-width: 900px){
+      .now {
+        border-bottom: solid;
+        padding-bottom: 10px;
+        border-color: #e96760;
+      }
       .fab {
           margin-left: 10px;
         }
@@ -355,7 +360,7 @@
           </div>
           <div class="li">
             <li><a href="Home.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
+            <li class="now"><a href="About.html">About</a></li>
             <li><a href="Skills.html">Skills</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="Blog.html">Blog</a></li>
@@ -429,5 +434,11 @@
     window.addEventListener('scroll', function () {
       header.classList.toggle('sticky', window.scrollY > 100);
     });
+
+
+    let wor="2022-02-12t-66"
+    let k=wor.split('-')
+    let kk=k[0]+k[1]
+    console.log(kk)
   </script>
 </html>

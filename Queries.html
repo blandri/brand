@@ -10,14 +10,20 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      .logo p {
+        position: absolute;
+        top: 0;
+        left: 4.5%;
+      }
       .query {
         background-color: white;
         margin-left: 10px;
-        width: 40%;
+        width: 30%;
         font-size: 20px;
         padding-left: 15px;
         border-radius: 10px;
         font-family: monospace;
+        box-shadow: -2px -2px 2px 2px rgb(243, 230, 230);
       }
       * {
         margin: 0.1;
@@ -306,19 +312,34 @@
     let email = document.querySelector('.mail');
     let message = document.querySelector('.mes');
     let box = document.querySelector('.visits');
-    console.log(MESAJE[0].location);
 
-    for (let i = 0; i <= MESAJE.length; i++) {
-      let em = document.createElement('p');
-      let mes = document.createElement('p');
-      let loc = document.createElement('p');
-      let di = document.createElement('div');
-      di.classList.toggle('query');
-      di.append(em, mes, loc);
-      em.innerHTML = MESAJE[i].email;
-      mes.innerHTML = MESAJE[i].message;
-      loc.innerHTML = MESAJE[i].location;
-      body.append(di);
-    }
+    const user = JSON.parse(localStorage.getItem('users'));
+    const token = user.accessToken;
+
+    fetch('https://my-brand-node.herokuapp.com/api/v1/queries', {
+      headers: {
+        //'content-type': 'application/json; charset=UTF-8',
+
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        for (let i = 0; i <= data.length; i++) {
+          let em = document.createElement('p');
+          em.style.textDecoration = 'underline';
+          let mes = document.createElement('p');
+          mes.style = 'background-color:#eb9995';
+          let loc = document.createElement('p');
+          loc.style = 'background-color:#eb9995';
+          let di = document.createElement('div');
+          di.classList.toggle('query');
+          di.append(em, mes, loc);
+          em.innerHTML = data[i].email;
+          mes.innerHTML = data[i].message;
+          loc.innerHTML = data[i].location;
+          body.append(di);
+        }
+      });
   </script>
 </html>

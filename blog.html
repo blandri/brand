@@ -37,6 +37,8 @@
     }
     .sen {
       float: right;
+      width: 100px;
+      height: 30px;
     }
     .in {
       width: 280px;
@@ -55,7 +57,7 @@
     }
     .fa-thumbs-up,
     .fa-comment-alt {
-      color: #e96760;
+      color: #e4908b;
       margin-top: 40px;
       margin-left: 20px;
     }
@@ -73,6 +75,8 @@
       padding: 10px;
       line-height: 20px;
       font-size: 20px;
+      height: 186px;
+      overflow: hidden;
     }
     .content {
       margin-top: 15px;
@@ -252,6 +256,105 @@
       margin-left: 10px;
     }
     @media (min-width: 900px) {
+      .singll {
+        position: fixed;
+        background-color: black;
+        opacity: 0.8;
+        top: 0%;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        visibility: hidden;
+        transition: 0.5s;
+      }
+      .single {
+        position: fixed;
+        background-color: #f1eaea;
+        top: 0%;
+        left: 15%;
+        height: 100%;
+        width: 70%;
+        z-index: 1;
+        visibility: hidden;
+        transition: 0.5s;
+      }
+      .single .det {
+        height: fit-content;
+        line-height: 29px;
+        letter-spacing: 1px;
+      }
+      #sing {
+        height: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      .singcomments {
+        display: grid;
+        padding: 30px;
+      }
+      .singcomm {
+        font-size: 30px;
+        margin-top: 20px;
+        padding: 30px;
+      }
+      #appe {
+        background-color: white;
+        padding: 10px;
+      }
+      #clous {
+        float: right;
+        height: 40px;
+        cursor: pointer;
+      }
+      .comment {
+        position: fixed;
+        width: 30%;
+        top: 40%;
+        left: 25%;
+        font-size: 20px;
+        background-color: #eb9995;
+        padding: 10px;
+        visibility: hidden;
+      }
+      #close {
+        margin-right: 10px;
+        float: right;
+        font-size: 33px;
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .comment input {
+        display: flex;
+        height: 30px;
+        background: none;
+        border: none;
+        border-bottom: solid thin;
+      }
+      .comment button {
+        height: 30px;
+        width: 70px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .gt {
+        margin-top: 20px;
+        background-color: white;
+        width: 80%;
+        height: 30px;
+        border-radius: 5px;
+      }
+      .comme {
+        height: 250px;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      .now {
+        border-bottom: solid;
+        padding-bottom: 10px;
+        border-color: #e96760;
+      }
       header li button {
         display: none;
       }
@@ -262,6 +365,7 @@
         grid-template-columns: 20% 60% 20%;
         width: 100%;
         transition: 1s;
+        z-index: 1;
       }
       header.sticky {
         position: fixed;
@@ -353,12 +457,15 @@
         line-height: 20px;
         font-size: 25px;
       }
+      .det .title {
+        line-height: 35px;
+      }
       .date {
         position: absolute;
         background-color: #ec5b53;
         color: white;
-        font-size: 30px;
-        padding: 15px;
+        font-size: 26px;
+        padding: 5px;
         border-radius: 10px;
         height: 90px;
         width: 70px;
@@ -367,16 +474,17 @@
       }
       .sub {
         background: rgb(246, 245, 245);
-        width: 27%;
+        width: 23%;
 
         position: absolute;
         top: 670px;
-        right: 50px;
+        right: 90px;
         padding: 20px;
       }
+
       input,
       .sub button {
-        width: 370px;
+        width: 310px;
         height: 60px;
         margin-top: 10px;
         border: solid 1px;
@@ -440,7 +548,7 @@
             <li><a href="About.html">About</a></li>
             <li><a href="Skills.html">Skills</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
-            <li><a href="Blog.html">Blog</a></li>
+            <li class="now"><a href="Blog.html">Blog</a></li>
             <li><a href="Contact.html">Contact</a></li>
             <li>
               <a href="Login.html"><button>Log in</button></a>
@@ -463,19 +571,180 @@
           <img src="images/article.jpg" alt="" class="image" />
         </div>
         <div class="det">
-          <a href="Article.html"><h2 class="title">What is Lorem Ipsum?</h2></a>
+          <a href="Article.html"
+            ><h2 class="title">
+              What is Lorem Ipsum?It is a long established fact that a reader
+              will be distracted
+            </h2></a
+          >
 
           <p class="content">
             It is a long established fact that a reader will be distracted by
             the readable content of a page when looking at its layout. The point
             of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of
+            distribution of It is a long established fact that a reader will be
+            distracted by the readable content of a page when looking at its
+            layout. The point of using Lorem Ipsum is that it has a more-or-less
+            normal distribution of It is a long established fact that a reader
+            will be distracted by the readable content of a page when looking at
+            its layout. The point of using Lorem Ipsum is that it has a
+            more-or-less normal distribution of It is a long established fact
+            that a reader will be distracted by the readable content of a page
+            when looking at its layout. The point of using Lorem Ipsum is that
+            it has a more-or-less normal distribution of
           </p>
           <div class="smash">
-            <i class="fas fa-thumbs-up" onclick="function like(){}"
-              ><p class="lik"></p
-            ></i>
+            <i class="fas fa-thumbs-up"><p class="lik"></p></i>
             <i class="fas fa-comment-alt"></i>
+          </div>
+        </div>
+        <div class="comment">
+          <div class="comme">
+            <div id="close">&times</div>
+            <input type="text" placeholder="name" id="nm" />
+            <input type="text" placeholder="comment" id="cm" />
+            <button class="ns">Send</button>
+            <div id="commee">
+              <p class="gt">hahahahah</p>
+            </div>
+          </div>
+        </div>
+        <div class="singll"></div>
+        <div class="single">
+          <div id="sing">
+            <div id="clous"></div>
+            <img src="images/article.jpg" alt="" class="image" id="singim" />
+            <div class="det">
+              <a href="Article.html"
+                ><h2 class="title" id="singti">What is Lorem Ipsum?</h2></a
+              >
+
+              <p class="content" id="singcont">
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum is that it has a more-or-less
+                normal distribution of It is a long established fact that a
+                reader will be distracted by the readable content of a page when
+                looking at its layout. The point of using Lorem Ipsum is that it
+                has a more-or-less normal distribution of It is a long
+                established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using It is a
+                long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of It is
+                a long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using It is a long established fact that a reader will be
+                distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of It is
+                a long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using It is a long established fact
+                that a reader will be distracted by the readable content of a
+                page when looking at its layout. The point of using Lorem Ipsum
+                is that it has a more-or-less normal distribution of It is a
+                long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using It is a
+                long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of It is
+                a long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using It is a long established fact that a reader will be
+                distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of It is
+                a long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using It is a long established fact
+                that a reader will be distracted by the readable content of a
+                page when looking at its layout. The point of using Lorem Ipsum
+                is that it has a more-or-less normal distribution of It is a
+                long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using It is a
+                long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of It is
+                a long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using It is a long established fact that a reader will be
+                distracted by the readable content of a page when looking at its
+                layout. The point of using Lorem Ipsum is that it has a
+                more-or-less normal distribution of It is a long established
+                fact that a reader will be distracted by the readable content of
+                a page when looking at its layout. The point of using Lorem
+                Ipsum is that it has a more-or-less normal distribution of It is
+                a long established fact that a reader will be distracted by the
+                readable content of a page when looking at its layout. The point
+                of using Lorem Ipsum is that it has a more-or-less normal
+                distribution of It is a long established fact that a reader will
+                be distracted by the readable content of a page when looking at
+                its layout. The point of using
+              </p>
+            </div>
+            <div class="singcomments">
+              <u
+                ><strong><p>COMMENTS</p></strong></u
+              >
+            </div>
+            <div class="singcomm">
+              <div id="appe"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -507,6 +776,7 @@
       </div>
     </footer>
   </body>
+
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
@@ -527,7 +797,7 @@
 
     //subscribing
 
-    let sub = document.querySelector('#sub').value.trim();
+    let sub = document.querySelector('#sub');
     let su = document.querySelector('#su');
 
     const mailValid = (email) => {
@@ -535,11 +805,40 @@
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     };
+    let subscribers = [];
+    su.addEventListener('click', () => {
+      if (!mailValid(sub.value)) {
+        sub.style = 'border-color:red';
+        alert('invalid email');
+      } else {
+        su.innerHTML = 'subscribed';
+        su.style = 'border-color:green';
+        su.style = 'color:green';
+
+        Email.send({
+          secureToken,
+          To: sub.value,
+          From: 'landrybrok3@gmail.com',
+          Subject: 'My-brand-subscription',
+          Body: 'Thank you for subscribing to our page',
+        }).then((message) => {
+          alert(message);
+        });
+
+        let subUser = {
+          email: sub.value,
+        };
+
+        subscribers.push(subUser);
+        localStorage.setItem('subs', JSON.stringify(subscribers));
+      }
+    });
+
+    //blog articles
 
     let body = document.querySelector('#body');
     let date = document.querySelector('.date');
     let art = JSON.parse(localStorage.getItem('article'));
-    let ima = JSON.parse(localStorage.getItem('image'));
 
     function commen(a, b) {
       let hh = JSON.parse(localStorage.getItem('article'));
@@ -550,7 +849,74 @@
       }
     }
 
-    function design(a, b, d, z, p, k, x) {
+    const req = new XMLHttpRequest();
+
+    req.open('GET', 'https://my-brand-node.herokuapp.com/api/v1/articles');
+    req.send();
+    req.addEventListener('readystatechange', () => {
+      if (req.readyState === 4) {
+        const art = JSON.parse(req.response);
+        for (let i = 0; i <= art.length; i++) {
+          let wor = art[i].created_on.split('-');
+          let w = wor[2].split('T');
+          //months
+          let a;
+          switch (wor[1]) {
+            case '01':
+              a = 'Jan';
+              break;
+            case '02':
+              a = 'Feb';
+
+              break;
+            case '03':
+              a = 'March';
+              break;
+            case '04':
+              a = 'Aple';
+              break;
+            case '05':
+              a = 'May';
+              break;
+            default:
+              break;
+          }
+          let wo = `${wor[0]} ${w[0]} ${a}`;
+          console.log(
+            design(
+              art[i].title,
+              art[i].content,
+              art[i].image,
+              wo,
+              art[i]._id,
+              'article',
+              art,
+              art[i].likes,
+              art[i].comments
+            )
+          );
+        }
+      }
+    });
+
+    let box = document.querySelector('.comment');
+    let ns = document.querySelector('.ns');
+    let nm = document.querySelector('#nm');
+    let cm = document.querySelector('#cm');
+    let comme = document.querySelector('.comme');
+    let clos = document.querySelector('#close');
+
+    function come(p) {
+      ns.addEventListener('click', () => {
+        let d = document.createElement('div');
+        d.classList.toggle('gt');
+        d.append(p);
+        //commee.append(d);
+        console.log(p);
+      });
+    }
+
+    function design(a, b, d, z, p, k, x, n, m) {
       let ad = document.createElement('div');
       ad.classList.toggle('article');
 
@@ -558,47 +924,131 @@
       let tf = document.querySelector('.title');
       let ft = tf.cloneNode('deep');
       ft.innerHTML = a;
-      let lik = document.createElement('button');
-      lik.classList.toggle('se');
-      lik.innerHTML = 'like';
+      let lik = document.createElement('i');
+      lik.setAttribute('class', 'fa fa-2x');
+      lik.setAttribute('id', 'ioc');
+      lik.innerHTML = '&#xf164';
+      lik.style.color = '#e79b97'; //#ec5b53
+      lik.style.cursor = 'pointer';
+      lik.style.padding = '28px';
+
       let l = document.createElement('p');
+      l.style.fontSize = '27px';
       let giv = document.createElement('div');
       giv.classList.toggle('giv');
       giv.append(lik, l);
 
       let sma = document.createElement('div');
-      let cc = document.createElement('input');
-      cc.classList.toggle('in');
-      let bt = document.createElement('button');
-      bt.classList.toggle('sen');
-      bt.innerText = 'send';
+      //likes
+      const time = [];
+      lik.addEventListener('click', (e) => {
+        if (localStorage.getItem(`time${p}`) == null) {
+          localStorage.setItem(`time${p}`, JSON.stringify(time));
+        }
+        let tim = JSON.parse(localStorage.getItem(`time${p}`));
+        tim.push(e.timeStamp);
+        console.log(tim.length);
+        localStorage.setItem(`time${p}`, JSON.stringify(tim));
 
-      lik.addEventListener('click', () => {
-        let lk = 0;
-
-        lk = lk + 1;
-        l.innerHTML = lk;
-        p.likes = lk;
-        localStorage.setItem(k, JSON.stringify(x));
+        if (tim.length % 2 === 0) {
+          console.log('already liked');
+          fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
+            method: 'delete',
+          }).then((res) => res.json());
+          l.innerHTML = `${n - 0} likes`;
+          lik.style.color = '#e79b97'; //#ec5b53
+        } else {
+          console.log('thanks');
+          fetch(`https://my-brand-node.herokuapp.com/api/v1/like/${p}`, {
+            method: 'post',
+          }).then((res) => res.json());
+          l.innerHTML = `${n + 1} likes`;
+          lik.style.color = '#ec5b53'; //#ec5b53
+        }
       });
 
-      sma.append(giv, cc, bt);
-      //comments
-      p.comments = [];
-      bt.addEventListener('click', () => {
-        p.comments.push(cc.value);
-        localStorage.setItem(k, JSON.stringify(x));
+      l.innerHTML = `${n} likes`;
 
-        let are = document.createElement('div');
-        let ar = document.createElement('p');
-        are.classList.toggle('cm');
-        let h = JSON.parse(localStorage.getItem(k));
-        for (let r = 0; r <= h.length; r++) {
-          console.log(h[r].comments);
-          ar.innerHTML = h[r].comments;
-          are.append(ar);
-          ad.append(are);
-        }
+      let bt = document.createElement('i');
+      bt.setAttribute('class', 'fa fa-2x');
+      bt.setAttribute('id', 'ioc');
+      bt.innerHTML = '&#xf086';
+      bt.style.color = '#e79b97'; //#ec5b53
+      bt.style.cursor = 'pointer';
+      bt.style.float = 'right';
+      let sn = ns.cloneNode('deep');
+      let lp = document.createElement('div');
+      lp.classList.toggle('gt');
+
+      sma.append(giv, bt);
+
+      //comments
+
+      bt.addEventListener('click', () => {
+        let bx = box.cloneNode('');
+        let comm = comme.cloneNode('');
+        let n = document.createElement('button');
+        n.innerHTML = 'SEND';
+        let g = document.createElement('input');
+        g.setAttribute('placeholder', 'NAME');
+        let c = document.createElement('input');
+        c.setAttribute('placeholder', 'COMMENT');
+        let clo = document.createElement('i');
+        clo.setAttribute('class', 'fa fa-2x');
+        clo.innerHTML = '&#xf057';
+        clo.setAttribute('id', 'close');
+
+        comm.append(clo, g, c, n);
+        bx.append(comm);
+
+        bx.style.visibility = 'visible';
+        clo.addEventListener('click', () => {
+          if (bx.style.visibility === 'visible') {
+            bx.style.visibility = 'hidden';
+          } else {
+            bx.style.visibility = 'hidden';
+          }
+        });
+
+        bt.style.color = '#ec5b53';
+
+        console.log(bx);
+        ad.append(bx);
+        fetch(`https://my-brand-node.herokuapp.com/api/v1/comment/${p}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            for (let i = 0; i <= data.length; i++) {
+              let lp = document.createElement('div');
+              lp.classList.toggle('gt');
+              lp.append(`${data[i].name}: ${data[i].comment}`);
+              comm.append(lp);
+            }
+          });
+
+        n.addEventListener('click', () => {
+          let coi = document.createElement('div');
+          coi.classList.toggle('gt');
+
+          coi.append(`${g.value}: ${c.value}`);
+          comm.append(coi);
+
+          const comment = JSON.stringify({
+            name: g.value,
+            comment: c.value,
+          });
+          fetch(`https://my-brand-node.herokuapp.com/api/v1/comment/${p}`, {
+            method: 'POST',
+            body: comment,
+            headers: {
+              'content-type': 'application/json; charset=UTF-8',
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            });
+        });
       });
 
       let dap = document.createElement('div');
@@ -607,6 +1057,72 @@
       pic.setAttribute('src', d);
       da.innerHTML = z;
       dap.append(da, pic);
+
+      // read one
+      let readmore = document.createElement('button');
+      readmore.innerHTML = 'read more &raquo';
+      readmore.style.background = '#e79b97';
+      readmore.style.height = '40px';
+      readmore.style.width = '130px';
+      readmore.style.cursor = 'pointer';
+      readmore.style.marginLeft = '20px';
+      let singl = document.querySelector('.single');
+      let singll = document.querySelector('.singll');
+      let singcomm = document.querySelector('.singcomm');
+      const sic = singcomm.cloneNode('deep');
+      let ig = document.querySelector('#singim');
+      let clous = document.querySelector('#clous');
+      let st = document.querySelector('#singti');
+      let sc = document.querySelector('#singcont');
+      let clo = document.createElement('i');
+      clo.setAttribute('class', 'fa fa-2x');
+      clo.innerHTML = '&#xf057';
+
+      clous.append(clo);
+
+      readmore.addEventListener('click', () => {
+        readmore.style.background = '#ec5b53';
+        if (
+          singl.style.visibility === 'hidden' &&
+          singll.style.visibility === 'hidden'
+        ) {
+          singl.style.visibility = 'visible';
+          singll.style.visibility = 'visible';
+        } else {
+          singl.style.visibility = 'hidden';
+          singll.style.visibility = 'hidden';
+        }
+
+        ig.setAttribute('src', d);
+        sc.innerHTML = b;
+        st.innerHTML = a;
+
+        fetch(`https://my-brand-node.herokuapp.com/api/v1/comment/${p}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            for (let i = 0; i <= data.length; i++) {
+              let commen = document.createElement('div');
+              commen.setAttribute('id', 'appe');
+              commen.innerHTML = `${data[i].name}: ${data[i].comment}`;
+              singcomm.append(commen);
+            }
+          });
+      });
+
+      clous.addEventListener('click', () => {
+        if (
+          singl.style.visibility === 'visible' &&
+          singll.style.visibility === 'visible'
+        ) {
+          singl.style.visibility = 'hidden';
+          singll.style.visibility = 'hidden';
+        } else {
+          singl.style.visibility = 'hidden';
+          singll.style.visibility = 'hidden';
+        }
+      });
+      /////////
 
       let tc = document.createElement('div');
       tc.classList.toggle('det');
@@ -618,12 +1134,12 @@
 
       tc.append(ft, c);
 
-      ad.append(dap, tc, sma);
+      ad.append(dap, tc, sma, readmore);
 
       body.append(ad);
     }
 
-    for (let i = 0; i <= art.length; i++) {
+    /*for (let i = 0; i <= art.length; i++) {
       design(
         art[i].title,
         art[i].content,
@@ -631,8 +1147,10 @@
         art[i].date,
         art[i],
         'article',
-        art
+        art,
+        art[i].likes,
+        art[i].comments
       );
-    }
+    }*/
   </script>
 </html>

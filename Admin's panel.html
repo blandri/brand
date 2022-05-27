@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      const uss=JSON.parse(localStorage.getItem('users'))
+      if(uss.status==='logged out'){
+        window.location='Login.html'
+      }
+      console.log('wel')
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    
     <script
       src="https://kit.fontawesome.com/58847b45f6.js"
       crossorigin="anonymous"
@@ -15,6 +23,11 @@
         padding: 0;
         text-decoration: none;
         list-style: none;
+      }
+      .now {
+        border-bottom: solid;
+        padding-bottom: 10px;
+        border-color: #e96760;
       }
       body {
         display: grid;
@@ -68,6 +81,12 @@
         display: flex;
         font-size: 30px;
       }
+      .logo p{
+        
+        position: absolute;
+        top: 0;
+        left: 4.5%;
+      }
       .logo img{
           width: 27px;
           height: 30px;
@@ -108,7 +127,7 @@
       .calc{
           display: flex;
           justify-content: space-between;
-          margin-top: 80px;
+          margin-top: 40px;
           
       }
       aside button{
@@ -270,11 +289,11 @@
 
       <div class="sidebar">
         <i class="fas fa-user-shield fa-3x"></i>
-        <div><i class="fas fa-chart-line"></i> Dashboard</div>
+        <div class="now"><i class="fas fa-chart-line"></i> Dashboard</div>
         <div><a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a> </div>
         <div><a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a> </div>
         <div><a href="post.html"><i class="far fa-newspaper"></i>Create</a> </div>
-        <a href="Login.html"><button>Logout</button></a>
+        <a><button id="logout">Logout</button></a>
       </div>
     </aside>
     <main>
@@ -308,6 +327,14 @@
     let dash=document.querySelector('.dash');
     let sidebar=document.querySelector('aside');
     let main=document.querySelector('main');
+    let logout=document.querySelector('#logout')
+
+    logout.addEventListener('click',()=>{
+      const use=JSON.parse(localStorage.getItem('users'))
+      use.status='logged out';
+      localStorage.setItem('users',JSON.stringify(use))
+      window.location='Login.html';
+    })
     
     
 

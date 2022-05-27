@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    const uss=JSON.parse(localStorage.getItem('users'))
+    if(uss.status==='logged out'){
+      window.location='Login.html'
+    }
+    console.log('wel')
+  </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+      
+    </script>
 </head>
 <body>
     <!DOCTYPE html>
@@ -464,7 +474,7 @@
         <div><a href="Admin's panel.html"><i class="fas fa-chart-line"></i> Dashboard</a> </div>
         <div><a href="Queries.html"><i class="fas fa-inbox"></i> Queries</a> </div>
         <div><a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a> </div>
-        <a href="Login.html"><button>Logout</button></a>
+        <a><button id="logout">Logout</button></a>
       </div>
     </aside>
     <main>
@@ -532,27 +542,30 @@
       let file=document.querySelector('#file');
       let dat=document.querySelector('.dat');
 
+      let logout=document.querySelector('#logout')
+
+    logout.addEventListener('click',()=>{
+      const use=JSON.parse(localStorage.getItem('users'))
+      use.status='logged out';
+      localStorage.setItem('users',JSON.stringify(use))
+      window.location='Login.html';
+    })
+
       
 
-      let imgs=[];
-
-      file.addEventListener('change', function () {
+      /*file.addEventListener('change', function () {
     const reader = new FileReader();
     reader.addEventListener('load',()=>{
-      if (localStorage.getItem('image')==null){
-        localStorage.setItem('image',JSON.stringify(imgs));
-      }
-      let ima=JSON.parse(localStorage.getItem('image'))
-      ima.push(reader.result)
-      localStorage.setItem('image',JSON.stringify(ima));
+      
+      
+      newArt.image=reader.result
+      
     })
       
     reader.readAsDataURL(this.files[0]);
     
-  });
+  });*/
 
-  
-  let v = JSON.parse(localStorage.getItem('img'));
 
 
     let articles=[];
@@ -562,29 +575,56 @@
       
       e.preventDefault();
       if(confirm('you are about to post this article.')){
-        id=id+1;
-      console.log(id);
-      let newArt={
-        image:v,
-        title:title.value,
-        content:content.value,
-        date:dat.value,
-        id:id,
-      }
       
       
-      if(localStorage.getItem('article')==null){
+
+      /*if(localStorage.getItem('article')==null){
         localStorage.setItem('article',JSON.stringify(articles));
       }
       let arti=JSON.parse(localStorage.getItem('article'));
-      arti.id=id+1;
+      
       arti.push(newArt);
-      localStorage.setItem('article',JSON.stringify(arti));
+      localStorage.setItem('article',JSON.stringify(arti));*/
+
+      const user=JSON.parse(localStorage.getItem('users'))
+      const token=user.accessToken
+      //const ar=JSON.stringify(newArt)
+
+      const ar=new FormData();
+      ar.append("title",title.value)
+      ar.append("content",content.value)
+      ar.append("image",file.files[0])
+      console.log(Object.fromEntries(ar))
+
+      /*const request=new XMLHttpRequest()
+      request.open('POST','https://my-brand-node.herokuapp.com/api/v1/articles')
+      request.setRequestHeader(`Authorization`,`Bearer ${token}`)
+      request.send(ar)
+
+      request.addEventListener('readystatechange',()=>{
+        if(request.readyState===4){
+          console.log(request.responseText)
+        }
+      })*/
+      
+      fetch('https://my-brand-node.herokuapp.com/api/v1/articles',{
+        method:'POST',
+        
+       
+        headers:{
+          //"Access-Allow-Cross-Origin":"*",
+          //"Content-Type":"application/json",
+         
+          authorization:`Bearer ${token}`
+        
+      },
+      body:ar
+      }).then(res=>res.json()).then(data=>{console.log(data)})
       }
       
     })
 
-
+  
   let delet=document.querySelector('#de');
 let idd=document.querySelector('#id');
 
@@ -602,7 +642,7 @@ let fi=document.querySelector('#fi');
   let e=document.querySelector('#del');
   
 
-file.addEventListener('change', function () {
+/*file.addEventListener('change', function () {
     const reader = new FileReader();
     reader.addEventListener('load',()=>{
       if (localStorage.getItem('image')==null){
@@ -682,7 +722,7 @@ file.addEventListener('change', function () {
       }
       
     }
-  })
+  })*/
   </script>
   
 </html>

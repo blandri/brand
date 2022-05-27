@@ -363,17 +363,36 @@
        const PASS=password.value.trim();
        const MAIL=email.value.trim();
 
-        let user1={
-      
-      passWord:'123456',
-      email:'landrybrok3@gmail.com',
-    }
-    let user2={
-      userName:'Admin',
-      passWord:'000000'
-    }
+       let user1={
+          email:MAIL,
+      password:PASS,
+      }
+    const us=JSON.stringify(user1)
 
-    if(PASS==user1.passWord && MAIL==user1.email){
+    fetch('https://my-brand-node.herokuapp.com/api/v1/user/login',{
+      method:'post',
+      body:us,
+      headers:{
+        "content-type":"application/json; charset=UTF-8"
+      }
+    }).then(res=>res.json()).then(data=>{if(data.status===200){
+      window.location="Admin's panel.html"
+      data.status='logged in';
+      
+      localStorage.setItem('users',JSON.stringify(data));
+    }
+  else{
+    console.log(data.error)
+    const formField = email.parentElement;
+    const error = formField.querySelector('#small');
+    
+    error.textContent = data.error;
+  }
+  })
+
+   
+
+    /*if(PASS==user1.passWord && MAIL==user1.email){
       const USERS={
       
       password:PASS,
@@ -385,7 +404,7 @@
       
      localStorage.setItem('user1',JSON.stringify(USERS));
      
-    }
+    }*/
     
     
       
@@ -412,7 +431,7 @@ const mailValid = (email) => {
 
 if (mailValid(MAIL)===false){showError(email,'email is invalid');}
 
-else if(PASS<6){showError(password,'password is incorrect');}
+
       })
 
 })

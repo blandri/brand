@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      const uss = JSON.parse(localStorage.getItem('users'));
+      if (uss.status === 'logged out') {
+        window.location = 'Login.html';
+      }
+      console.log('wel');
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -216,8 +223,8 @@
         position: absolute;
         background-color: #ec5b53;
         color: white;
-        font-size: 30px;
-        padding: 15px;
+        font-size: 26px;
+        padding: 8px;
         border-radius: 10px;
         height: 90px;
         width: 70px;
@@ -450,7 +457,7 @@
         <div>
           <a href="artcles.html"><i class="far fa-newspaper"></i> Articles</a>
         </div>
-        <a href="Login.html"><button>Logout</button></a>
+        <a><button id="logout">Logout</button></a>
       </div>
     </aside>
     <main>
@@ -496,16 +503,7 @@
     </main>
   </body>
   <script>
-    let plus = document.querySelector('.plus .fas');
     let visit = document.querySelector('.visits');
-
-    plus.addEventListener('click', function () {
-      if (visit.style.display === 'none') {
-        visit.style.display = 'block';
-      } else {
-        visit.style.display = 'none';
-      }
-    });
 
     let dash = document.querySelector('.dash');
     let sidebar = document.querySelector('aside');
@@ -517,6 +515,264 @@
         sidebar.style.display = 'none';
       }
     });
+
+    let logout = document.querySelector('#logout');
+
+    logout.addEventListener('click', () => {
+      const use = JSON.parse(localStorage.getItem('users'));
+      use.status = 'logged out';
+      localStorage.setItem('users', JSON.stringify(use));
+      window.location = 'Login.html';
+    });
   </script>
-  <script src="java.js"></script>
+
+  <script>
+    let body = document.getElementById('body');
+    let del = document.querySelector('.fa-trash-alt');
+    let date = document.querySelector('.date');
+    let picture = document.querySelector('.image');
+    let par = document.querySelector('#article');
+    let articl = picture.parentNode;
+    let art = articl.parentNode;
+    let ar = art.parentNode;
+    let title = document.querySelector('.title');
+    let content = document.querySelector('.content');
+    let likes = document.querySelector('.lik');
+    let a = ar.childNodes;
+
+    //creating article
+    let k = document.querySelector('.image');
+    let d = k.getAttribute('src');
+    localStorage.setItem('img', JSON.stringify(d));
+
+    function nullP(mes, me) {
+      title.innerHTML = mes;
+      content.innerHTML = me;
+    }
+
+    //Likes operation
+    let value = JSON.parse(localStorage.getItem('likes'));
+    likes.innerHTML = value;
+
+    //article operation
+
+    function stringLocal(key, data) {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
+
+    function parseLocal(key) {
+      return JSON.parse(localStorage.getItem(key));
+    }
+
+    function deleteArticle(child) {
+      ar.removeChild(child);
+    }
+
+    //the article is stored in an array :new code
+    let edit = document.querySelector('.fa-edit');
+    edit.addEventListener('click', () => {
+      let add = document.querySelector('.add');
+
+      if (add.style.display === 'none') {
+        add.style.display = 'grid';
+      } else {
+        add.style.display = 'none';
+      }
+    });
+
+    function editt(key) {
+      let arr = parseLocal(key);
+      let jas = document.querySelector('#jas').value.trim();
+      let js = document.querySelector('#js').value.trim();
+
+      arr.unshift(jas);
+      arr.unshift(js);
+
+      nullP(arr[0], arr[1]);
+      stringLocal(key, arr);
+    }
+
+    let edb = document.querySelector('#j');
+    edb.addEventListener('click', () => {
+      editt('articles');
+
+      let file = document.querySelector('#fil');
+      file.addEventListener('change', function () {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          localStorage.setItem('image', reader.result);
+        });
+        reader.readAsDataURL(this.files[0]);
+      });
+
+      let img = localStorage.getItem('image');
+      picture.setAttribute('src', img);
+    });
+
+    function apply() {
+      let pp = editt('articles');
+
+      let div = document.createElement('div');
+      div.innerHTML = pp[0];
+      let aaaa = par.childNodes;
+      aaaa[3].replaceChild(div, content);
+    }
+
+    let arti = JSON.parse(localStorage.getItem('article'));
+
+    const user = JSON.parse(localStorage.getItem('users'));
+    const token = user.accessToken;
+
+    function dele(i) {
+      if (confirm('you are about to delete this article.')) {
+        fetch(`https://my-brand-node.herokuapp.com/api/v1/articles/${i}`, {
+          method: 'DELETE',
+          headers: {
+            'content-type': 'application/json; charset=UTF-8',
+
+            authorization: `Bearer ${token}`,
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            window.location.reload();
+          });
+      }
+    }
+
+    function edi(a, b, d, y) {
+      let div = document.createElement('div');
+      div.classList.toggle('edt');
+      let im = document.createElement('input');
+      im.setAttribute('type', 'file');
+      let co = document.createElement('input');
+      co.value = b;
+      let t = document.createElement('input');
+      t.value = a;
+      let conf = document.createElement('button');
+      conf.innerHTML = 'confirm';
+      div.append(im, t, co, conf);
+      ar.append(div);
+
+      /*im.addEventListener('change', function () {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          d = reader.result;
+        });
+
+        reader.readAsDataURL(this.files[0]);
+      });*/
+
+      conf.addEventListener('click', () => {
+        let evv = new FormData();
+        evv.append('title', t.value);
+        evv.append('content', co.value);
+        evv.append('image', im.files[0]);
+        console.log(Object.fromEntries(evv));
+
+        if (confirm('you are about to edit this article.')) {
+          fetch(`https://my-brand-node.herokuapp.com/api/v1/articles/${y}`, {
+            method: 'PATCH',
+
+            headers: {
+              //'content-type': 'application/json; charset=UTF-8',
+              authorization: `Bearer ${token}`,
+            },
+            body: evv,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              window.location.reload();
+            });
+        }
+      });
+    }
+
+    function design(a, b, d, z, x, y) {
+      let da = date.cloneNode();
+      let tf = document.querySelector('.title');
+      let ft = tf.cloneNode('deep');
+      ft.innerHTML = a;
+      let upd = document.createElement('div');
+      let edit = document.createElement('button');
+      edit.innerHTML = 'edit';
+      edit.classList.toggle('edi');
+      let delet = document.createElement('button');
+      delet.innerHTML = 'delete';
+      delet.classList.toggle('del');
+      upd.append(edit, delet);
+
+      edit.addEventListener('click', () => {
+        edi(a, b, d, y);
+      });
+
+      let dap = document.createElement('div');
+      let pic = document.createElement('img');
+      pic.classList.toggle('image');
+      pic.setAttribute('src', d);
+      da.innerHTML = z;
+      dap.append(da, pic);
+
+      let tc = document.createElement('div');
+      tc.classList.toggle('det');
+
+      let c = document.createElement('p');
+      c.classList.toggle('content');
+
+      c = b;
+
+      tc.append(ft, c);
+      let ad = document.createElement('div');
+      ad.classList.toggle('article');
+      ad.append(dap, tc, upd);
+
+      ar.append(ad);
+
+      delet.addEventListener('click', () => {
+        dele(y);
+      });
+    }
+    fetch('https://my-brand-node.herokuapp.com/api/v1/articles')
+      .then((res) => res.json())
+      .then((data) => {
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i].created_on);
+          let wor = data[i].created_on.split('-');
+          let w = wor[2].split('T');
+          //months
+          let a;
+          switch (wor[1]) {
+            case '01':
+              a = 'Jan';
+              break;
+            case '02':
+              a = 'Feb';
+
+              break;
+            case '03':
+              a = 'March';
+              break;
+            case '04':
+              a = 'Aple';
+              break;
+            case '05':
+              a = 'May';
+              break;
+            default:
+              break;
+          }
+          let wo = `${wor[0]} ${w[0]} ${a}`;
+          design(
+            data[i].title,
+            data[i].content,
+            data[i].image,
+            wo,
+            data,
+            data[i]._id
+          );
+        }
+      });
+  </script>
 </html>
