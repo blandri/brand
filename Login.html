@@ -9,28 +9,206 @@
       src="https://kit.fontawesome.com/58847b45f6.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        text-decoration: none;
-        list-style: none;
-        box-sizing: border-box;
-      }
-      html {
-        width: 100%;
-      }
-      body {
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    a {
+      color: inherit;
+    }
+    header {
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+    header ul {
+      padding: 5px;
+      margin-left: 0px;
+      font-size: 20px;
+      line-height: 1em;
+      letter-spacing: 1px;
+    }
+    #ul {
+      background-color: #333333;
+      color: white;
+      border-radius: 1px;
+      min-height: 50px;
+    }
+    #ul .li {
+      padding-top: 50px;
+      line-height: 2em;
+    }
+    .logo {
+      width: 50px;
+    }
+    span {
+      background-color: white;
+      display: block;
+      width: 30px;
+      height: 5px;
+      margin: 3px;
+    }
+    #da {
+      display: flex;
+      background: black;
+      padding: 7px;
+      float: right;
+      border-radius: 5px;
+    }
+    .bt {
+      display: none;
+    }
+    body {
         width: 100%;
         background-color: #e96760;
+      }
+      button {
+      margin-top: 20px;
+      width: 100px;
+      height: 42px;
+      font-size: 20px;
+      color: white;
+      background-color: #e96760;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form .fas{
+        margin-top: 16px;
+        margin-left: -100px;
+      }
+        .form button {
+          width: 150px;
+          height: 45px;
+          margin-left: 83px;
+          font-size: 20px;
+
+          border: hidden;
+          cursor: pointer;
+          color: white;
+          border-radius: 40px;
+        }
+        form .form {
+        
+        position: absolute;
+        left: -9%;
+        top: 40%;
+      }
+        form #icon {
+          border-radius: 50%;
+          margin-left: 210px;
+          margin-top: 2em;
+          height: 200px;
+        }
+
+        .form input {
+          background: transparent;
+          border-radius: 40px;
+          border: solid;
+          border-width: thin;
+          border-color: white;
+          height: 40px;
+          width: 240px;
+          margin-left: 45px;
+          margin-top: 15px;
+          padding-left: 15px;
+        }
+        form {
+          background: transparent;
+          height: 380px;
+          width: 280px;
+          margin-left: 60px;
+          margin-top: 270px;
+
+          background-color: #f57c75;
+          border-radius: 2%;
+          color: white;
+
+          position: absolute;
+        }
+    @media (min-width: 900px) {
+        form {
+        position: absolute;
+        left: 30%;
+        top: -5%;
+        background: transparent;
+        height: 450px;
+        width: 470px;
+        background-color: #f57c75;
+        border-radius: 2%;
+        color: white;
+      }
+      form .form {
+        margin-left: 7%;
+      }
+      .form button {
+        width: 200px;
+        height: 55px;
+        margin-left: 29%;
+        font-size: 25px;
+
+        border: hidden;
+        cursor: pointer;
+        color: white;
+        border-radius: 40px;
+      }
+      .form input {
+        background: transparent;
+        border-radius: 40px;
+        border: solid;
+        border-width: thin;
+        border-color: white;
+        height: 55px;
+        width: 400px;
+        margin-top: 10px;
+        font-size: 20px;
+        padding-left: 15px;
+        color: white;
+      }
+      .form input:focus{
+        outline: none;
+      }
+      
+      form .fas{
+        margin-top: 16px;
+        margin-left: 200px;
+      }
+        button {
+        margin-top: 30px;
+        width: 200px;
+        height: 60px;
+        font-size: 20px;
+        color: white;
+        background-color: #e96760;
+        border: 0;
+        border-radius: 5px;
+      }
+      header li button {
+        display: none;
       }
       header {
         background: white;
         display: grid;
         align-items: start;
         grid-template-columns: 20% 60% 20%;
-        width: 100%;
-        height: 90px;
+        transition: 1s;
+        z-index: 1;
+      }
+      header.sticky {
+        position: fixed;
+        box-shadow: 0px 3px 5px #757272;
+        transition: 0.45s;
       }
       header #ul {
         display: flex;
@@ -39,6 +217,7 @@
         background: none;
         color: black;
         margin-right: 100px;
+        margin-top: -10px;
       }
       header #ul .li {
         display: grid;
@@ -48,10 +227,6 @@
         font-size: 20px;
         margin-right: 3px;
         cursor: pointer;
-        margin-top: 45px;
-      }
-      a {
-        color: inherit;
       }
       header #ul .li li:hover {
         color: #ec5b53;
@@ -80,219 +255,13 @@
         margin-left: 200px;
         margin-top: 20px;
       }
-      button {
-        margin-top: 30px;
-        width: 170px;
-        height: 50px;
-        font-size: 20px;
-        color: white;
-        background-color: #e96760;
-        border: 0;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 20px;
-      }
-      form {
-        background: transparent;
-        height: 450px;
-        width: 470px;
-        margin-left: 560px;
-        margin-top: 140px;
-
-        background-color: #f57c75;
-        border-radius: 2%;
-        color: white;
-
-        position: inherit;
-      }
-      .form button {
-        width: 200px;
-        height: 55px;
-        margin-left: 95px;
-        font-size: 25px;
-
-        border: hidden;
-        cursor: pointer;
-        color: white;
-        border-radius: 40px;
-      }
-      .form input {
-        background: transparent;
-        border-radius: 40px;
-        border: solid;
-        border-width: thin;
-        border-color: white;
-        height: 55px;
-        width: 400px;
-        margin-top: 10px;
-        font-size: 20px;
-        padding-left: 15px;
-        color: white;
-      }
-      form .form {
-        margin: 0 auto 1.25rem auto;
-        padding: 15px;
-        font-size: 30px;
-        top: 350px;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        left: 36.5%;
-      }
       
-      form .fas{
-        margin-top: 16px;
-        margin-left: 200px;
-      }
-      small {
-        font-size: 17px;
-        margin-left: 10px;
-        margin-top: 5px;
-      }
-      @media (max-width: 900px) {
-        html {
-        width: 100%;
-      }
-        body {
+      body {
         width: 100%;
         background-color: #e96760;
       }
-        form .fas{
-        margin-top: 16px;
-        margin-left: -100px;
-      }
-        .form button {
-          width: 150px;
-          height: 45px;
-          margin-left: 83px;
-          font-size: 20px;
-
-          border: hidden;
-          cursor: pointer;
-          color: white;
-          border-radius: 40px;
-        }
-        form .form {
-        margin: 30px auto 1.25rem auto;
-        padding: 15px;
-        font-size: 25px;
-        top: 350px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: absolute;
-        left: 5%;
-      }
-        form #icon {
-          border-radius: 50%;
-          margin-left: 210px;
-          margin-top: 2em;
-          height: 200px;
-        }
-
-        .form input {
-          background: transparent;
-          border-radius: 40px;
-          border: solid;
-          border-width: thin;
-          border-color: white;
-          height: 40px;
-          width: 240px;
-          margin-left: 45px;
-        }
-        form {
-          background: transparent;
-          height: 400px;
-          width: 280px;
-          margin-left: 60px;
-          margin-top: 270px;
-
-          background-color: #f57c75;
-          border-radius: 2%;
-          color: white;
-
-          position: inherit;
-        }
-        header {
-      background: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 5px;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      
     }
-    header ul {
-      padding: 5px;
-      margin-left: 0px;
-      font-size: 20px;
-      line-height: 1em;
-      letter-spacing: 1px;
-    }
-    #ul {
-      background-color: #333333;
-      color: white;
-      border-radius: 1px;
-      min-height: 50px;
-      line-height: 3px;
-    }
-    #ul .li {
-      padding-top: 50px;
-      line-height: 2em;
-      display: flex;
-      flex-direction: column;
-      color: bisque;
-      left: 5px;
-      top: 45px;
-      background-color: #333333;
-      width: 386px;
-      position: absolute;
-      margin-top: 2px;
-    }
-    .logo {
-      width: 50px;
-      position: absolute;
-      left: -180px;
-    }
-    span {
-      background-color: white;
-      display: block;
-      width: 30px;
-      height: 5px;
-      margin: 3px;
-    }
-    #da {
-      display: flex;
-      background: black;
-      padding: 5px;
-      position: absolute;
-      right: 5px;
-      top: 75px;
-      border-radius: 5px;
-      height: 35px;
-      z-index: 1;
-    }
-    .bt {
-      display: none;
-    }
-        
-        a {
-          color: inherit;
-        }
-        header #ul .li li:hover {
-          color: #ec5b53;
-          transition: 0.5s;
-        }
-
-        
-        
-        
-          
-      }
-    </style>
-  </head>
+  </style>
   <body>
     <header>
       <div><img src="images/logo.png" alt="logo" class="logo" /></div>
@@ -313,32 +282,40 @@
             <li><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="Blog.html">Blog</a></li>
             <li><a href="Contact.html">Contact</a></li>
+            <li>
+              <a href="Login.html"><button>Log in</button></a>
+            </li>
           </div>
         </ul>
       </div>
-      <div class="bt"><button>Log in</button></div>
+      <div class="bt">
+        <a href="Login.html"><button>Log in</button></a>
+      </div>
     </header>
     <form method="post" action="Admin's panel.html">
-      <div id="icon"><i class="fas fa-user-tie fa-5x"></i> 
-      <div class="form">
+        <div id="icon"><i class="fas fa-user-tie fa-5x"></i> 
+        <div class="form">
+          
+          
+          <input type="text" id="Email" placeholder="Email" />
+          
+          <input type="password" id="password" placeholder="Password" autocomplete="off"/>
+          <small id="small"></small>
+          <button type="submit" name="butt">Login</button>
+        </div>
         
         
-        <input type="text" id="Email" placeholder="Email" />
         
-        <input type="password" id="password" placeholder="Password" autocomplete="off"/>
-        <small id="small"></small>
-        <button type="submit" name="butt">Login</button>
-      </div>
-      
-      
-      
-      
-    </form>
+        
+      </form>
+   
   </body>
   <script>
-    let li = document.querySelector('.li');
+   let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
-    
+    if(window.innerWidth<900){
+  li.style.display ='none'
+}
 
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {
@@ -424,20 +401,5 @@ else if(PASS<6){showError(password,'password is incorrect');}
 
   
   
-  
-  
-  
-
-    
-  
-  
-
-
-    
-    
-    
-
-    
-    
   </script>
 </html>

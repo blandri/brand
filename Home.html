@@ -9,62 +9,65 @@
       src="https://kit.fontawesome.com/58847b45f6.js"
       crossorigin="anonymous"
     ></script>
-  </head>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
-      list-style: none;
-      box-sizing: border-box;
-    }
-    a {
-      color: inherit;
-    }
-    header {
-      background: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 8px;
-      position: absolute;
-      width: 100%;
-    }
-    header ul {
-      padding: 5px;
-      margin-left: 0px;
-      font-size: 20px;
-      line-height: 1em;
-      letter-spacing: 1px;
-    }
-    #ul {
-      background-color: #333333;
-      color: white;
-      border-radius: 1px;
-      min-height: 50px;
-    }
-    #ul .li {
-      padding-top: 50px;
-      line-height: 2em;
-    }
-    .logo {
-      width: 50px;
-    }
-    span {
-      background-color: white;
-      display: block;
-      width: 30px;
-      height: 5px;
-      margin: 3px;
-    }
-    #da {
-      display: flex;
-      background: black;
-      padding: 7px;
-      float: right;
-      border-radius: 5px;
-    }
-    body {
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      a {
+        color: inherit;
+      }
+      header {
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+      header ul {
+        padding: 5px;
+        margin-left: 0px;
+        font-size: 20px;
+        line-height: 1em;
+        letter-spacing: 1px;
+      }
+      #ul {
+        background-color: #333333;
+        color: white;
+        border-radius: 1px;
+        min-height: 48px;
+      }
+      #ul .li {
+        padding-top: 50px;
+        line-height: 2em;
+      }
+      .logo {
+        width: 50px;
+      }
+      span {
+        background-color: white;
+        display: block;
+        width: 30px;
+        height: 5px;
+        margin: 3px;
+      }
+      #da {
+        display: flex;
+        background: black;
+        padding: 7px;
+        float: right;
+        border-radius: 5px;
+      }
+      .bt {
+        display: none;
+      }
+      body {
       background: #e3e4e8;
     }
     .image {
@@ -117,14 +120,39 @@
       border-radius: 5px;
       cursor: pointer;
     }
-
-    @media (min-width: 900px) {
-      header li button {
-        display: none;
+    footer {
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        gap:50px;
       }
-      button {
-        margin-top: 30px;
-        width: 200px;
+      footer .logo {
+        width: 60px;
+        margin-left: 60px;
+        margin-top: 20px;
+      }
+      footer h2 {
+        font-size: 40px;
+      }
+      footer .logo,
+      footer h2 {
+        display: inline;
+      }
+      footer p {
+        text-align: center;
+        margin-left: 15px;
+        margin-top: 20px;
+        font-size: 21px;
+        width: 40vh;
+      }
+      main button {
+        margin-top: 60px;
+        width: 190px;
         height: 60px;
         font-size: 20px;
         color: white;
@@ -132,96 +160,143 @@
         border: 0;
         border-radius: 5px;
       }
-      html {
-        width: 100%;
-      }
-      body {
-        max-width: 100%;
-      }
-      header {
-        background: white;
-        display: grid;
-        align-items: start;
-        grid-template-columns: 20% 60% 20%;
-        width: 100%;
-        height: 12%;
-        transition: 1s;
-      }
-      header.sticky {
-        position: fixed;
-        box-shadow: 0px 3px 5px #757272;
-        transition: 0.45s;
-      }
-      header #ul {
-        display: flex;
-        margin-top: -10px;
-        float: right;
-        background: none;
-        color: black;
-        margin-right: 100px;
-      }
-      header #ul .li {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        justify-items: center;
-        line-height: 1em;
-        font-size: 25px;
-        margin-right: 3px;
-        cursor: pointer;
-      }
-      header #ul .li li:hover {
-        color: #ec5b53;
-        transition: 0.5s;
-      }
-      span {
-        background-color: white;
-        display: none;
-        width: 30px;
-        height: 5px;
-        margin: 3px;
-      }
-      #da {
-        display: none;
-        background: black;
-        padding: 7px;
-        float: right;
-        border-radius: 5px;
-      }
-      .bt {
-        display: block;
-        margin-right: 100px;
-      }
-      .logo {
-        width: 50px;
-        margin-left: 200px;
-        margin-top: 20px;
-      }
-      body main {
+      @media (min-width: 900px) {
+        .fab {
+          margin-left: 10px;
+        }
+        .ic {
+          margin-left: 50px;
+        }
+        header li button {
+          display: none;
+        }
+        header {
+          background: white;
+          display: grid;
+          align-items: start;
+          grid-template-columns: 20% 60% 20%;
+          transition: 1s;
+          z-index: 1;
+        }
+        header.sticky {
+          position: fixed;
+          box-shadow: 0px 3px 5px #757272;
+          transition: 0.45s;
+        }
+        header #ul {
+          display: flex;
+
+          float: right;
+          background: none;
+          color: black;
+          margin-right: 100px;
+          margin-top: -10px;
+        }
+        header #ul .li {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          justify-items: center;
+          line-height: 1em;
+          font-size: 20px;
+          margin-right: 3px;
+          cursor: pointer;
+        }
+        header #ul .li li:hover {
+          color: #ec5b53;
+          transition: 0.5s;
+        }
+        span {
+          background-color: white;
+          display: none;
+          width: 30px;
+          height: 5px;
+          margin: 3px;
+        }
+        #da {
+          display: none;
+          background: black;
+          padding: 7px;
+          float: right;
+          border-radius: 5px;
+        }
+        .bt {
+          display: block;
+          margin-right: 100px;
+        }
+        .logo {
+          width: 50px;
+          margin-left: 200px;
+          margin-top: 20px;
+        }
+       
+        footer {
+          background-color: #080627;
+          color: white;
+          padding: 20px;
+          padding-top: 70px;
+          margin-top: 100px;
+          height: 60%;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        footer .logo {
+          width: 60px;
+          margin-left: 10%;
+          margin-top: 20px;
+        }
+        footer h2 {
+          font-size: 40px;
+        }
+        footer .logo,
+        footer h2 {
+          display: inline;
+        }
+        footer p {
+          text-align: center;
+          margin-left: 650px;
+          margin-top: 100px;
+          font-size: 21px;
+          width: 40vh;
+        }
+        button {
+          margin-top: 30px;
+          width: 170px;
+          height: 50px;
+          font-size: 20px;
+          color: white;
+          background-color: #e96760;
+          border: 0;
+          border-radius: 5px;
+        }
+        body main {
         padding: 15px;
-        padding-top: 280px;
+        padding-top: 200px;
         display: flex;
         flex-direction: row-reverse;
 
         letter-spacing: 0.5px;
-        font-size: 25px;
+        font-size: 20px;
       }
       .image {
-        width: 480px;
+        width: 300px;
         border-radius: 10px;
+        margin-top: 50px;
       }
       #image {
-        width: 100%;
+        width: 50%;
         margin-left: 200px;
       }
       #description {
         width: 100%;
-        margin-left: 230px;
+        margin-left: 100px;
         margin-top: 50px;
       }
       main button {
-        margin-top: 90px;
+        margin-top: 60px;
         width: 190px;
-        height: 70px;
+        height: 60px;
         font-size: 20px;
         color: white;
         background-color: #e96760;
@@ -234,8 +309,10 @@
         color: black;
         margin-left: 15px;
       }
-    }
-  </style>
+       
+      }
+    </style>
+  </head>
   <body>
     <header>
       <div><img src="images/logo.png" alt="logo" class="logo" /></div>
@@ -262,35 +339,57 @@
           </div>
         </ul>
       </div>
-      <div class="bt">
-        <a href="Login.html"><button>Log in</button></a>
-      </div>
+      <div class="bt"><button>Log in</button></div>
     </header>
     <main>
-      <div id="image">
-        <img src="images/i.png" alt="profile photo" class="image" />
+        <div id="image">
+          <img src="images/i.png" alt="profile photo" class="image" />
+        </div>
+        <div id="description">
+          <h3>get every single solution</h3>
+          <h1>I'm BISHINGA Landry a proffessional IT</h1>
+          <p>
+            It is a long established fact that a reader will be distracted by the
+            readable content of a page when looking at its layout. The point of
+            using Lorem Ipsum is that it has a more-or-less normal distribution of
+            letters, as opposed to using 'Content here, content here', making it
+            look like readable English. Many desktop publishing packages and web
+            page editors now use Lorem Ipsum
+          </p>
+          <div class="butt">
+            <a href="Skills.html"><button>Learn more</button> </a>
+          </div>
+        </div>
+      </main>
+
+    <footer>
+      <div>
+        <img src="images/logo.png" alt="" class="logo" />
+      <h2>Landry</h2>
       </div>
-      <div id="description">
-        <h3>get every single solution</h3>
-        <h1>I'm BISHINGA Landry a proffessional IT</h1>
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum
-        </p>
-        <div class="butt">
-          <a href="Skills.html"><button>Learn more</button> </a>
+      <div>
+        <p>Landrybrok3@gmail.com</p>
+      </div>
+      <div>
+        <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      </div>
+      <div>
+        <p>stay connected</p>
+        <div class="ic">
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
         </div>
       </div>
-    </main>
+    </footer>
   </body>
+
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
-
+if(window.innerWidth<900){
+  li.style.display ='none'
+}
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {
         li.style.display = 'block';

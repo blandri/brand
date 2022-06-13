@@ -92,7 +92,7 @@
       border-radius: 5px;
       height: 350px;
       width: 350px;
-      margin-left: 10px;
+      margin-left: 20px;
       margin-top: 53px;
     }
     .fas,
@@ -363,6 +363,9 @@
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
+    if(window.innerWidth<900){
+  li.style.display ='none'
+}
 
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {

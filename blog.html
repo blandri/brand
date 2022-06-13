@@ -102,13 +102,16 @@
       color: #ec5b53;
     }
     footer {
-      background-color: #080627;
-      color: white;
-      padding: 20px;
-      padding-top: 70px;
-      margin-top: 100px;
-      height: 60vh;
-    }
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 63vh;
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+      }
     footer .logo {
       width: 60px;
       margin-left: 60px;
@@ -338,14 +341,14 @@
       .article {
         margin-top: 200px;
         width: 100vh;
-        margin-left: 300px;
+        margin-left: 220px;
         box-shadow: 2px 2px 4px lightgray;
         box-shadow: -2px -2px 4px lightgray;
       }
 
       .image {
         width: 100%;
-        height: 480px;
+        height: 400px;
       }
       .det {
         margin-top: 20px;
@@ -363,7 +366,7 @@
         height: 90px;
         width: 70px;
         margin-left: 20px;
-        margin-top: 400px;
+        margin-top: 330px;
       }
       .sub {
         background: rgb(246, 245, 245);
@@ -376,7 +379,7 @@
       }
       input,
       .sub button {
-        width: 370px;
+        width: 350px;
         height: 60px;
         margin-top: 10px;
         border: solid 1px;
@@ -387,19 +390,22 @@
         font-size: 20px;
       }
       footer {
-        background-color: #080627;
-        color: white;
-        padding: 20px;
-        padding-top: 70px;
-        margin-top: 100px;
-        height: 60%;
-        text-align: center;
-      }
-      footer .logo {
-        width: 60px;
-        margin-left: 60px;
-        margin-top: 20px;
-      }
+          background-color: #080627;
+          color: white;
+          padding: 20px;
+          padding-top: 70px;
+          margin-top: 100px;
+          height: 60%;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        footer .logo {
+          width: 60px;
+          margin-left: 10%;
+          margin-top: 20px;
+        }
       footer h2 {
         font-size: 40px;
       }
@@ -418,8 +424,8 @@
         margin-left: 10px;
       }
       .ic {
-        margin-left: 50px;
-      }
+        margin-left: 12%;
+        }
     }
   </style>
   <body>
@@ -487,22 +493,23 @@
       <button id="su">Subscribe</button>
     </div>
     <footer>
-      <img src="images/logo.png" alt="" class="logo" />
+      <div>
+        <img src="images/logo.png" alt="" class="logo" />
       <h2>Landry</h2>
-      <p>Landrybrok3@gmail.com</p>
-      <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      </div>
+      <div>
+        <p>Landrybrok3@gmail.com</p>
+      </div>
+      <div>
+        <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      </div>
       <div>
         <p>stay connected</p>
         <div class="ic">
-          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-            ><i class="fab fa-linkedin fa-2x"></i
-          ></a>
-          <a href="https://twitter.com/qg_landry"
-            ><i class="fab fa-twitter fa-2x"></i
-          ></a>
-          <a href="https://www.instagram.com/ooglandry/?hl=en"
-            ><i class="fab fa-instagram fa-2x"></i
-          ></a>
+          <a href="https://github.com/blandri"><i class="fab fa-github-square fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
         </div>
       </div>
     </footer>
@@ -510,6 +517,9 @@
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
+    if(window.innerWidth<900){
+  li.style.display ='none'
+}
 
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {

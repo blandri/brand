@@ -150,13 +150,16 @@
       margin-top: 20px;
     }
     footer {
-      background-color: #080627;
-      color: white;
-      padding: 20px;
-      padding-top: 70px;
-      margin-top: 100px;
-      height: 60vh;
-    }
+        background-color: #080627;
+        color: white;
+        padding: 20px;
+        padding-top: 70px;
+        margin-top: 100px;
+        height: 63vh;
+        display: flex;
+        flex-direction: column;
+        gap:50px;
+      }
     footer .logo {
       width: 60px;
       margin-left: 60px;
@@ -208,7 +211,8 @@
         margin-left: 10px;
       }
       .ic {
-        margin-left: 50px;
+        margin-left: 12%;
+        margin-top: 15px;
       }
       header li button {
         display: none;
@@ -296,21 +300,23 @@
         margin-left: 200px;
         margin-top: 20px;
       }
-
       footer {
-        background-color: #080627;
-        color: white;
-        padding: 20px;
-        padding-top: 70px;
-        margin-top: 100px;
-        height: 60%;
-        text-align: center;
-      }
-      footer .logo {
-        width: 60px;
-        margin-left: 60px;
-        margin-top: 20px;
-      }
+          background-color: #080627;
+          color: white;
+          padding: 20px;
+          padding-top: 70px;
+          margin-top: 100px;
+          height: 60%;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        footer .logo {
+          width: 60px;
+          margin-left: 10%;
+          margin-top: 20px;
+        }
       footer h2 {
         font-size: 40px;
       }
@@ -359,20 +365,20 @@
         top: 1090px;
         left: 180px;
       }
-      #ico {
-        position: absolute;
-        right: 90px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
-        top: 1050px;
+      #revival {
+        display: flex
       }
-      .ic {
+      #ico {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 20px;
+      }
+      .ico {
         display: flex;
         justify-content: space-between;
         justify-content: center;
         flex-direction: column;
-        margin-left: 470px;
+       
         margin-top: -25px;
       }
       input {
@@ -458,55 +464,60 @@
         ></iframe>
       </p>
     </div>
-    <div>
-      <form method="Post" action="Contact.html">
-        <h2>Get in touch</h2>
-        <textarea
-          name="message"
-          id="message"
-          cols="30"
-          rows="10"
-          placeholder="message"
-        ></textarea>
-        <div class="lin">
-          <input id="name" type="text" placeholder="Enter your name" />
-          <input id="Email" type="text" placeholder="Email" />
-        </div>
-
-        <input id="mess" type="text" placeholder="Subject" class="sm" />
-        <button type="submit">Send</button>
-      </form>
-    </div>
-    <div id="ico">
-      <div class="ic">
-        <i class="fas fa-home fa-2x"></i>
-        <i class="fas fa-mobile-alt fa-3x"></i>
-        <i class="fas fa-envelope-open-text fa-2x"></i>
+    <div id="revival">
+      <div>
+        <form method="Post" action="Contact.html">
+          <h2>Get in touch</h2>
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="10"
+            placeholder="message"
+          ></textarea>
+          <div class="lin">
+            <input id="name" type="text" placeholder="Enter your name" />
+            <input id="Email" type="text" placeholder="Email" />
+          </div>
+  
+          <input id="mess" type="text" placeholder="Subject" class="sm" />
+          <button type="submit">Send</button>
+        </form>
       </div>
-
-      <div class="i">
-        <p>Kigali, Rwanda. Kimironko st 42 kg</p>
-        <p>+250 780026530 Monday to Friday 9am-6pm</p>
-        <p>Landrybrok3@gmail.com Send us your queries anytime</p>
+      <div>
+        <div id="ico">
+          <div class="ico">
+            <i class="fas fa-home fa-2x"></i>
+            <i class="fas fa-mobile-alt fa-3x"></i>
+            <i class="fas fa-envelope-open-text fa-2x"></i>
+          </div>
+    
+          <div class="i">
+            <p>Kigali, Rwanda. Kimironko st 42 kg</p>
+            <p>+250 780026530 Monday to Friday 9am-6pm</p>
+            <p>Landrybrok3@gmail.com Send us your queries anytime</p>
+          </div>
+        </div>
       </div>
     </div>
     <footer>
-      <img src="images/logo.png" alt="" class="logo" />
-      <h1>Landry</h1>
-      <p>Landrybrok3@gmail.com</p>
-      <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      <div>
+        <img src="images/logo.png" alt="" class="logo" />
+      <h2>Landry</h2>
+      </div>
+      <div>
+        <p>Landrybrok3@gmail.com</p>
+      </div>
+      <div>
+        <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
+      </div>
       <div>
         <p>stay connected</p>
-        <div class="icc">
-          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"
-            ><i class="fab fa-linkedin fa-2x"></i
-          ></a>
-          <a href="https://twitter.com/qg_landry"
-            ><i class="fab fa-twitter fa-2x"></i
-          ></a>
-          <a href="https://www.instagram.com/ooglandry/?hl=en"
-            ><i class="fab fa-instagram fa-2x"></i
-          ></a>
+        <div class="ic">
+          <a href="https://github.com/blandri"><i class="fab fa-github-square fa-2x"></i></a>
+          <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
+          <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
         </div>
       </div>
     </footer>
@@ -514,6 +525,9 @@
   <script>
     let li = document.querySelector('.li');
     let dash = document.querySelector('#da');
+    if(window.innerWidth<900){
+  li.style.display ='none'
+}
 
     dash.addEventListener('click', () => {
       if (li.style.display === 'none') {
