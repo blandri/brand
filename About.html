@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bishinga|About</title>
+    <script
+    src="https://kit.fontawesome.com/58847b45f6.js"
+    crossorigin="anonymous"
+  ></script>
   </head>
   <style>
     * {
@@ -133,7 +137,7 @@
         padding: 20px;
         padding-top: 70px;
         margin-top: 100px;
-        height: 63vh;
+        height: 63%;
         display: flex;
         flex-direction: column;
         gap:50px;
@@ -167,19 +171,23 @@
       border: 0;
       border-radius: 5px;
     }
-    .ic {
-        margin-top: 30px;
-        margin-left: 115px;
-      }
       .fab {
         margin-left: 10px;
       }
+      #copy{
+        color:#7e7979;
+        margin-left: 20%;
+        padding-top: 20%;
+        width: 230px;
+      }
+      .ic {
+          margin-top: 20px;
+          text-align: center;
+          margin-inline-start: 20px;
+        }
      @media (min-width: 900px){
       .fab {
           margin-left: 10px;
-        }
-        .ic {
-          margin-left: 50px;
         }
       header li button {
         display: none;
@@ -187,34 +195,38 @@
       footer {
           background-color: #080627;
           color: white;
-          padding: 20px;
-          padding-top: 70px;
-          margin-top: 100px;
-          height: 60%;
+          display: grid;
+          height: 60vh;
+          grid-template-columns: auto auto auto auto;
+          grid-gap: 0px;
           text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+        }
+        #copy{
+        color:#7e7979;
+        margin-left: 100%;
+        padding-top: 30%;
+        width: 500px;
+      }
+      .ic {
+          margin-top: 20px;
         }
         footer .logo {
           width: 60px;
           margin-left: 10%;
           margin-top: 20px;
         }
-      footer h2 {
-        font-size: 40px;
-      }
-      footer .logo,
-      footer h2 {
-        display: inline;
-      }
-      footer p {
-        text-align: center;
-        margin-left: 650px;
-        margin-top: 100px;
-        font-size: 21px;
-        width: 40vh;
-      }
+        footer h2 {
+          font-size: 40px;
+        }
+        footer .logo,
+        footer h2 {
+          display: inline;
+        }
+        footer p {
+          text-align: center;
+          font-size: 21px;
+          width: 40vh;
+        }
       header {
         background: white;
         display: grid;
@@ -292,13 +304,13 @@
       margin-top: 300px;
     }
     .image{
-       width: 510px;
+       width: 480px;
        margin-left: 20px;
      }
      #abou{
        color: #000A2D;
        margin-left: 150px;
-       margin-top: 170px;
+       margin-top: 130px;
        font-size: 20px;
        width: 75vh;
      }
@@ -343,6 +355,10 @@
        margin-top: 250px;
        width: 70vh;
      }
+     .now{
+         border-bottom: solid #e96760;
+         padding-bottom: 10px;
+       }
      }
 
   </style>
@@ -361,7 +377,7 @@
           </div>
           <div class="li">
             <li><a href="Home.html">Home</a></li>
-            <li><a href="About.html">About</a></li>
+            <li class="now"><a href="About.html">About</a></li>
             <li><a href="Skills.html">Skills</a></li>
             <li><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="Blog.html">Blog</a></li>
@@ -381,18 +397,17 @@
 
     <div id="main">
         <div>
-            <img src="images/ii.png" alt="" class="image">
+            <img src="images/update.jpeg" alt="" class="image">
         </div>
         <div id="abou">
-            <h2>An IT, Web&Software developer</h2>
+            <h2>A Software developer</h2>
             <h3>I create products not just designs</h3>
-            <p class="p">It's been 6 years since I started engaging in technology and i
-                have preety much experience as of now.
-                <p class="decor">I do this with love and passion not just
-                    for money or a living.
+            <p class="p">I have been through various dev trainings that prepared me to become 
+              a good software engineer
+                <p class="decor">It was my dream and I enjoy every second I spend working on my projects.
                 </p>
                <p class="p">now am a 2nd year software engineering in AUCA(Adventist University of Central
-                Africa) where am participating in tones of IT related projects.</p> </p>
+                Africa) where I also worked on many school projects in IT</p> </p>
         </div>
         
     </div>
@@ -404,19 +419,23 @@
       <h2>Landry</h2>
       </div>
       <div>
+        <p>Email</p>
         <p>Landrybrok3@gmail.com</p>
       </div>
       <div>
+        <p>Street</p>
         <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
       </div>
       <div>
         <p>stay connected</p>
         <div class="ic">
+          <a href="https://github.com/blandri"><i class="fab fa-github-square fa-2x"></i></a>
           <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
           <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
           <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
         </div>
       </div>
+      <p id="copy">Copyright ©2020 All rights reserved | by Landry</p>
     </footer>
   </body>
   <script>

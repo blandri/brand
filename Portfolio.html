@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bishinga|Portfolio</title>
     <script
       src="https://kit.fontawesome.com/58847b45f6.js"
       crossorigin="anonymous"
@@ -99,7 +99,7 @@
         padding: 20px;
         padding-top: 70px;
         margin-top: 100px;
-        height: 63vh;
+        height: 63%;
         display: flex;
         flex-direction: column;
         gap:50px;
@@ -148,10 +148,17 @@
         border: 0;
         border-radius: 5px;
       }
-      .ic {
-        margin-top: 30px;
-        margin-left: 115px;
+      #copy{
+        color:#7e7979;
+        margin-left: 20%;
+        padding-top: 20%;
+        width: 230px;
       }
+      .ic {
+          margin-top: 20px;
+          text-align: center;
+          margin-inline-start: 20px;
+        }
       .fab {
         margin-left: 10px;
       }
@@ -159,9 +166,7 @@
         .fab {
           margin-left: 10px;
         }
-        .ic {
-          margin-left: 50px;
-        }
+        
         header li button {
           display: none;
         }
@@ -238,14 +243,20 @@
         footer {
           background-color: #080627;
           color: white;
-          padding: 20px;
-          padding-top: 70px;
-          margin-top: 100px;
-          height: 60%;
+          display: grid;
+          height: 60vh;
+          grid-template-columns: auto auto auto auto;
+          grid-gap: 0px;
           text-align: center;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+        }
+        #copy{
+        color:#7e7979;
+        margin-left: 100%;
+        padding-top: 30%;
+        width: 500px;
+      }
+      .ic {
+          margin-top: 20px;
         }
         footer .logo {
           width: 60px;
@@ -261,8 +272,6 @@
         }
         footer p {
           text-align: center;
-          margin-left: 650px;
-          margin-top: 100px;
           font-size: 21px;
           width: 40vh;
         }
@@ -348,6 +357,10 @@
           width: 20%;
           text-align: center;
         }
+        .now{
+         border-bottom: solid #e96760;
+         padding-bottom: 10px;
+       }
       }
     </style>
   </head>
@@ -368,7 +381,7 @@
             <li><a href="Home.html">Home</a></li>
             <li><a href="About.html">About</a></li>
             <li><a href="Skills.html">Skills</a></li>
-            <li><a href="Portfolio.html">Portfolio</a></li>
+            <li class="now"><a href="Portfolio.html">Portfolio</a></li>
             <li><a href="Blog.html">Blog</a></li>
             <li><a href="Contact.html">Contact</a></li>
             <li>
@@ -390,17 +403,17 @@
           <img src="images/w.jpg" alt="" class="image" />
           <h2>Web development project</h2>
           <p>
-            In 2020 I worked on a web development project with my colleagues in
-            which we developed a website for a mini-market and it was a awesome
-            website.
+            Lately I have worked on more than 3 web development projects,
+            and each one had its own unique technologies. Two projects with React.js,Node.js,postgreSQL and Rest APIs;
+            One with HTML&CSS and also Node.js and another with vue.js,graphQL and other technologies
           </p>
         </div>
         <div class="imgcont">
           <img src="images/n.jpg" alt="" class="image" />
           <h2>Networking project</h2>
           <p>
-            Latery I was working on a Networking project in which i was setting
-            up a working environment for the ....... company, it included
+            I worked on a school project in which i was setting
+            up a working environment for a company, it included
             setting up servers and clients both on linux and windows OS.
           </p>
         </div>
@@ -413,19 +426,23 @@
       <h2>Landry</h2>
       </div>
       <div>
+        <p>Email</p>
         <p>Landrybrok3@gmail.com</p>
       </div>
       <div>
+        <p>Street</p>
         <p>Kimironko st 42 kg, +250 780026530 Kigali Rwanda</p>
       </div>
       <div>
         <p>stay connected</p>
         <div class="ic">
+          <a href="https://github.com/blandri"><i class="fab fa-github-square fa-2x"></i></a>
           <a href="https://www.linkedin.com/in/bishinga-landry-857466216/"><i class="fab fa-linkedin fa-2x"></i></a>
           <a href="https://twitter.com/qg_landry"><i class="fab fa-twitter fa-2x"></i></a>
           <a href="https://www.instagram.com/ooglandry/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
         </div>
       </div>
+      <p id="copy">Copyright ©2020 All rights reserved | by Landry</p>
     </footer>
   </body>
 
